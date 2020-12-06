@@ -28,6 +28,7 @@ export default function ButtonAppBar() {
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
+          <Button color="inherit">Home</Button>
           <Button color="inherit">Invoice</Button>
           <Button color="inherit">RSVP</Button>
           <Button color="inherit">My Events</Button>

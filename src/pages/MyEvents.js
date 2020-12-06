@@ -2,10 +2,10 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import ButtonAppBar from '../components/Navbar'
+// import ButtonAppBar from '../components/Navbar'
 import InputWithIcon from '../components/TextField'
 import OutlinedButtons from '../components/Submit Button'
-import UploadButton from '../components/Upload Button'
+// import UploadButton from '../components/Upload Button'
 import Container from '../components/Container'
 
 const useStyles = makeStyles((theme) => ({
@@ -25,7 +25,7 @@ export default function FullWidthGrid() {
   return (
     <div>
         
-        <ButtonAppBar />
+        {/* <ButtonAppBar /> */}
         <Container>
             <div className={classes.root}>
             <Grid container spacing={3}>
