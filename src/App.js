@@ -1,14 +1,10 @@
+import React from "react";
+import Events from './pages/my-events'
 
-
-import React from 'react';
-
-import SetEvent from "./components/SetEvent/SetEvent"
-import './App.css';
 
 function App() {
-    return(
-        <SetEvent/>
-    )
+    return <Events />
+    
 
 }
 
