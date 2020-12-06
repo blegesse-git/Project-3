@@ -1,7 +1,9 @@
+import React from "react";
+import Events from './pages/my-events'
 
-import './App.css';
 
 function App() {
+    return <Events />
     
 
 }
