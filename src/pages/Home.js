@@ -1,9 +1,12 @@
 import React from "react";
+import ToDoList from "../components/List/ToDoList"
 
 function Home(){
 
     return(
-        <p> Hello World</p>
+        <>
+        <ToDoList/>
+        </>
     )
 
 }
