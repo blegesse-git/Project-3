@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: 200,
+    width: 250,
   },
 }));
 
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     <form className={classes.container} noValidate>
       <TextField
         id="datetime-local"
-        label="Next appointment"
+        // label="Next appointment"
         type="datetime-local"
         defaultValue="2017-05-24T10:30"
         className={classes.textField}
