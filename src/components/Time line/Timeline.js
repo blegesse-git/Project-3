@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
   const classes = useStyles();
   return (
     <Timeline align="alternate" className="timelineContainer">
+      <h2> Timeline</h2>
   <TimelineItem>
         <TimelineOppositeContent>
           <Typography variant="body2" color="textSecondary">

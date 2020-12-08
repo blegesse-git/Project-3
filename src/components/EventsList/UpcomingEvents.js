@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
   return (
       <Container>
-          <h2> UpComing Events List</h2>
+          <h2> My Upcoming Events</h2>
     <List className={classes.root}>
       <ListItem>
         <ListItemAvatar>

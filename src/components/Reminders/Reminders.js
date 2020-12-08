@@ -12,6 +12,8 @@ import Typography from '@material-ui/core/Typography';
 import FolderIcon from '@material-ui/icons/Folder';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { Container } from '@material-ui/core';
+import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
+import SetReminder from "../SetReminder/SetReminder"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -46,7 +48,7 @@ function generate(element) {
     <div className={classes.root}>
         <Grid item xs={12} md={6}>
           <Typography variant="h6" className={classes.title}>
-         Reminders
+         My Reminders
           </Typography>
        
           <div className={classes.demo}>
@@ -56,7 +58,7 @@ function generate(element) {
                 <ListItem>
                   <ListItemAvatar>
                     <Avatar>
-                      <FolderIcon />
+                      <NotificationsActiveIcon />
                     </Avatar>
                   </ListItemAvatar>
                   <ListItemText
@@ -70,6 +72,8 @@ function generate(element) {
                   </ListItemSecondaryAction>
                 </ListItem>,
               )}
+
+              <SetReminder/>
             </List>
           </div>
         </Grid>
