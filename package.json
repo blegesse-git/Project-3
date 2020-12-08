@@ -6,7 +6,10 @@
     "@date-io/date-fns": "^2.10.6",
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
+<<<<<<< HEAD
     "@material-ui/lab": "^4.0.0-alpha.57",
+=======
+>>>>>>> e770b5f0a2cbffe65b9320ac97c8dc68a981837b
     "@material-ui/pickers": "^3.2.10",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
