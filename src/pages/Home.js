@@ -8,8 +8,6 @@ import UpcomingEvents from "../components/EventsList/UpcomingEvents"
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-// import SetReminder from"../components/SetReminder/SetReminder";
-import AddCircleIcon from '@material-ui/icons/AddCircle';
 import CreateBtn from "../components/CreateEvent Button/CreateBtn"
 
     const useStyles = makeStyles((theme) => ({
