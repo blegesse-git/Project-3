@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -9,7 +10,6 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import FolderIcon from '@material-ui/icons/Folder';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { Container } from '@material-ui/core';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
@@ -29,51 +29,42 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function generate(element) {
-  return [0, 1, 2].map((value) =>
-    React.cloneElement(element, {
-      key: value,
-    }),
-  );
-}
 
- function Reminders() {
+
+const Reminders =() =>{
   const classes = useStyles();
-//   const [dense, setDense] = React.useState(false);
-//   const [secondary, setSecondary] = React.useState(false);
+  const [reminders, setReminders, deleteReminder] = useState('');
+
 
   return (
       <Container>
-        
     <div className={classes.root}>
         <Grid item xs={12} md={6}>
           <Typography variant="h6" className={classes.title}>
          My Reminders
           </Typography>
-       
           <div className={classes.demo}>
-            {/* <List dense={dense}> */}
-            <List>
-              {generate(
-                <ListItem>
+            <List> 
+           {/* {reminders.map((reminder, index) => ( */}
+                <ListItem > 
+                  {/* key={index.toString()} */}
                   <ListItemAvatar>
                     <Avatar>
                       <NotificationsActiveIcon />
                     </Avatar>
                   </ListItemAvatar>
                   <ListItemText
-                    primary="Single-line item"
-                    // secondary={secondary ? 'Secondary text' : null}
-                  />
+                    primary="HELP ME!"                />
                   <ListItemSecondaryAction>
-                    <IconButton edge="end" aria-label="delete">
+                    {/* <IconButton edge="end" aria-label="delete"
+                    onClick={() => {}}>
                       <DeleteIcon />
-                    </IconButton>
+                    </IconButton> */}
                   </ListItemSecondaryAction>
                 </ListItem>,
-              )}
 
-              <SetReminder/>
+              <SetReminder saveReminder={console.warn}/>
+{/* ))}  */}
             </List>
           </div>
         </Grid>

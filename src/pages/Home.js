@@ -47,7 +47,7 @@ import CreateBtn from "../components/CreateEvent Button/CreateBtn"
            <UpcomingEvents/>
               </Paper>
               <Paper className={classes.paper} id="Reminders">
-                    <Reminders/>
+                    <Reminders />
               </Paper>
         </Grid>
         <Grid item xs={12} sm={6}>
