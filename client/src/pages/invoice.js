@@ -21,6 +21,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -38,11 +39,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Invoice() {
     const classes = useStyles();
-    // const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
+    const [selectedDate, setSelectedDate] = React.useState(new Date('2020-12-22T00:00:00'));
 
-    // const handleDateChange = (date) => {
-    //     setSelectedDate(date);
-    // };
+    const handleDateChange = (date) => {
+        setSelectedDate(date);
+    };
     const [values, setValues] = React.useState({
         amount: '',
         services: ''
@@ -63,7 +64,7 @@ export default function Invoice() {
                     <Grid item xs={12} sm={6}>
                         <Paper className={classes.paper}><h2>Create Invoice</h2>
                             <form className={classes.root} noValidate autoComplete="off">
-                                {/* <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                     <Grid container justify="space-around">
                                         <KeyboardDatePicker
                                             disableToolbar
@@ -79,7 +80,7 @@ export default function Invoice() {
                                             }}
                                         />
                                     </Grid>
-                                </MuiPickersUtilsProvider> */}
+                                </MuiPickersUtilsProvider>
                                 <TextField required id="standard-required" label="Required" defaultValue="First Name" />
                                 <TextField required id="standard-required" label="Required" defaultValue="Last Name" />
                                 <TextField required id="standard-required" label="Required" defaultValue="Address Line 1" />
@@ -96,16 +97,16 @@ export default function Invoice() {
                                     onChange={handleChange}
                                 />
                             </form>
-                            <FormControl fullWidth className={classes.margin}>
-          <InputLabel htmlFor="standard-adornment-amount">Amount</InputLabel>
-          <Input
-            id="standard-adornment-amount"
-            value={values.amount}
-            onChange={handleChange('amount')}
-            startAdornment={<InputAdornment position="start">$</InputAdornment>}
-          />
-        </FormControl>
-
+                            <FormControl halfWidth className={classes.margin}>
+                                <InputLabel htmlFor="standard-adornment-amount">Amount</InputLabel>
+                                <Input
+                                    id="standard-adornment-amount"
+                                    value={values.amount}
+                                    onChange={handleChange('amount')}
+                                    startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                                />
+                            </FormControl>
+                            <OutlinedButtons>GENERATE INVOICE</OutlinedButtons>
                         </Paper>
 
                     </Grid>
