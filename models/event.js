@@ -17,7 +17,7 @@ const todoSchema = new Schema({
     toDo: [{ type: String}]
 })
 const reminderSchema = new Schema({
-    reminders: { type: String}
+    reminders: [{ type: String}]
 })
 const guestSchema = new Schema({
     guest: {
