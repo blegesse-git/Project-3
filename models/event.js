@@ -2,27 +2,41 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({
+    _id: Schema.Types.ObjectId,
     name: { type: String, required: true },
     date: { type: Date, required: true },
     budget: { type: Number, required: true },
     email: { type: String, required: true }, 
-    toDo: { type: String},
-    reminders: { type: String},
+    guests: [guestSchema],
+    toDo: [todoSchema],
+    reminders: [reminderSchema],
+    invoice: [invoiceSchema]
+    
+})
+const todoSchema = new Schema({
+    toDo: [{ type: String}]
+})
+const reminderSchema = new Schema({
+    reminders: { type: String}
+})
+const guestSchema = new Schema({
     guest: {
-        firstName: { type: String, required: true },
-        lastName: { type: String, required: true },
-        email: { type: String, required: true }
-    },
+        firstName: String,
+        lastName: String,
+        email: String
+    }
+})
+const invoiceSchema = new Schema({
     invoice: {
-        firstName: { type: String, required: true },
-        lastName: { type: String, required: true },
-        Address1: { type: String, required: true },
+        firstName: String,
+        lastName: String,
+        Address1: String,
         Address2:  String,
-        city: { type: String, required: true },
-        state: { type: String, required: true },
-        zip: { type: String, required: true },
+        city: String,
+        state: String,
+        zip: String,
         invoiceSummary: String,
-        amountDue: { type: Number, required: true }
+        amountDue: Number
     }
 });
 
