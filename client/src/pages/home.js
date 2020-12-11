@@ -1,16 +1,18 @@
 import React from "react";
 import "./Home.css"
+import { useState } from 'react';
 import Container from "../components/Container/index"
 import OutlinedTimeline from "../components/Time line/Timeline"
 import EventCountdown from "../components/Countdown/EventCountdown"
-import Reminders from "../components/Reminders/Reminders"
+import ReminderForm from "../components/ReminderForm/ReminderForm"
 import UpcomingEvents from "../components/EventsList/UpcomingEvents"
+import NewReminders from "../components/NewReminders/NewReminders"
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-// import SetReminder from"../components/SetReminder/SetReminder";
-import AddCircleIcon from '@material-ui/icons/AddCircle';
 import CreateBtn from "../components/CreateEvent Button/CreateBtn"
+
+import Typography from '@material-ui/core/Typography';
 
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -25,8 +27,24 @@ import CreateBtn from "../components/CreateEvent Button/CreateBtn"
       
  function Home() {
     const classes = useStyles();
+    
+const [reminders, setReminders] = useState([
+  {
+    id: 1, 
+    title: "Call vendors"
+  }
 
-    return (
+]);
+
+const addReminder =(text) => {
+
+  const newReminder ={
+    id: 2,
+    title: text
+  }
+  setReminders([...reminders, newReminder])
+};
+ return (
         <>
       <Container>  
       <div className={classes.root}>
@@ -36,24 +54,25 @@ import CreateBtn from "../components/CreateEvent Button/CreateBtn"
                 <EventCountdown/>
             </Paper>
           </Grid>
+          <Grid item xs={12}>
+        <CreateBtn/>
+        </Grid>
           <Grid item xs={12} sm={6}>
           <Paper className={classes.paper}>
             <OutlinedTimeline/>
               </Paper>
         </Grid>
         <Grid item xs={12} sm={6}>
-        {/* <Paper className={classes.paper}>
-        <SetReminder/>
-              </Paper> */}
           <Paper className={classes.paper} id="upcomingEvents">
            <UpcomingEvents/>
               </Paper>
               <Paper className={classes.paper} id="Reminders">
-                    <Reminders/>
+              <Typography variant="h6" className={classes.title}>
+         My Reminders
+          </Typography>
+                    <NewReminders reminders={reminders}/> 
+                    <ReminderForm addReminder={addReminder} />  
               </Paper>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-        <CreateBtn/>
         </Grid>
      </Grid>
    </div>
