@@ -6,7 +6,6 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
-import "./style.css"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,11 +29,13 @@ export default function ButtonAppBar() {
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
-          <Button color="inherit"> <Link to = "/home" className='link'>Home</Link></Button>
-          <Button color="inherit"><Link to = "/invoice" className='link'>Invoice</Link></Button>
-          <Button color="inherit"> <Link to = "/rsvp" className='link'>RSVP</Link></Button>
-          <Button color="inherit"><Link to = "/events" className='link'>My Events</Link></Button>
-          <Button color="inherit"><Link to = "/inspo" className='link'>Inspiration</Link></Button>
+          <Button color="inherit">Home</Button>
+          <Button color="inherit">Invoice</Button>
+          <Button color="inherit">RSVP</Button>
+          <Button color="inherit">My Events</Button>
+          <Button color="inherit">RSVP</Button>
+          <Button color="inherit">Invoice</Button>
+          <Button color="inherit">Inspiration</Button>
         </Toolbar>
       </AppBar>
     </div>
