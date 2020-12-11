@@ -2,9 +2,16 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+<<<<<<< HEAD:src/pages/my-events.js
 import ButtonAppBar from '../components/Navbar'
 
 
+=======
+// import ButtonAppBar from '../components/Navbar'
+import InputWithIcon from '../components/TextField'
+import OutlinedButtons from '../components/Submit Button'
+// import UploadButton from '../components/Upload Button'
+>>>>>>> b660d1b1095bd894e6256ecf49a467cf63d1e8b8:client/src/pages/MyEvents.js
 import Container from '../components/Container'
 import ToDOList from '../components/To-Do'
 import Budget from '../components/Budget'
@@ -26,7 +33,7 @@ export default function FullWidthGrid() {
   return (
     <div>
         
-        <ButtonAppBar />
+        {/* <ButtonAppBar /> */}
         <Container>
             <div className={classes.root}>
             <Grid container spacing={3}>

@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,9 +29,15 @@ export default function ButtonAppBar() {
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
+<<<<<<< HEAD:src/components/Navbar/index.js
           
           
           <Button color="inherit">Home</Button>
+=======
+          <Button color="inherit">Home</Button>
+          <Button color="inherit">Invoice</Button>
+          <Button color="inherit">RSVP</Button>
+>>>>>>> b660d1b1095bd894e6256ecf49a467cf63d1e8b8:client/src/components/Navbar/index.js
           <Button color="inherit">My Events</Button>
           <Button color="inherit">RSVP</Button>
           <Button color="inherit">Invoice</Button>
