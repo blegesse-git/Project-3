@@ -24,7 +24,18 @@ const InvoiceForm = ({ addInvoice }) => {
 
     const handleSubmitInvoice = (e) => {
         e.preventDefault();
-        // addInvoice()
+        addInvoice({
+            invoiceDate,
+            firstName,
+            lastName,
+            address1,
+            address2,
+            city,
+            state,
+            zip,
+            summary,
+            amountDue
+        })
         setFirstName("");
         setLastName("");
         setAddress1("");
