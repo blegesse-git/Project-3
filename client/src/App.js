@@ -2,7 +2,7 @@ import React from "react";
 import Wrapper from "./components/Wrapper/Wrapper"
 import ButtonAppBar from "./components/Navbar/index"
 import Events from './pages/MyEvents'
-import Home from './pages/Home'
+import Home from './pages/home'
 // import GetInspired from "./pages/GetInspired"
 import Invoice from "./pages/invoice"
 import RSVP from "./pages/rsvp"
