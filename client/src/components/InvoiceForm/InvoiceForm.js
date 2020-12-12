@@ -131,7 +131,7 @@ const InvoiceForm = ({ addInvoice }) => {
                             variant="contained"
                             color="primary"
                             type="submit"
-                            style={{ width: 250 }}>Create Invoice</Button>
+                            style={{ width: 250, margin: 10 }}>Create Invoice</Button>
 
                     </FormControl>
                 </form>
