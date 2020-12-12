@@ -11,32 +11,42 @@ import { Button } from '@material-ui/core';
 
 
 
-const ReminderForm =({addReminder}) => {
-  const [text, setText] =useState("")
- const handleSubmitReminder =(e) =>{
-   e.preventDefault();
-   addReminder(text);
-   setText("")
- }
+const ReminderForm = ({ addReminder }) => {
+  const [text, setText] = useState("")
+  const handleSubmitReminder = (e) => {
+    e.preventDefault();
+    addReminder(text);
+    setText("")
+  }
 
   return (
     <div>
       <Container >
-   <form onSubmit ={handleSubmitReminder}>
-    {/* className={classes.container} */}
-<FormControl >
+        <form onSubmit={handleSubmitReminder}>
+          {/* className={classes.container} */}
+          <FormControl >
 
-  <TextField label= "Add reminder" required={true} style={{width:250}} value = {text} onChange={(e) =>setText(e.target.value)}/>
-  <Button  variant="contained" color="primary" type="submit" style={{width: 250}}>Add</Button>
+            <TextField 
+              label="Add reminder" 
+              required={true} 
+              style={{ width: 250 }} 
+              value={text} 
+              onChange={(e) => setText(e.target.value)} />
+            
+            <Button 
+              variant="contained" 
+              color="primary" 
+              type="submit" 
+              style={{ width: 250 }}>Add</Button>
 
-  
-      </FormControl>
-    </form>
-    
 
-</Container>
-   
-     </div>
+          </FormControl>
+        </form>
+
+
+      </Container>
+
+    </div>
   );
 }
- export default ReminderForm;
+export default ReminderForm;

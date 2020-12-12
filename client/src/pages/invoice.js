@@ -1,26 +1,16 @@
 import React from 'react';
+import { useState } from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import ButtonAppBar from '../components/Navbar'
-import InputWithIcon from '../components/TextField'
-import OutlinedButtons from '../components/Submit Button'
-import UploadButton from '../components/Upload Button'
-import Container from '../components/Container'
-import 'date-fns';
-import DateFnsUtils from '@date-io/date-fns';
-import {
-    MuiPickersUtilsProvider,
-    KeyboardTimePicker,
-    KeyboardDatePicker,
-} from '@material-ui/pickers';
-import FormControl from '@material-ui/core/FormControl';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import InputAdornment from '@material-ui/core/InputAdornment';
+import Paper from '@material-ui/core/Paper';
 
+import Container from '../components/Container';
+import InvoiceForm from "../components/InvoiceForm/InvoiceForm"
+import InvoiceViewer from "../components/InvoiceViewer/InvoiceViewer"
 
+import "./invoice.css"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,81 +24,68 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2),
         textAlign: 'center',
         color: theme.palette.text.secondary,
-    },
+    }
 }));
 
 export default function Invoice() {
     const classes = useStyles();
-    const [selectedDate, setSelectedDate] = React.useState(new Date('2020-12-22T00:00:00'));
 
-    const handleDateChange = (date) => {
-        setSelectedDate(date);
+    const [invoices, SetInvoices] = useState([
+        {
+            id: 1,
+            titleName: "Worsham",
+            invoiceDate: "12/11/2020",
+            firstName: "Lisa",
+            lastName: "Worsham",
+            address1: "13 Dead End Dr",
+            address2: "Apt 333",
+            city: "Houston",
+            state: "TX",
+            zip: "77095",
+            summary: "did the deed",
+            amountDue: "$1000"
+        }
+    ]);
+
+    const addInvoice = (invoiceData) => {
+        const newInvoice = {
+            id: 2,
+            titleName: invoiceData.firstName + invoiceData.lastName,
+            ...invoiceData
+            // invoiceDate: invoiceData.invoiceData,
+            // firstName: invoiceData.firstName,
+            // lastName: text,
+            // address1: text,
+            // address2: text,
+            // city: text,
+            // state: text,
+            // zip: text,
+            // summary: text,
+            // amountDue: text
+        }
+
+    SetInvoices([...invoices, newInvoice])
     };
-    const [values, setValues] = React.useState({
-        amount: '',
-        services: ''
-    });
-
-    const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-    };
-
 
     return (
         <Container>
             <div className={classes.root}>
                 <Grid container spacing={3}>
-                    <Grid item xs={12}>
-                        <Paper className={classes.paper}><h1>Invoice</h1></Paper>
+                    <Grid item xs={12} >
+                        <Paper className={classes.paper}><h1>Invoices</h1></Paper>
                     </Grid>
                     <Grid item xs={12} sm={6}>
                         <Paper className={classes.paper}><h2>Create Invoice</h2>
-                            <form className={classes.root} noValidate autoComplete="off">
-                                <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                    <Grid container justify="space-around">
-                                        <KeyboardDatePicker
-                                            disableToolbar
-                                            variant="inline"
-                                            format="MM/dd/yyyy"
-                                            margin="normal"
-                                            id="date-picker-inline"
-                                            label="Date picker inline"
-                                            value={selectedDate}
-                                            onChange={handleDateChange}
-                                            KeyboardButtonProps={{
-                                                'aria-label': 'change date',
-                                            }}
-                                        />
-                                    </Grid>
-                                </MuiPickersUtilsProvider>
-                                <TextField required id="standard-required" label="Required" defaultValue="First Name" />
-                                <TextField required id="standard-required" label="Required" defaultValue="Last Name" />
-                                <TextField required id="standard-required" label="Required" defaultValue="Address Line 1" />
-                                <TextField required id="standard-required" label="Required" defaultValue="Address Line 2" />
-                                <TextField required id="standard-required" label="Required" defaultValue="City" />
-                                <TextField required id="standard-required" label="Required" defaultValue="State" />
-                                <TextField required id="standard-required" label="Required" defaultValue="Zip" />
-                                <TextField
-                                    id="standard-multiline-flexible"
-                                    label="List of Services Provided"
-                                    multiline
-                                    rowsMax={10}
-                                    value={values.services}
-                                    onChange={handleChange}
-                                />
-                            </form>
-                            <FormControl halfWidth className={classes.margin}>
-                                <InputLabel htmlFor="standard-adornment-amount">Amount</InputLabel>
-                                <Input
-                                    id="standard-adornment-amount"
-                                    value={values.amount}
-                                    onChange={handleChange('amount')}
-                                    startAdornment={<InputAdornment position="start">$</InputAdornment>}
-                                />
-                            </FormControl>
-                            <OutlinedButtons>GENERATE INVOICE</OutlinedButtons>
+                            <InvoiceForm  addInvoice={addInvoice} />
                         </Paper>
-
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <Paper className={classes.paper} id="Invoices">
+                            <Typography variant="h6" className={classes.title}>
+                                My Invoices
+                            </Typography>
+                            <InvoiceViewer invoices={invoices} />
+                        </Paper>
                     </Grid>
                 </Grid>
             </div>
