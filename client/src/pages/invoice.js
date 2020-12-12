@@ -35,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center',
         color: theme.palette.text.secondary,
     },
+    date: {
+        textAlign: 'left'
+    }
 }));
 
 export default function Invoice() {
@@ -44,14 +47,38 @@ export default function Invoice() {
     const handleDateChange = (date) => {
         setSelectedDate(date);
     };
+
     const [values, setValues] = React.useState({
         amount: '',
         services: ''
     });
 
-    const handleChange = (prop) => (event) => {
+    const handleAmountChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
     };
+
+    const [firstName, setFirstName] = React.useState("");
+    const [lastName, setLastName] = React.useState("");
+    const [address1, setAddress1] = React.useState("");
+    const [address2, setAddress2] = React.useState("");
+    const [city, setCity] = React.useState("");
+    const [state, setState] = React.useState("");
+    const [zip, setZip] = React.useState("");
+    const [invoiceSummary, setInvoiceSummary] = React.useState("");
+
+    const handleSubmit = (event) => {
+        alert(`
+        First Name: ${firstName}
+        Last Name: ${lastName}
+        Last Name: ${address1}
+        Last Name: ${address2}
+        Last Name: ${city}
+        Last Name: ${state}
+        Last Name: ${zip}
+        Last Name: ${invoiceSummary}`);
+        setFirstName(event);
+        setLastName(event);
+    }
 
 
     return (
@@ -59,20 +86,21 @@ export default function Invoice() {
             <div className={classes.root}>
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
-                        <Paper className={classes.paper}><h1>Invoice</h1></Paper>
+                        <Paper className={classes.paper}><h1>Invoices</h1></Paper>
                     </Grid>
-                    <Grid item xs={12} sm={6}>
+                    <Grid item xs={12}>
                         <Paper className={classes.paper}><h2>Create Invoice</h2>
-                            <form className={classes.root} noValidate autoComplete="off">
+                            <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
                                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                    <Grid container justify="space-around">
+                                    <Grid item xs>
                                         <KeyboardDatePicker
+                                            className={classes.date}
                                             disableToolbar
                                             variant="inline"
                                             format="MM/dd/yyyy"
                                             margin="normal"
                                             id="date-picker-inline"
-                                            label="Date picker inline"
+                                            label="Invoice Date"
                                             value={selectedDate}
                                             onChange={handleDateChange}
                                             KeyboardButtonProps={{
@@ -81,29 +109,72 @@ export default function Invoice() {
                                         />
                                     </Grid>
                                 </MuiPickersUtilsProvider>
-                                <TextField required id="standard-required" label="Required" defaultValue="First Name" />
-                                <TextField required id="standard-required" label="Required" defaultValue="Last Name" />
-                                <TextField required id="standard-required" label="Required" defaultValue="Address Line 1" />
-                                <TextField required id="standard-required" label="Required" defaultValue="Address Line 2" />
-                                <TextField required id="standard-required" label="Required" defaultValue="City" />
-                                <TextField required id="standard-required" label="Required" defaultValue="State" />
-                                <TextField required id="standard-required" label="Required" defaultValue="Zip" />
+                                <TextField 
+                                    required 
+                                    id="standard-required" 
+                                    label="First Name" 
+                                    defaultValue="" 
+                                    value={firstName} 
+                                    onChange={e => setFirstName(e.target.value)} />
+                                <TextField 
+                                    required 
+                                    id="standard-required" 
+                                    label="Last Name" 
+                                    defaultValue="" 
+                                    value={lastName} 
+                                    onChange={e => setLastName(e.target.value)} />
+                                <TextField 
+                                    required 
+                                    id="standard-required" 
+                                    label="Address Line 1" 
+                                    defaultValue="" 
+                                    value={address1} 
+                                    onChange={e => setAddress1(e.target.value)} />
+                                <TextField 
+                                    required 
+                                    id="standard" 
+                                    label="Address Line 2"
+                                    defaultValue="" 
+                                    value={address2} 
+                                    onChange={e => setAddress2(e.target.value)} />
+                                <TextField 
+                                    required 
+                                    id="standard-required" 
+                                    label="City" 
+                                    defaultValue="" 
+                                    value={city} 
+                                    onChange={e => setCity(e.target.value)} />
+                                <TextField 
+                                    required 
+                                    id="standard-required" 
+                                    label="State" 
+                                    defaultValue="" 
+                                    value={state} 
+                                    onChange={e => setState(e.target.value)} />
+                                <TextField 
+                                    required 
+                                    id="standard-required" 
+                                    label="Zip" 
+                                    defaultValue="" 
+                                    value={zip} 
+                                    onChange={e => setZip(e.target.value)} />
                                 <TextField
                                     id="standard-multiline-flexible"
-                                    label="List of Services Provided"
+                                    label="Invoice Summary"
                                     multiline
                                     rowsMax={10}
-                                    value={values.services}
-                                    onChange={handleChange}
+                                    value={invoiceSummary}
+                                    onChange={e => setInvoiceSummary(e.target.value)}
                                 />
                             </form>
-                            <FormControl halfWidth className={classes.margin}>
-                                <InputLabel htmlFor="standard-adornment-amount">Amount</InputLabel>
+                            <FormControl halfWidth className={classes.margin} onSubmit={handleSubmit}>
+                                <InputLabel htmlFor="standard-adornment-amount">Amount Due</InputLabel>
                                 <Input
                                     id="standard-adornment-amount"
                                     value={values.amount}
-                                    onChange={handleChange('amount')}
-                                    startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                                    onChange={handleAmountChange('amount')}
+                                    startAdornment={
+                                        <InputAdornment position="start">$</InputAdornment>}
                                 />
                             </FormControl>
                             <OutlinedButtons>GENERATE INVOICE</OutlinedButtons>
