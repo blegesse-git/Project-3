@@ -10,7 +10,7 @@ import Container from '../components/Container'
 import ToDOList from '../components/To-Do'
 import Budget from '../components/Budget'
 import Button from '@material-ui/core/Button';
-
+import Receipt from '../../src/components/Receipt';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -25,27 +25,6 @@ const useStyles = makeStyles((theme) => ({
 export default function FullWidthGrid() {
   const classes = useStyles();
 
-  const [loading, setLoading] = useState(false)
-  const [image, setImage] = useState("")
-
-  const uploadImage = async e => {
-      const files = e.target.files
-      const data = new FormData()
-      data.append('file', files[0])
-      data.append('upload_preset', 'EventPlanning')
-      setLoading(true)
-
-      const res = await fetch("https://api.cloudinary.com/v1_1/difqthyaz/image/upload", 
-      {
-          method: 'POST',
-          body: data
-      })
-
-      const file = await res.json()
-      console.log(file)
-      setImage(file.secure_url)
-      setLoading(false)
-    }
 
   return (
     <div>
@@ -69,9 +48,9 @@ export default function FullWidthGrid() {
                         <p>First Name:</p>
                         <p>Last Name:</p>
                         <p>Email:</p>
-                        <p>Phone Number:</p>
+                        <p>Phone:</p>
                         <p>Address:</p>
-                        <p>Prefered Theme:</p>
+                        <p>Note:</p>
                         
 
                     </Paper>
@@ -87,15 +66,7 @@ export default function FullWidthGrid() {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <Paper className={classes.paper}>
-                        <h2>Save Reciepts</h2>
-                        <input type="file" name="file" placeholder="Upload your reciepts" onChange={uploadImage}/>
-                        {
-                            loading? (
-                                <h3>Loading...</h3>
-                            ):(
-                                <img src={image} style={{width:'300px'}}/>
-                            )
-                        }
+                        <Receipt />
                     </Paper>
                 </Grid>
                 <Grid item xs={12} sm={6}>
