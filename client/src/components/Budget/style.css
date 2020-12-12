@@ -1,0 +1,9 @@
+#balance {
+    float: left;
+}
+#expense {
+    float: right;
+}
+#budgetInput {
+    clear: both;
+}

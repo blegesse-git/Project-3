@@ -7,6 +7,8 @@ import InputWithIcon from '../components/TextField'
 import OutlinedButtons from '../components/Submit Button'
 // import UploadButton from '../components/Upload Button'
 import Container from '../components/Container'
+import ToDOList from '../components/To-Do'
+import Budget from '../components/Budget'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,17 +36,8 @@ export default function FullWidthGrid() {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                 <Paper className={classes.paper}>
-                        <h2>Event Budget</h2>
-                        <h3>Total Budget:</h3>
-                        <p>$0.00</p>
-                        <h3>Current Balance:</h3>
-                        <p>$0.00</p>
-                        <h3>Expenses:</h3>
-                        <p>$0.00</p>
-                        <InputWithIcon> Increase Budget</InputWithIcon>
-                        <OutlinedButtons>Submit</OutlinedButtons>
-                        <InputWithIcon> Add Expenses</InputWithIcon>
-                        <OutlinedButtons>Submit</OutlinedButtons>
+                        <Budget />
+                        
                     </Paper>
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -61,7 +54,10 @@ export default function FullWidthGrid() {
                     </Paper>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <Paper className={classes.paper}>To-Do list</Paper>
+                    <Paper className={classes.paper}>
+                        <h2>To-Do list</h2>
+                        <ToDOList />
+                    </Paper>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <Paper className={classes.paper}>Reminder</Paper>

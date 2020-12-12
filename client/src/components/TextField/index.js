@@ -9,6 +9,7 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 
 
+
 const useStyles = makeStyles((theme) => ({
   margin: {
     margin: theme.spacing(1),
@@ -33,17 +34,21 @@ export default function InputWithIcon(props) {
         />
       </FormControl>
       <TextField
+        
         className={classes.margin}
         id="input-with-icon-textfield"
-        label="Enter Amount"
+        label="Amount (negative-expense, positive - Income)"
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
               <AttachMoneyIcon />
+              
             </InputAdornment>
+            
           ),
         }}
       />
+      
       
     </div>
   );
