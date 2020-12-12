@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -9,6 +9,7 @@ import OutlinedButtons from '../components/Submit Button'
 import Container from '../components/Container'
 import ToDOList from '../components/To-Do'
 import Budget from '../components/Budget'
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,6 +24,28 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FullWidthGrid() {
   const classes = useStyles();
+
+  const [loading, setLoading] = useState(false)
+  const [image, setImage] = useState("")
+
+  const uploadImage = async e => {
+      const files = e.target.files
+      const data = new FormData()
+      data.append('file', files[0])
+      data.append('upload_preset', 'EventPlanning')
+      setLoading(true)
+
+      const res = await fetch("https://api.cloudinary.com/v1_1/difqthyaz/image/upload", 
+      {
+          method: 'POST',
+          body: data
+      })
+
+      const file = await res.json()
+      console.log(file)
+      setImage(file.secure_url)
+      setLoading(false)
+    }
 
   return (
     <div>
@@ -63,7 +86,17 @@ export default function FullWidthGrid() {
                     <Paper className={classes.paper}>Reminder</Paper>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <Paper className={classes.paper}>Save Reciepts</Paper>
+                    <Paper className={classes.paper}>
+                        <h2>Save Reciepts</h2>
+                        <input type="file" name="file" placeholder="Upload your reciepts" onChange={uploadImage}/>
+                        {
+                            loading? (
+                                <h3>Loading...</h3>
+                            ):(
+                                <img src={image} style={{width:'300px'}}/>
+                            )
+                        }
+                    </Paper>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <Paper className={classes.paper}>Guest List</Paper>
