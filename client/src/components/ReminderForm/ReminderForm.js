@@ -26,8 +26,18 @@ const ReminderForm = ({ addReminder }) => {
           {/* className={classes.container} */}
           <FormControl >
 
-            <TextField label="Add reminder" required={true} style={{ width: 250 }} value={text} onChange={(e) => setText(e.target.value)} />
-            <Button variant="contained" color="primary" type="submit" style={{ width: 250 }}>Add</Button>
+            <TextField 
+              label="Add reminder" 
+              required={true} 
+              style={{ width: 250 }} 
+              value={text} 
+              onChange={(e) => setText(e.target.value)} />
+            
+            <Button 
+              variant="contained" 
+              color="primary" 
+              type="submit" 
+              style={{ width: 250 }}>Add</Button>
 
 
           </FormControl>

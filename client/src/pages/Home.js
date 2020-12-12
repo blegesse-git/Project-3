@@ -14,70 +14,74 @@ import CreateBtn from "../components/CreateEvent Button/CreateBtn"
 
 import Typography from '@material-ui/core/Typography';
 
-    const useStyles = makeStyles((theme) => ({
-        root: {
-          flexGrow: 1,
-        },
-        paper: {
-          padding: theme.spacing(2),
-          textAlign: 'center',
-          color: theme.palette.text.secondary,
-        },
-      }));
-      
- function Home() {
-    const classes = useStyles();
-    
-const [reminders, setReminders] = useState([
-  {
-    id: 1, 
-    title: "Call vendors"
-  }
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+}));
 
-]);
+function Home() {
+  const classes = useStyles();
 
-const addReminder =(text) => {
+  const [reminders, setReminders] = useState([
+    {
+      id: 1,
+      title: "Call vendors"
+    }
 
-  const newReminder ={
-    id: 2,
-    title: text
-  }
-  setReminders([...reminders, newReminder])
-};
- return (
-        <>
-      <Container>  
-      <div className={classes.root}>
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Paper className={classes.paper}>
-                <EventCountdown/>
-            </Paper>
-          </Grid>
-          <Grid item xs={12}>
-        <CreateBtn/>
-        </Grid>
-          <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>
-            <OutlinedTimeline/>
+  ]);
+
+  const addReminder = (text) => {
+
+    const newReminder = {
+      id: 2,
+      title: text
+    }
+    setReminders([...reminders, newReminder])
+  };
+  return (
+    <>
+      <Container>
+        <div className={classes.root}>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <EventCountdown />
               </Paper>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper} id="upcomingEvents">
-           <UpcomingEvents/>
+            </Grid>
+
+            <Grid item xs={12}>
+              <CreateBtn />
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <Paper className={classes.paper}>
+                <OutlinedTimeline />
+              </Paper>
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <Paper className={classes.paper} id="upcomingEvents">
+                <UpcomingEvents />
               </Paper>
               <Paper className={classes.paper} id="Reminders">
-              <Typography variant="h6" className={classes.title}>
-         My Reminders
-          </Typography>
-                    <NewReminders reminders={reminders}/> 
-                    <ReminderForm addReminder={addReminder} />  
+                <Typography variant="h6" className={classes.title}>
+                  My Reminders
+                </Typography>
+                <NewReminders reminders={reminders} />
+                <ReminderForm addReminder={addReminder} />
               </Paper>
-        </Grid>
-     </Grid>
-   </div>
-</Container>
- </>
-)}
+            </Grid>
+          </Grid>
+        </div>
+      </Container>
+    </>
+  )
+}
 
 export default Home;
