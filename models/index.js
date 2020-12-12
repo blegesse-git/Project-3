@@ -1,1 +1,3 @@
-// will need to make models
+module.exports = {
+    Event: require("./event")
+  };
