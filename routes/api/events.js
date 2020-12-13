@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const eventsController = require("../../controllers/eventsController");
+const eventsController = require("../../controller/eventsController");
 
 // Matches with "/api/events"
 router.route("/")
@@ -14,3 +14,10 @@ router
   .delete(eventsController.remove);
 
 module.exports = router;
+
+
+
+// we need to trigger these routes on an event, Do ajax calls or Fetch(react prefered). 
+// so fetching/ajax calls inside the server. Inside components in react, require the file we created with FETCH functions, and use it there. 
+// Google books HW for reference . 
+//
