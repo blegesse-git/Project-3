@@ -5,25 +5,20 @@ import Container from "@material-ui/core/Container"
 import FormControl from "@material-ui/core/FormControl"
 import { Button } from '@material-ui/core';
 
-
-
-
-
-
-
 const ReminderForm = ({ addReminder }) => {
   const [text, setText] = useState("")
   const handleSubmitReminder = (e) => {
     e.preventDefault();
     addReminder(text);
     setText("")
+    console.log("New Reminder Alert!")
   }
 
   return (
     <div>
       <Container >
         <form onSubmit={handleSubmitReminder}>
-          {/* className={classes.container} */}
+      
           <FormControl >
 
             <TextField 

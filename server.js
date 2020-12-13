@@ -18,9 +18,17 @@ app.use(routes);
 
 // Send every other request to the React app
 // Define any API routes before this runs
-
 // Connect to the Mongo DB
+<<<<<<< HEAD
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Event-Plannerdb");
+=======
+
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Event-Plannerdb", {
+    useNewUrlParser: true,
+    useFindAndModify: false
+});
+>>>>>>> aaa229dac843b5841f9bed340c28d9e794333a77
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));

@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+//syntax errors in Schemas starting from guest Schema  ****
+
+//We may need to create seperate files for each schema OR google syntax for connecting db schemas using mongo. 
+//Keep everything in one db 
+
 const eventSchema = new Schema({
     _id: Schema.Types.ObjectId,
     name: { type: String, required: true },
@@ -21,9 +26,9 @@ const reminderSchema = new Schema({
 })
 const guestSchema = new Schema({
     guest: {
-        firstName: String,
-        lastName: String,
-        email: String
+        firstName:{ type:String},
+        lastName: { type:String},
+        email: { type:String}
     }
 })
 const invoiceSchema = new Schema({
