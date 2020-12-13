@@ -51,7 +51,7 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function Transaction() {
+export default function Transaction(props) {
   const [open, setOpen] = React.useState(false);
 
  
@@ -75,7 +75,7 @@ export default function Transaction() {
           Transaction History
         </DialogTitle>
         <DialogContent dividers>
-          <AcccessibleTable />
+          <AcccessibleTable transactionState={props.transactionState} />
         </DialogContent>
         
       </Dialog>
