@@ -10,9 +10,10 @@ import NewReminders from "../components/NewReminders/NewReminders"
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import CreateBtn from "../components/CreateEvent Button/CreateBtn"
-
+import AddNewEvent from "../components/AddNewEventBtn/AddNewEvent"
+import CreateEvent from "../components/CreateEvent/CreateEvent"
 import Typography from '@material-ui/core/Typography';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,6 +45,24 @@ function Home() {
     }
     setReminders([...reminders, newReminder])
   };
+
+//  const [ event, setNewEvent] =useState([
+//    {id: 1,
+//     eventName:"Bootcamp graduation"
+//     // eventDate:" 12/22/2020",
+//     // eventBudget: "8500",
+//     // eventEmail: "Fantastic4@HBIC.com" 
+//   }
+
+//  ])
+
+//  const addNewEvent =(eventInfo) =>{
+//    const newEvent={
+//      id: 2,
+//      eventName: eventInfo
+//    }
+//    setNewEvent([...event, newEvent])
+//  }
   return (
     <>
       <Container>
@@ -56,7 +75,7 @@ function Home() {
             </Grid>
 
             <Grid item xs={12}>
-              <CreateBtn />
+              <AddNewEvent/>
             </Grid>
 
             <Grid item xs={12} sm={6}>
