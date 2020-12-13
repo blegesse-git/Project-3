@@ -19,12 +19,12 @@ const useStyles = makeStyles({
 
 
 
-export default function AcccessibleTable() {
+export default function AcccessibleTable(props) {
   const classes = useStyles();
 
   const {transactions} = useContext(BudgetContext)
   
-    
+    console.log(props.transactionState)
   
 
   return (
@@ -40,7 +40,7 @@ export default function AcccessibleTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {transactions.map((transaction) => (
+          {props.transactionState.transactions.map((transaction) => (
             <Transaction key={transaction.id} transaction={transaction} />
           ))}
         </TableBody>
