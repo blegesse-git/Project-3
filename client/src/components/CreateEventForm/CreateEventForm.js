@@ -45,6 +45,7 @@ const CreateEventForm = ({addNewEvent}) => {
                             />
                             <TextField
                              label=" Event Date"
+                             type="date"
                              required={true}
                              value={eventDate}
                              style={{width: 400}}
