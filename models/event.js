@@ -12,10 +12,10 @@ const eventSchema = new Schema({
     date: { type: Date, required: true },
     budget: { type: Number, required: true },
     email: { type: String, required: true }, 
-    guests: [guestSchema],
-    toDo: [todoSchema],
-    reminders: [reminderSchema],
-    invoice: [invoiceSchema]
+    // guests: [guestSchema],
+    // toDo: [todoSchema],
+    // reminders: [reminderSchema],
+    // invoice: [invoiceSchema]
     
 })
 const todoSchema = new Schema({
@@ -24,26 +24,26 @@ const todoSchema = new Schema({
 const reminderSchema = new Schema({
     reminders: [{ type: String}]
 })
-const guestSchema = new Schema({
-    guest: {
-        firstName:{ type:String},
-        lastName: { type:String},
-        email: { type:String}
-    }
-})
-const invoiceSchema = new Schema({
-    invoice: {
-        firstName: String,
-        lastName: String,
-        Address1: String,
-        Address2:  String,
-        city: String,
-        state: String,
-        zip: String,
-        invoiceSummary: String,
-        amountDue: Number
-    }
-});
+// const guestSchema = new Schema({
+//     guest: {
+//         firstName:{ type:String},
+//         lastName: { type:String},
+//         email: { type:String}
+//     }
+// })
+// const invoiceSchema = new Schema({
+//     invoice: {
+//         firstName: String,
+//         lastName: String,
+//         Address1: String,
+//         Address2:  String,
+//         city: String,
+//         state: String,
+//         zip: String,
+//         invoiceSummary: String,
+//         amountDue: Number
+//     }
+// });
 
 const Event = mongoose.model("Event", eventSchema);
 

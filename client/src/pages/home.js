@@ -13,6 +13,7 @@ import Grid from '@material-ui/core/Grid';
 import AddNewEvent from "../components/AddNewEventBtn/AddNewEvent"
 import CreateEvent from "../components/CreateEvent/CreateEvent"
 import Typography from '@material-ui/core/Typography';
+import TimeLineViewer from "../components/Timeline Viewer/TimelineViewer"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Home() {
   const classes = useStyles();
-
+ // Reminder components : 
   const [reminders, setReminders] = useState([
     {
       id: 1,
@@ -46,23 +47,6 @@ function Home() {
     setReminders([...reminders, newReminder])
   };
 
-//  const [ event, setNewEvent] =useState([
-//    {id: 1,
-//     eventName:"Bootcamp graduation"
-//     // eventDate:" 12/22/2020",
-//     // eventBudget: "8500",
-//     // eventEmail: "Fantastic4@HBIC.com" 
-//   }
-
-//  ])
-
-//  const addNewEvent =(eventInfo) =>{
-//    const newEvent={
-//      id: 2,
-//      eventName: eventInfo
-//    }
-//    setNewEvent([...event, newEvent])
-//  }
   return (
     <>
       <Container>
@@ -80,7 +64,7 @@ function Home() {
 
             <Grid item xs={12} sm={6}>
               <Paper className={classes.paper}>
-                <OutlinedTimeline />
+              <OutlinedTimeline />
               </Paper>
             </Grid>
 

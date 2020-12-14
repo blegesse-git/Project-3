@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Modal from '@material-ui/core/Modal';
-import CreateEventForm from '../CreateEventForm/CreateEventForm';
 import CreateEvent from "../CreateEvent/CreateEvent"
 
 function rand() {
@@ -57,7 +56,6 @@ function AddNewEvent(){
     const body = (
       <div style={modalStyle} className={classesModal.paper}>
   <CreateEvent/>
-     
       </div>
     );
     return(
