@@ -4,6 +4,7 @@ import Nav from "./components/Navbar/Nav"
 import Events from './pages/MyEvents'
 import Home from './pages/Home'
 
+
 // import GetInspired from "./pages/GetInspired"
 import Invoice from "./pages/invoice"
 import RSVP from "./pages/rsvp"

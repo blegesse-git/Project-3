@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -9,7 +9,8 @@ import OutlinedButtons from '../components/Submit Button'
 import Container from '../components/Container'
 import ToDOList from '../components/To-Do'
 import Budget from '../components/Budget'
-
+import Button from '@material-ui/core/Button';
+import Receipt from '../../src/components/Receipt';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -23,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FullWidthGrid() {
   const classes = useStyles();
+
 
   return (
     <div>
@@ -46,9 +48,9 @@ export default function FullWidthGrid() {
                         <p>First Name:</p>
                         <p>Last Name:</p>
                         <p>Email:</p>
-                        <p>Phone Number:</p>
+                        <p>Phone:</p>
                         <p>Address:</p>
-                        <p>Prefered Theme:</p>
+                        <p>Note:</p>
                         
 
                     </Paper>
@@ -63,7 +65,9 @@ export default function FullWidthGrid() {
                     <Paper className={classes.paper}>Reminder</Paper>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <Paper className={classes.paper}>Save Reciepts</Paper>
+                    <Paper className={classes.paper}>
+                        <Receipt />
+                    </Paper>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <Paper className={classes.paper}>Guest List</Paper>

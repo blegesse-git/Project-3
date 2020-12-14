@@ -50,7 +50,7 @@ export default function Invoice() {
     const addInvoice = (invoiceData) => {
         const newInvoice = {
             id: 2,
-            titleName: invoiceData.firstName + invoiceData.lastName,
+            titleName: invoiceData.firstName + " " + invoiceData.lastName,
             ...invoiceData
             // invoiceDate: invoiceData.invoiceData,
             // firstName: invoiceData.firstName,
