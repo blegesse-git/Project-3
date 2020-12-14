@@ -34,16 +34,22 @@ const invoiceSchema = new Schema({
         amountDue: Number
     }
 });
+const eventInfoSchema = new Schema ({
+    VenueName: String,
+    VenuePhone: String,
+    VenueAddress: String,
+    Notes: String
+})
 const eventSchema = new Schema({
     _id: Schema.Types.ObjectId,
     name: { type: String, required: true },
     date: { type: Date, required: true },
-    budget: { type: Number, required: true },
     email: { type: String, required: true }, 
     guests: [guestSchema],
     toDo: [todoSchema],
     reminders: [reminderSchema],
-    invoice: [invoiceSchema]
+    invoice: [invoiceSchema],
+    eventInfo: [eventInfoSchema]
     
 })
 
