@@ -11,6 +11,7 @@ import ToDOList from '../components/To-Do'
 import Budget from '../components/Budget'
 import Button from '@material-ui/core/Button';
 import Receipt from '../../src/components/Receipt';
+import EventInfo from '../../src/components/EventInfo'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -44,13 +45,8 @@ export default function FullWidthGrid() {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <Paper className={classes.paper}>
-                        <h2>Customer Information</h2>
-                        <p>First Name:</p>
-                        <p>Last Name:</p>
-                        <p>Email:</p>
-                        <p>Phone:</p>
-                        <p>Address:</p>
-                        <p>Note:</p>
+                        
+                        <EventInfo />
                         
 
                     </Paper>
@@ -61,17 +57,13 @@ export default function FullWidthGrid() {
                         <ToDOList />
                     </Paper>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Paper className={classes.paper}>Reminder</Paper>
-                </Grid>
+                
                 <Grid item xs={12} sm={6}>
                     <Paper className={classes.paper}>
                         <Receipt />
                     </Paper>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Paper className={classes.paper}>Guest List</Paper>
-                </Grid>
+                
             </Grid>
             </div>
         </Container>
