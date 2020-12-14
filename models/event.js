@@ -6,12 +6,14 @@ const Schema = mongoose.Schema;
 //We may need to create seperate files for each schema OR google syntax for connecting db schemas using mongo. 
 //Keep everything in one db 
 
+
 const todoSchema = new Schema({
     toDo: [{ type: String}]
 })
 const reminderSchema = new Schema({
     reminders: [{ type: String}]
 })
+
 const guestSchema = new Schema({
     guest: {
         firstName:{ type:String},
@@ -44,6 +46,7 @@ const eventSchema = new Schema({
     invoice: [invoiceSchema]
     
 })
+
 
 
 const Event = mongoose.model("Event", eventSchema);

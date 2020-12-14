@@ -7,13 +7,21 @@ import CreateEventForm from "../CreateEventForm/CreateEventForm"
 
 function CreateEvent() {
 
+// if statement to render alert:
+
+
+
+
 const [event, setNewEvent] = useState([
     {
         id: 1, 
         titleName: "BootCamp Graduation",
+        titleFirst: "Jane",
+        titleLast: "Doe",
         titleDate: "12/22/2020",
         titleBudget: "8500",
-        eventEmail: "FantasticLadies@HBIC.com"
+        eventEmail: "FantasticLadies@HBIC.com",
+        titlePhone: '(123)456-7891'
 
     }
 ]);
@@ -22,9 +30,12 @@ const addNewEvent = (newEventData) =>{
      const newEvent ={
          id: 2,
          titleName : newEventData.eventName,
+         titleFirstName: newEventData.firstName,
+         titleLastName: newEventData.lastName,
          titleDate: newEventData.eventDate,
          titleBudget: newEventData.eventBudget,
-         titleEmail: newEventData.eventEmail
+         titleEmail: newEventData.eventEmail,
+         titlePhone: newEventData.phoneNum
      }
      setNewEvent([...event, newEvent])
      console.log(newEvent)
