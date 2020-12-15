@@ -9,6 +9,7 @@ import ImageIcon from '@material-ui/icons/Image';
 import WorkIcon from '@material-ui/icons/Work';
 import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 import { Container } from '@material-ui/core';
+import API from '../../utils/API'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,6 +21,8 @@ const useStyles = makeStyles((theme) => ({
 
  function EventsList() {
   const classes = useStyles();
+
+  console.log(API.lookEvent)
 
   return (
       <Container>
