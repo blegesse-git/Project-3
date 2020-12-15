@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
  function EventsList() {
   const classes = useStyles();
 
-  console.log(API.lookEvent)
 
   return (
       <Container>
