@@ -107,7 +107,6 @@ const useStyles = makeStyles((theme) => ({
           <Typography variant="h6" noWrap>
             Name of App
           </Typography>
-          <AddNewEvent />
         </Toolbar>
     
       <Drawer
@@ -126,16 +125,13 @@ const useStyles = makeStyles((theme) => ({
         </div>
 
        <Button color="inherit"> <Link to = "/home" className="link"> <HomeOutlinedIcon style={{ fontSize: 40 }}/></Link>Home</Button>
-       
        <Divider />
-        {/* <Button color="inherit"><Link to = "/invoice" className="link">Invoice </Link></Button>
-        <Button color="inherit"> <Link to =" /rsvp" className="link">RSVP</Link></Button> */}
         <Button color="inherit"> <Link to="/events" className="link"><CakeOutlinedIcon style={{ fontSize: 40 }}/></Link>Events</Button>
          <EventLinks className= "link"/>
-        
         <Divider />
         <Button color="inherit"> <FavoriteBorderOutlinedIcon style={{ fontSize: 40 }}/>Inspo</Button>
-     
+        <Divider />
+        <AddNewEvent/>
       </Drawer>
 
     </div>
