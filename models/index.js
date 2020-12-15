@@ -1,3 +1,4 @@
 module.exports = {
-    Event: require("./event")
+    Event: require("./tutor"),
+    Invoice: require("./invoice")
   };

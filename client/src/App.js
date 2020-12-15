@@ -2,7 +2,7 @@ import React from "react";
 import Wrapper from "./components/Wrapper/Wrapper"
 import Nav from "./components/Navbar/Nav"
 import Events from './pages/MyEvents'
-import Home from './pages/Home'
+import Home from './pages/home'
 
 
 // import GetInspired from "./pages/GetInspired"

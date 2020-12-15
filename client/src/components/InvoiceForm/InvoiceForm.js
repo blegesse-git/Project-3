@@ -7,7 +7,7 @@ import { Button } from '@material-ui/core';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
-
+import API from "../../utils/API";
 
 const InvoiceForm = ({ addInvoice }) => {
     const [invoiceDate, setInvoiceDate] = useState("");
@@ -45,7 +45,23 @@ const InvoiceForm = ({ addInvoice }) => {
         setZip("");
         setInvoiceDate("");
         setAmountDue("");
-        alert("got that shit!")
+
+        const data = {
+            invoiceDate: invoiceDate,
+            firstName: firstName,
+            lastName: lastName,
+            address1: address1,
+            address2: address2,
+            city: city,
+            state: state,
+            zip: zip,
+            invoiceSummary: summary,
+            amountDue: amountDue
+        }
+
+        API.invoiceForm(data).then(results => {
+            console.log("React/front end API hit");
+         })
     }
 
     return (
@@ -127,8 +143,8 @@ const InvoiceForm = ({ addInvoice }) => {
                             onChange={e => setSummary(e.target.value)}
                         />
 
-                        <InputLabel 
-                            htmlFor="standard-adornment-amount">Amount Due</InputLabel>
+                        {/* <InputLabel 
+                            htmlFor="standard-adornment-amount">Amount Due</InputLabel> */}
                             <Input
                                 id="standard-adornment-amount"
                                 value={amountDue}
