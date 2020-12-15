@@ -3,6 +3,7 @@ import Wrapper from "./components/Wrapper/Wrapper"
 import Nav from "./components/Navbar/Nav"
 import Events from './pages/MyEvents'
 import Home from './pages/Home'
+import EventTabs from "./components/Navbar/EventTabs"
 
 // import GetInspired from "./pages/GetInspired"
 import Invoice from "./pages/invoice"
@@ -14,7 +15,9 @@ function App() {
     return( 
         <Router>
                <div>
-               <Nav/>     
+                
+               <Nav/>
+               <EventTabs/>     
          <Wrapper>
              <Route exact path ="/" component={Home}/>
              <Route exact path ="/home" component={Home}/>
