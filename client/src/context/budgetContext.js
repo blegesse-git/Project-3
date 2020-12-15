@@ -26,7 +26,7 @@ export const BudgetProvider = ({children}) => {
             payload: transaction
         })
     }
-
+    console.log(addTransaction)
     return (
         <BudgetContext.Provider value = {{
             transactions: state.transactions,

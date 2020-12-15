@@ -5,6 +5,7 @@ import Events from './pages/MyEvents'
 import Home from './pages/Home'
 import EventTabs from "./components/Navbar/EventTabs"
 
+
 // import GetInspired from "./pages/GetInspired"
 import Invoice from "./pages/invoice"
 import RSVP from "./pages/rsvp"
