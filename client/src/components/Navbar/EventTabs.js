@@ -4,13 +4,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-
 import {Link} from "react-router-dom";
-import MyEvents from "../../pages/MyEvents"
-import Invoice from '../../pages/invoice';
 
 
-export default function SimpleTabs() {
+ function EventTabs() {
 
   const [currentTab, setCurrentTab] = React.useState(0);
 
@@ -31,3 +28,4 @@ export default function SimpleTabs() {
     </div>
   );
 }
+export default EventTabs;

@@ -107,7 +107,6 @@ const useStyles = makeStyles((theme) => ({
           <Typography variant="h6" noWrap>
             Name of App
           </Typography>
-          <AddNewEvent />
         </Toolbar>
     
       <Drawer
@@ -136,6 +135,9 @@ const useStyles = makeStyles((theme) => ({
         <Divider />
         <Button color="inherit"> <FavoriteBorderOutlinedIcon style={{ fontSize: 40 }}/>Inspo</Button>
      
+        <Divider />
+
+        <AddNewEvent/>
       </Drawer>
 
     </div>
