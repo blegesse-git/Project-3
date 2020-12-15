@@ -20,15 +20,20 @@ app.use(routes);
 // Define any API routes before this runs
 // Connect to the Mongo DB
 
-
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Event-Plannerdb", {
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/Event-Plannerdb", 
+  {
     useNewUrlParser: true,
     useFindAndModify: false
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+mongoose.connection.on("connected", () => {
+  console.log("Mongoose has connected!");
+})
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
