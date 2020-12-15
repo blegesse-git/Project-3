@@ -16,10 +16,14 @@ const [event, setNewEvent] = useState([
     {
         id: 1, 
         titleName: "BootCamp Graduation",
-        titleFirst: "Jane",
-        titleLast: "Doe",
+        titleFirst: "Green",
+        titleLast: "Day",
         titleDate: "12/22/2020",
-        titleBudget: "8500",
+        titleBilling: "123 Blvd of Broken Dreams",
+        address2: "Apt 333",
+        city: "Houston",
+        state: "TX",
+        zip: "77095",
         eventEmail: "FantasticLadies@HBIC.com",
         titlePhone: '(123)456-7891'
 
@@ -33,7 +37,11 @@ const addNewEvent = (newEventData) =>{
          titleFirstName: newEventData.firstName,
          titleLastName: newEventData.lastName,
          titleDate: newEventData.eventDate,
-         titleBudget: newEventData.eventBudget,
+         titleBilling: newEventData.eventBilling,
+         address2: newEventData.address2,
+         city: newEventData.city,
+         state: newEventData.state,
+         zip: newEventData.zip,
          titleEmail: newEventData.eventEmail,
          titlePhone: newEventData.phoneNum
      }

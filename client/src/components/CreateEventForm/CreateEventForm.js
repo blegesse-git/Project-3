@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Container from "@material-ui/core/Container";
 import FormControl from "@material-ui/core/FormControl";
 import { Button } from '@material-ui/core';
-
+import SaveIcon from '@material-ui/icons/Save';
 
 const CreateEventForm = ({addNewEvent}) => {
  
@@ -15,7 +15,11 @@ const CreateEventForm = ({addNewEvent}) => {
     const [firstName, setFirstName] =useState('');
     const [lastName, setLastName] = useState('');
     const [eventDate, setEventDate] = useState('');
-    const [eventBudget, setEventBudget] = useState('');
+    const [billingAddress, setBillingAddress] = useState('');
+    const [address2, setAddress2] = useState("");
+    const [city, setCity] = useState("");
+    const [state, setState] = useState("");
+    const [zip, setZip] = useState("");
     const[eventEmail, setEventEmail] =useState('');
     const [phoneNum, setPhoneNum] = useState('');
     const handleSubmitEventForm =(e) =>{
@@ -25,7 +29,10 @@ const CreateEventForm = ({addNewEvent}) => {
             firstName,
             lastName,
             eventDate,
-            eventBudget,
+            billingAddress,
+            address2,
+            state,
+            zip,
             eventEmail,
             phoneNum
         })
@@ -37,8 +44,12 @@ const CreateEventForm = ({addNewEvent}) => {
         console.log("Last Name is set!")
         setEventDate("")
         console.log("Event Date is set!")
-        setEventBudget("")
-        console.log("Event Budget is Set!")
+        setBillingAddress("")
+        setAddress2("");
+        setCity("");
+        setState("");
+        setZip("");
+        console.log("Billing Address is Set!")
         setEventEmail("")
         console.log("Event Email is Set!")
         setPhoneNum("")
@@ -51,9 +62,9 @@ const CreateEventForm = ({addNewEvent}) => {
         return (
             <div>
                 <Container>
-                    <h3> Event Information</h3>
+                    <h4 >Fill out client information</h4>
                     <form  onSubmit={handleSubmitEventForm}>
-                        <FormControl>
+                        <FormControl >
                         <TextField
                             
                             type="date"
@@ -88,13 +99,42 @@ const CreateEventForm = ({addNewEvent}) => {
                             />   
                         
                             <TextField
-                             label="Budget"
+                             label="Address 1"
                              required={true}
-                             value ={eventBudget}
+                             value ={billingAddress}
                              style={{width: 400}}
-                             onChange={(e) => setEventBudget(e.target.value)}
+                             onChange={(e) => setBillingAddress(e.target.value)}
                              />
-                             
+                                  
+                        <TextField
+                            label="Address 2"
+                            required={false}
+                            style={{ width: 250 }}
+                            value={address2}
+                            onChange={(e) => setAddress2(e.target.value)} 
+                        />
+                               <TextField
+                            label="City"
+                            required={true}
+                            style={{ width: 250 }}
+                            value={city}
+                            onChange={(e) => setCity(e.target.value)} 
+                        />
+                               <TextField
+                            label="State"
+                            required={true}
+                            style={{ width: 250 }}
+                            value={state}
+                            onChange={(e) => setState(e.target.value)} 
+                        />
+                        
+                        <TextField
+                            label="Zip"
+                            required={true}
+                            style={{ width: 250 }}
+                            value={zip}
+                            onChange={(e) => setZip(e.target.value)} 
+                        />
                             <TextField
                              label= "Email"
                              required={true}
@@ -115,8 +155,8 @@ const CreateEventForm = ({addNewEvent}) => {
                              variant="contained" 
                                 color="primary" 
                                 type="submit" 
-                                style={{ width: 400 }}>
-                            Create Event
+                                style={{ width: 400 , height: 25}}>
+                                    <SaveIcon/> create this event
                         </Button> 
                       
                         </FormControl>

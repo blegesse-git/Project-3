@@ -29,8 +29,8 @@ const useStyles = makeStyles({
   return (
     <div className={classes.root} >
       {/* <AppBar position="static"  style={{backgroundColor: "white", color: "black"}}> */}
-        <Tabs value={currentTab} onChange={handleChange} aria-label={currentTab} textColor="primary"   indicatorColor="secondary">
-        <Link to="/events" className="link"> <DashboardIcon style={{ fontSize: 30 }} /><Tab label="Event Board"/> </Link>
+        <Tabs value={currentTab} onChange={handleChange} aria-label={currentTab} textColor="primary"  indicatorColor="secondary">
+        <Link to="/events" className="link"> <DashboardIcon style={{ fontSize: 30 }}  /><Tab label="Event Board" /> </Link>
         <Link to = "/invoice" className="link"> <ReceiptIcon style={{ fontSize: 30 }} /><Tab label="Invoice" /></Link>
         <Link to =" /rsvp" className="link"><MailOutlineIcon style={{ fontSize: 30 }} /><Tab label="RSVP"  /></Link>
         </Tabs>
