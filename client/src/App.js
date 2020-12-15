@@ -2,7 +2,8 @@ import React from "react";
 import Wrapper from "./components/Wrapper/Wrapper"
 import Nav from "./components/Navbar/Nav"
 import Events from './pages/MyEvents'
-import Home from './pages/home'
+import Home from './pages/Home'
+import EventTabs from "./components/Navbar/EventTabs"
 
 
 // import GetInspired from "./pages/GetInspired"
@@ -15,9 +16,12 @@ function App() {
     return( 
         <Router>
                <div>
-               <Nav/>     
+               <Nav/>
+                
          <Wrapper>
+      
              <Route exact path ="/" component={Home}/>
+             <EventTabs/>   
              <Route exact path ="/home" component={Home}/>
              <Route exact path ="/invoice" component={Invoice}/>
              <Route exact path ="/rsvp" component={RSVP}/>
