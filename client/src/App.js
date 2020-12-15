@@ -19,8 +19,9 @@ function App() {
                <Nav/>
                 
          <Wrapper>
-         <EventTabs/>   
+      
              <Route exact path ="/" component={Home}/>
+             <EventTabs/>   
              <Route exact path ="/home" component={Home}/>
              <Route exact path ="/invoice" component={Invoice}/>
              <Route exact path ="/rsvp" component={RSVP}/>
