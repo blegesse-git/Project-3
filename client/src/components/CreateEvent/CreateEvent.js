@@ -68,8 +68,8 @@ const handleSubmitEventForm =(e) => {
     //console.log(data);
   
     API.createEvent(data).then(results => {
-       console.log("React/front end API hit");
-    })
+        console.log("React/front end API hit");
+     })
 }
 
 // const addNewEvent = (newEventData) =>{

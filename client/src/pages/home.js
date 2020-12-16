@@ -14,7 +14,7 @@ import AddNewEvent from "../components/AddNewEventBtn/AddNewEvent"
 import CreateEvent from "../components/CreateEvent/CreateEvent"
 import Typography from '@material-ui/core/Typography';
 import TimeLineViewer from "../components/Timeline Viewer/TimelineViewer"
-
+import API from "../utils/API";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
 }));
+
 
 function Home() {
   const classes = useStyles();
