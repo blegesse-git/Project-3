@@ -5,7 +5,10 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
+import ImageIcon from '@material-ui/icons/Image';
+import WorkIcon from '@material-ui/icons/Work';
 import EventIcon from '@material-ui/icons/Event';
+import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 import { Container } from '@material-ui/core';
 import { useEventHook } from '../../hooks/Hooks';
 
@@ -44,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 ]
 
 
-  // console.log(API.lookEvent)
+  
 
   return (
       <Container>
@@ -57,8 +60,7 @@ const useStyles = makeStyles((theme) => ({
                 <EventIcon />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary={event.eventName}  />
-            {/* secondary={`${event.firstName} ${event.lastName}`} */}
+            <ListItemText primary={event.eventName} secondary={`${event.firstName} ${event.lastName}`} />
           </ListItem>
         })}
     </List>
