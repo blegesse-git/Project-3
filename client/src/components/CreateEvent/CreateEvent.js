@@ -4,8 +4,11 @@ import { useState } from 'react';
 import CreateEventForm from "../CreateEventForm/CreateEventForm"
 // import CreateBtn from '../CreateEvent Button/CreateBtn';
 import API from "../../utils/API";
+import { useEventHook } from '../../hooks/Hooks';
 
 function CreateEvent() {
+
+    const eventHook = useEventHook();
 
 // if statement to render alert:
 // const [event, setNewEvent] = useState([
@@ -68,8 +71,12 @@ const handleSubmitEventForm =(e) => {
     //console.log(data);
   
     API.createEvent(data).then(results => {
-        console.log("React/front end API hit");
-     })
+
+       console.log("React/front end API hit");
+       console.log(results);
+       eventHook.addEvent(results.data);
+    })
+
 }
 
 // const addNewEvent = (newEventData) =>{
