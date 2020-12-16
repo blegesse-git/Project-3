@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     },
       {
       eventName: "Event 2",
-      eventDate: "12/21/2020"
+      eventDate: "12/15/2020"
     
     },
       {
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     },
       {
       eventName: "Event 4",
-      eventDate: "12/23/2020"
+      eventDate: "12/31/2020"
   
     }
   ]
