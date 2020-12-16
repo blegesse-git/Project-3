@@ -8,12 +8,12 @@ const invoiceSchema = new Schema({
             required: true    
         }],
         firstName: [{ 
-            type: Schema.Types.ObjectId, 
-            ref: "Event" 
+            type: String,
+            required: true
         }],
         lastName: [{ 
-            type: Schema.Types.ObjectId, 
-            ref: "Event" 
+            type: String,
+            required: true
         }],
         address1: [{ 
             type: String, 
