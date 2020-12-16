@@ -9,7 +9,7 @@ function NewReminders({reminders}){
 return(
     <div>
         {reminders.map(reminder =>(
-<RemindersList key ={reminder.id} title ={reminder.title}/>
+<RemindersList key ={reminder._id} title ={reminder.title}/>
         ))}
        
     </div>

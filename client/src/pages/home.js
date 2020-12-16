@@ -37,17 +37,17 @@ function Home() {
  // Reminder components : 
   const eventHook = useEventHook();
   useEffect(() => {API.getAllEvents().then((data) => {
-    console.log(data);
-    console.log(data.data);
+    // console.log(data);
+    // console.log(data.data);
     eventHook.replaceAllEvents(data.data);
   }) 
 }) 
 
  const [reminders, setReminders] = useState([
-    {
-      id: 1,
-      title: "Call vendors"
-    }
+    // {
+    //   id: 1,
+    //   title: "Call vendors"
+    // }
 
   ]);
 
@@ -55,10 +55,13 @@ function Home() {
   const addReminder = (text) => {
 
     const newReminder = {
-      id: 2,
+      _id: 2,
       title: text
     }
+    console.log(newReminder._id)
     setReminders([...reminders, newReminder])
+
+    
   };
 
   return (
@@ -72,10 +75,7 @@ function Home() {
               </Paper>
             </Grid>
 
-            {/* <Grid item xs={12}>
-              <AddNewEvent/>
-            </Grid> */}
-
+          
             <Grid item xs={12} sm={6}>
               <Paper className={classes.paper}>
               <OutlinedTimeline />

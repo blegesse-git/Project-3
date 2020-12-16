@@ -8,7 +8,8 @@ import EventTabs from "./components/Navbar/EventTabs"
 
 // import GetInspired from "./pages/GetInspired"
 import Invoice from "./pages/invoice"
-import RSVP from "./pages/rsvp"
+import RSVP from "./pages/rsvp/RSVP"
+
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { EventProvider } from "./context/EventContext";
 
@@ -29,7 +30,7 @@ function App() {
                         <Route exact path="/invoice" component={Invoice} />
                         <Route exact path="/rsvp" component={RSVP} />
                         <Route exact path="/events" component={Events} />
-                        {/* <Route exact path ="/inspo" component={GetInspired}/> */}
+                     
                     </Wrapper>
                 </div>
             </Router>
