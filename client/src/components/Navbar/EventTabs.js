@@ -32,7 +32,7 @@ const useStyles = makeStyles({
         <Tabs value={currentTab} onChange={handleChange} aria-label={currentTab} textColor="primary"   indicatorColor="secondary">
         <Link to="/events" className="link"> <DashboardIcon style={{ fontSize: 30 }} /><Tab label="Event Board"/> </Link>
         <Link to = "/invoice" className="link"> <ReceiptIcon style={{ fontSize: 30 }} /><Tab label="Invoice" /></Link>
-        <Link to =" /rsvp" className="link"><MailOutlineIcon style={{ fontSize: 30 }} /><Tab label="RSVP"  /></Link>
+        <Link to ="/rsvp" className="link"><MailOutlineIcon style={{ fontSize: 30 }} /><Tab label="RSVP"  /></Link>
         </Tabs>
       {/* </AppBar> */}
 
