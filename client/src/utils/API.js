@@ -7,12 +7,10 @@ export default {
         console.log(data);
         return axios.post("api/events", data);
     },
-    lookEvent: function(){
-        //console.log("this is util API page");
-        // console.log(data);
-        return axios.get("api/events").then(result => result.data);
-        
+    getEvents: function() {
+        return axios.get("api/events").then(result=> res.json(result))
     },
+   
 
     getAllEvents: function(){
         return axios.get("api/events")
