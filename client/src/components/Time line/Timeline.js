@@ -10,7 +10,8 @@ import TimelineDot from '@material-ui/lab/TimelineDot';
 import CakeIcon from '@material-ui/icons/Cake';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography'; 
-import CreateEvent from "../CreateEvent/CreateEvent"
+import { Container } from '@material-ui/core';
+import { useEventHook } from '../../hooks/Hooks';
 import "./style.css"
 
 const useStyles = makeStyles((theme) => ({
@@ -24,13 +25,40 @@ const useStyles = makeStyles((theme) => ({
 
  function OutlinedTimeline() {
   const classes = useStyles();
+  const eventHook = useEventHook();
+  const events = [
+      {
+      eventName: "Event 1",
+      eventDate: "12/20/2020"
+    },
+      {
+      eventName: "Event 2",
+      eventDate: "12/21/2020"
+    
+    },
+      {
+      eventName: "Event 3",
+      eventDate: "12/22/2020"
+    
+    },
+      {
+      eventName: "Event 4",
+      eventDate: "12/23/2020"
+  
+    }
+  ]
+
+
+
   return (
+    <Container>
     <Timeline align="alternate" className="timelineContainer">
       <h2> Timeline</h2>
-  <TimelineItem>
+      {eventHook.events.map((event) => {
+   return <TimelineItem key={event._id}>
         <TimelineOppositeContent>
           <Typography variant="body2" color="textSecondary">
-            date: 
+            {event.eventDate}
           </Typography>
         </TimelineOppositeContent>
         <TimelineSeparator>
@@ -42,13 +70,15 @@ const useStyles = makeStyles((theme) => ({
         <TimelineContent>
           <Paper elevation={3} className={classes.paper}>
             <Typography variant="h6" component="h1">
-              event name
+            {event.eventName} 
             </Typography>
           </Paper>
         </TimelineContent>
       </TimelineItem>
+      })}
     </Timeline>
+    </Container>
   );
 }
-
+ 
 export default OutlinedTimeline;
