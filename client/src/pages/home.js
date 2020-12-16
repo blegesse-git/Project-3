@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Home.css"
 import { useState } from 'react';
 import Container from "../components/Container/index"
@@ -14,6 +14,8 @@ import AddNewEvent from "../components/AddNewEventBtn/AddNewEvent"
 import CreateEvent from "../components/CreateEvent/CreateEvent"
 import Typography from '@material-ui/core/Typography';
 import TimeLineViewer from "../components/Timeline Viewer/TimelineViewer"
+import API from "../utils/API"
+import { useEventHook } from "../hooks/Hooks";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -30,13 +32,22 @@ const useStyles = makeStyles((theme) => ({
 function Home() {
   const classes = useStyles();
  // Reminder components : 
-  const [reminders, setReminders] = useState([
+  const eventHook = useEventHook();
+  useEffect(() => {API.getAllEvents().then((data) => {
+    console.log(data);
+    console.log(data.data);
+    eventHook.replaceAllEvents(data.data);
+  }) 
+}) 
+
+ const [reminders, setReminders] = useState([
     {
       id: 1,
       title: "Call vendors"
     }
 
   ]);
+
 
   const addReminder = (text) => {
 
