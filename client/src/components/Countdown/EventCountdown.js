@@ -61,10 +61,8 @@ const renderer = ({days, hours, minutes, completed}) => {
 return(
 
     <Container>
-      {eventHook.events.map((event) => {
-      return  <h1 key={event._id}> {event.eventName}  Will Start In...</h1>
-      })}
-      <Container>
+  <h1> Your next event will start n...</h1>
+       <Container>
         <Countdown
         
         date ={Date.now() +1000 *60 * 60* 24}
