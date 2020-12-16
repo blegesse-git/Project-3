@@ -46,12 +46,9 @@ const useStyles = makeStyles((theme) => ({
   // }
 ]
 
-<<<<<<< HEAD
-console.log(eventHook)
-=======
+
   console.log(API.lookEvent)
 
->>>>>>> 6196864b3fbca322d94f488c3cbce5c801684154
   return (
       <Container>
           <h2>My Upcoming Events</h2>
