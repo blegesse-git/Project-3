@@ -8,6 +8,7 @@ import {Link} from "react-router-dom";
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import ReceiptIcon from '@material-ui/icons/Receipt';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
+// import EventLinks from "./EventLinks"
 const useStyles = makeStyles({
     root: {
       flexGrow: 1,
@@ -18,6 +19,8 @@ const useStyles = makeStyles({
 
  function EventTabs() {
 
+
+
     const classes = useStyles()
 
   const [currentTab, setCurrentTab] = React.useState(0);
@@ -26,6 +29,8 @@ const useStyles = makeStyles({
     setCurrentTab(newTab);
   };
 
+
+
   return (
     <div className={classes.root} >
       {/* <AppBar position="static"  style={{backgroundColor: "white", color: "black"}}> */}
@@ -33,6 +38,7 @@ const useStyles = makeStyles({
         <Link to="/events" className="link"> <DashboardIcon style={{ fontSize: 30 }} /><Tab label="Event Board"/> </Link>
         <Link to = "/invoice" className="link"> <ReceiptIcon style={{ fontSize: 30 }} /><Tab label="Invoice" /></Link>
         <Link to ="/rsvp" className="link"><MailOutlineIcon style={{ fontSize: 30 }} /><Tab label="RSVP"  /></Link>
+        {/* <EventLinks name="Testing 123"></EventLinks> */}
         </Tabs>
       {/* </AppBar> */}
 
