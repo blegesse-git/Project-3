@@ -5,6 +5,15 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import DoneOutlineIcon from '@material-ui/icons/DoneOutline';
+import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,7 +60,7 @@ export default function SelectEvent(props) {
   return (
     <Grid container className={classes.root}>
 
-      <Grid item>
+      <Grid item xs={12}>
         
         <Card>
           <CardContent>
@@ -84,6 +93,43 @@ export default function SelectEvent(props) {
                   </Grid>
                 </Grid>
 
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
+
+      </Grid>
+
+      <Grid style={{ paddingTop: 20 }} item xs={12}>
+        
+        <Card>
+          <CardContent>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TableContainer component={Paper}>
+                  <Table aria-label="simple table">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell align="right">First Name</TableCell>
+                        <TableCell align="right">Last Name</TableCell>
+                        <TableCell align="right">Is Attending?</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {event.guests.map((row) => (
+                        <TableRow key={row._id}>
+                          <TableCell align="right">{row.guest.firstName}</TableCell>
+                          <TableCell align="right">{row.guest.lastName}</TableCell>
+                          <TableCell align="right">{
+                            row.guest.isAttending
+                              ? (<DoneOutlineIcon />)
+                              : (<CancelOutlinedIcon />)
+                          }</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
               </Grid>
             </Grid>
           </CardContent>
