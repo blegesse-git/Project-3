@@ -8,7 +8,7 @@ import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
-import AcccessibleTable from '../../components/table'
+import AcccessibleTable from '../table'
 
 
 const styles = (theme) => ({
@@ -67,7 +67,8 @@ export default function Transaction(props) {
 
   return (
     <div>
-      <Button variant="outlined" color="secondary" size = "small" onClick={handleClickOpen}>
+      <br></br>
+      <Button variant="outlined" color="secondary" size = "small" onClick={handleClickOpen} id="transactionBtn">
         View Transaction
       </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>

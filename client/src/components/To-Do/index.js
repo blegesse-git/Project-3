@@ -18,7 +18,9 @@ const ToDOList = () => {
             return [...previousValue, item];
         });
         setItem("");
+
     };
+    
     
     return (
         <div className= "main_div">
