@@ -7,3 +7,10 @@
 #budgetInput {
     clear: both;
 }
+#enter {
+    background-color: white;
+    border: 1px solid #4CAF50;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+}
