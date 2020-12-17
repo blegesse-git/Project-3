@@ -10,7 +10,7 @@ import EventTabs from "./components/Navbar/EventTabs"
 import Invoice from "./pages/invoice"
 import RSVP from "./pages/rsvp/RSVP"
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { EventProvider } from "./context/EventContext";
 
 
@@ -23,6 +23,7 @@ function App() {
                     <Nav />
 
                     <Wrapper>
+                        
 
                         <Route exact path="/" component={Home} />
                         <EventTabs />
@@ -30,7 +31,7 @@ function App() {
                         <Route exact path="/invoice" component={Invoice} />
                         <Route exact path="/rsvp" component={RSVP} />
                         <Route exact path="/events" component={Events} />
-                     
+                  
                     </Wrapper>
                 </div>
             </Router>
