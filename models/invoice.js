@@ -3,45 +3,45 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const invoiceSchema = new Schema({
-        invoiceDate: [{ 
+        invoiceDate: { 
             type: String,
             required: true    
-        }],
-        firstName: [{ 
-            type: Schema.Types.ObjectId, 
-            ref: "Event" 
-        }],
-        lastName: [{ 
-            type: Schema.Types.ObjectId, 
-            ref: "Event" 
-        }],
-        address1: [{ 
+        },
+        firstName: { 
+            type: String,
+            required: true
+        },
+        lastName: { 
+            type: String,
+            required: true
+        },
+        address1: { 
             type: String, 
             required: true
-        }],
-        address2: [{
+        },
+        address2: {
             type: String
-        }],
-        city: [{ 
+        },
+        city: { 
             type: String, 
             required: true
-        }],
-        state: [{ 
+        },
+        state: { 
             type: String, 
             required: true
-        }],
-        zip: [{ 
+        },
+        zip: { 
             type: String, 
             required: true
-        }],
-        invoiceSummary: [{ 
+        },
+        invoiceSummary: { 
             type: String, 
             required: true
-        }],
-        amountDue: [{ 
+        },
+        amountDue: { 
             type: Number, 
             required: true
-        }]
+        }
     });
 
 const Invoice = mongoose.model("Invoice", invoiceSchema);
