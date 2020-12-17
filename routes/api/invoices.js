@@ -6,7 +6,7 @@ router.route("/")
   .get(invoiceController.findAll)
   .post(invoiceController.create);
 
-// Matches with "/api/events/:id"
+//Matches with "/api/events/:id"
 router
   .route("/:id")
   .get(invoiceController.findById)
