@@ -2,10 +2,37 @@ import React from 'react';
 import Container from "../Container/index"
 // import Countdown from 'react-countdown';
 import Countdown, { zeroPad, calcTimeDelta, formatTimeDelta } from 'react-countdown';
-
+import { useEventHook } from '../../hooks/Hooks';
 
 
 function EventCountdown(){
+
+  const eventHook = useEventHook();
+
+  const events = [
+    //   {
+    //   eventName: "Event 1",
+    //   firstName: "Lisa",
+    //   lastName: "Worsham"
+    // },
+    //   {
+    //   eventName: "Event 2",
+    //   firstName: "Lisa",
+    //   lastName: "Worsham"
+    // },
+    //   {
+    //   eventName: "Event 3",
+    //   firstName: "Lisa",
+    //   lastName: "Worsham"
+    // },
+    //   {
+    //   eventName: "Event 4",
+    //   firstName: "Lisa",
+    //   lastName: "Worsham"
+    // }
+  ]
+  
+
     // Random component
 const Completionist = () => <span>Today is the day!</span>;
 // const startCountdown = newDate("January 1, 2021 00:00:00").getTime();
@@ -29,18 +56,22 @@ const renderer = ({days, hours, minutes, completed}) => {
 
 };
 
+// add a filter to only display the upcoming event.
+
 return(
 
     <Container>
-        <h1> The Event Will Start In...</h1>
-        <Container>
+  <h1> Your next event will start n...</h1>
+       <Container>
         <Countdown
         
         date ={Date.now() +1000 *60 * 60* 24}
 
 
         />,
+   
         </Container>
+     
     </Container>
 )
 }

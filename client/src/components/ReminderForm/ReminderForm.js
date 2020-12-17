@@ -12,6 +12,7 @@ const ReminderForm = ({ addReminder }) => {
     addReminder(text);
     setText("")
     console.log("New Reminder Alert!")
+    console.log(text)
   }
 
   return (

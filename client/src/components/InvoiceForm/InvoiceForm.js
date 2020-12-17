@@ -59,6 +59,7 @@ const InvoiceForm = ({ addInvoice }) => {
             amountDue: amountDue
         }
 
+        console.log(data)
         API.invoiceForm(data).then(results => {
             console.log("React/front end API hit");
          })

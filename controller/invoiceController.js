@@ -1,9 +1,10 @@
 const db = require("../models");
 
-module.export = {
+
+module.exports = {
     findAll: function(req, res) {
         db.Invoice
-          .find(req.query)
+          .find({})
           .sort({ date: -1 })
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
@@ -35,4 +36,4 @@ module.export = {
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
       }
-}
+};
