@@ -6,7 +6,7 @@ import EventTabs from "./EventTabs";
 
 
 
- function EventLinks() {
+ function EventLinks(props) {
 
     
   const eventHook = useEventHook();
@@ -34,19 +34,23 @@ import EventTabs from "./EventTabs";
 ]
 
 
-
+function checkLinks(event2){
+  console.log(event2)
+  props.setEvent(event2)
+}
 
 
   return (
     <Container>
-      {eventHook.events.map((event) => {
+      {eventHook.events.map((event2) => {
    return <Link
-    key={event._id}
+    key={event2._id}
       component="button"
       variant="body1"
       style={{color: 'black', fontSize: 18, textDecoration:"underline"}}
+      onClick = {() => checkLinks(event2)}
     >
-     {event.eventName}
+     {event2.eventName}
     </Link>
        })}
     </Container>

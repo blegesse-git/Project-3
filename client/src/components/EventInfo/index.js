@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 
 
 
-function EventInfo () {
+function EventInfo (props) {
     const useStyles = makeStyles((theme) => ({
     root: {
     '& > *': {
