@@ -26,7 +26,7 @@ function App() {
                         
 
                         <Route exact path="/" component={Home} />
-                        <EventTabs />
+                        {/* <EventTabs /> */}
                         <Route exact path="/home" component={Home} />
                         <Route exact path="/invoice" component={Invoice} />
                         <Route exact path="/rsvp" component={RSVP} />

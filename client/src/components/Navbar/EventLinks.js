@@ -8,15 +8,7 @@ import EventTabs from "./EventTabs";
 
  function EventLinks() {
 
-
-
-
-  function tabLink(){
-
-   <EventTabs/>
-   console.log("tabs clicked")
-    }
-
+    
   const eventHook = useEventHook();
   const events = [
   //   {
@@ -51,9 +43,8 @@ import EventTabs from "./EventTabs";
    return <Link
     key={event._id}
       component="button"
-      variant="body2"
-    onClick ={tabLink}
-      style={{color: 'black'}}
+      variant="body1"
+      style={{color: 'black', fontSize: 18, textDecoration:"underline"}}
     >
      {event.eventName}
     </Link>
