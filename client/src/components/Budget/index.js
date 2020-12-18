@@ -1,7 +1,7 @@
 import React, {useState, useContext, createContext, useReducer} from 'react'
 import AppReducer from '../../context/AppReducer'
 import OutlinedButtons from '../../components/Submit Button'
-import Transaction from '../../components/transaction'
+import Transaction from '../Transaction'
 import "./style.css"
 import { InputLabel, TextField } from '@material-ui/core'
 
@@ -76,7 +76,7 @@ const Budget = () => {
                 <form onSubmit={onSubmit}>
                     <TextField label="Enter Description" value = {text} onChange = {(e) => setText(e.target.value)}/>
                     <TextField label="Enter Amount (- or +)" value = {amount} onChange = {(e) => setAmount(e.target.value)}/>
-                    <button>Enter</button>
+                    <button id="enter">Enter</button>
                 </form>
                 <Transaction transactionState={state} />
 

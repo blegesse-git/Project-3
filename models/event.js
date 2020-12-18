@@ -18,7 +18,8 @@ const guestSchema = new Schema({
     guest: {
         firstName:{ type:String},
         lastName: { type:String},
-        email: { type:String}
+        email: { type:String},
+        isAttending: { type: Boolean }
     }
 })
 const invoiceSchema = new Schema({
