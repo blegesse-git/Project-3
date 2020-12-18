@@ -58,7 +58,7 @@ export default function SelectEvent(props) {
 
                 {
                   events.map((event) => (
-                    <MenuItem key={event._id} value={event._id}>{event.name}</MenuItem>
+                    <MenuItem key={event._id} value={event._id}>{event.eventName}</MenuItem>
                   ))
                 }
               </Select>

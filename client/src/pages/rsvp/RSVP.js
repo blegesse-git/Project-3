@@ -39,7 +39,8 @@ export default function RSVP() {
   };
 
   const addGuest = async (event, name, email, callback) => {
-    const guestFound = event.guests.find((attendee) => attendee.guest.email === email);
+    const guests = event.guest || [];
+    const guestFound = guests.find((attendee) => attendee.guest.email === email);
 
     if (guestFound) {
       alert('Guest added previously.');

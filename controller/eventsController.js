@@ -59,7 +59,7 @@ module.exports = {
     db.Event.findOneAndUpdate({ _id: id },
       {
         $push: {
-          attendees: {...guestInfo},
+          guests: {...guestInfo},
         },
       },
       { new: true })
