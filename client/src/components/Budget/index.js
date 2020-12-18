@@ -6,8 +6,9 @@ import "./style.css"
 import { InputLabel, TextField } from '@material-ui/core'
 
 import { BudgetContext } from '../../context/budgetContext';
+import API from '../../utils/API'
 
-const Budget = () => {
+const Budget = (props) => {
     
     const [text, setText] = useState('')
     const [amount, setAmount] = useState()
@@ -52,15 +53,23 @@ const Budget = () => {
     // const  addTransaction  = useContext(BudgetContext) 
     const onSubmit = e => {
         e.preventDefault()
-    
+        console.log(props.eventState)
         const newTransaction = {
             id: Math.floor(Math.random() * 1000000),
             text, 
-            amount: +amount
+            amount: +amount,
+            // eventId: props.eventState
         }
 
-        addTransaction(newTransaction)
+        console.log(state)
+        const newT = [...state.transactions, newTransaction]
+        const newBudget = {budget,currentBalance:balance,expense, transactions:newT} // replace ..state with budget object 
+        const newEvent = {...props.eventState, budget: newBudget}
         
+        addTransaction(newTransaction)
+        API.updateEvent(newEvent, +props.eventState._id).then(res=> {
+            console.log(res)
+        })
     }
 
     return (

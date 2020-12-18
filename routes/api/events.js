@@ -13,6 +13,14 @@ router
   .put(eventsController.update)
   .delete(eventsController.remove);
 
+router
+  .route("/:id/guests")
+  .put(eventsController.addGuest);
+
+router
+  .route("/guests/:id/confirmation")
+  .get(eventsController.confirmAttendance);
+
 module.exports = router;
 
 

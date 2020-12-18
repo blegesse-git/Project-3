@@ -23,7 +23,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FullWidthGrid() {
+
+export default function FullWidthGrid( props) {
+
   const classes = useStyles();
 
 
@@ -35,18 +37,18 @@ export default function FullWidthGrid() {
             <div className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={12}>
-                <Paper className={classes.paper}><h1>Nina's Birthday</h1></Paper>
+                <Paper className={classes.paper}><h1>{props.eventState.eventName}</h1></Paper>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                 <Paper className={classes.paper}>
-                        <Budget />
+                        <Budget eventState={props.eventState}/>
                         
                     </Paper>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <Paper className={classes.paper}>
                         
-                        <EventInfo />
+                        <EventInfo eventState={props.eventState}/>
                         
 
                     </Paper>

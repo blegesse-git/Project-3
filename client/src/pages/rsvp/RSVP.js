@@ -27,8 +27,8 @@ export default function RSVP() {
   const [events, setEvents] = React.useState([]);
   const [selectedEvent, selectEvent] = React.useState({});
 
-  const fetchData = () => {
-    const fetchedEvents = EventsService.getEvents();
+  const fetchData = async () => {
+    const fetchedEvents = await EventsService.getEvents();
     setEvents(fetchedEvents);
   };
 
@@ -39,7 +39,8 @@ export default function RSVP() {
   };
 
   const addGuest = async (event, name, email, callback) => {
-    const guestFound = event.attendees.find((attendee) => attendee.email === email);
+    const guests = event.guest || [];
+    const guestFound = guests.find((attendee) => attendee.guest.email === email);
 
     if (guestFound) {
       alert('Guest added previously.');
