@@ -24,6 +24,11 @@ const useStyles = makeStyles((theme) => ({
 const InvoiceList = ({ invoice }) => {
     const classes = useStyles();
 
+    function handleRemove() {
+        //remove item
+        console.log(invoice.id)
+    }
+
     return (
         <Container>
             <div className={classes.root}>
@@ -35,7 +40,7 @@ const InvoiceList = ({ invoice }) => {
                     </ListItemAvatar>
                     <ListItemText primary={invoice.titleName} />
                     <ListItemSecondaryAction>
-                        <IconButton edge="end" aria-label="delete">
+                        <IconButton edge="end" aria-label="delete" onClick={handleRemove}>
                             <DeleteIcon />
                         </IconButton>
                     </ListItemSecondaryAction>
