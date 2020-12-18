@@ -8,14 +8,17 @@ import axios from 'axios';
 const EventsService = {
   getEvents: async () => {
     const response = await axios.get(`api/events`);
-    console.log(response)
     return await response.data;
   },
   addGuest: async (eventId, name, email) => {
+    const nameSeparated = name.split(' ')
     return axios.put(
-        `api/events/${eventId}`,
+        `api/events/${eventId}/guests`,
         {
-            name, email, isAttending: false,
+          firstName: nameSeparated[0], 
+          lastName: nameSeparated.length > 1 ? nameSeparated[1] : '',
+          email, 
+          isAttending: false,
         },
       )
       .then((response) => response)
@@ -23,6 +26,9 @@ const EventsService = {
         console.log('ERROR', error);
         throw 'New guest could not be saved';
       });
+  },
+  confirmGuestAttendance: (guestId) => {
+    return axios.get(`http://localhost:3000/api/events/guests/${guestId}/confirmation`);
   },
 };
 

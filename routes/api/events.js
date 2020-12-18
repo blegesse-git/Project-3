@@ -18,7 +18,7 @@ router
   .put(eventsController.addGuest);
 
 router
-  .route("/guests/:id/confirm")
+  .route("/guests/:id/confirmation")
   .get(eventsController.confirmAttendance);
 
 module.exports = router;

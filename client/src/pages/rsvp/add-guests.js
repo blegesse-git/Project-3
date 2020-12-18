@@ -57,7 +57,8 @@ export default function SelectEvent(props) {
     addGuest(event, name, email, onCancel);
   };
 
-  const guests = event.guest || [];
+  const guests = event.guests || [];
+  
 
   return (
     <Grid container className={classes.root}>
