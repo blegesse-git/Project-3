@@ -24,7 +24,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 export default function FullWidthGrid( props) {
+
   const classes = useStyles();
 
 
@@ -40,7 +42,7 @@ export default function FullWidthGrid( props) {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                 <Paper className={classes.paper}>
-                        <Budget />
+                        <Budget eventState={props.eventState}/>
                         
                     </Paper>
                 </Grid>

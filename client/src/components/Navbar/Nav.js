@@ -131,7 +131,7 @@ const useStyles = makeStyles((theme) => ({
         <Divider />
         <Button color="inherit"> <FavoriteBorderOutlinedIcon style={{ fontSize: 40 }}/>Inspo</Button>
         <Divider />
-        <AddNewEvent/>
+        <AddNewEvent setEvent={props.setEvent}/>
       </Drawer>
 
     </div>

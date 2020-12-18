@@ -44,13 +44,14 @@ module.exports = {
       params: { id },
       body,
     } = req;
+    console.log(id, body)
 
-    const name = body.name.split(' ');
+    
 
     const guestInfo = {
       guest: {
-        firstName: name[0],
-        lastName: name.length > 1 ? name[1] : '',
+        firstName: body.firstName,
+        lastName: body.lastName,
         email: body.email,
         isAttending: false,
       },
@@ -68,20 +69,21 @@ module.exports = {
           .find((guest) => guest.email === guestInfo.email);
 
         const data = {
-          name: guestInfo.firstName,
-          eventName: dbEvent.name,
-          confirmationUrl: `${CONFIG.host}api/events/guests/${guestFound._id}/confirm`,
+          name: guestInfo.guest.firstName,
+          eventName: dbEvent.eventName,
+          confirmationUrl: `http://localhost:3000/events/guests/${guestFound._id}/confirm`,
         };
 
         const subject = 'One event coming soon and you are invited!';
 
-        sendEmail(guestInfo.email, TEMPLATE_ID, data, subject);
+        sendEmail(guestInfo.guest.email, TEMPLATE_ID, data, subject);
         return dbEvent;
       })
       .then(dbEvent => res.json(dbEvent))
       .catch(err => res.status(500).json(err));
   },
   confirmAttendance: function(req, res) {
+    console.log(req.params);
     db.Event.update({ 'guests._id': req.params.id },
       {
         $set: {
@@ -92,4 +94,3 @@ module.exports = {
       .catch(err => res.status(500).json(err));
   },
 };
-//look up mongodb Atlas - set it up
