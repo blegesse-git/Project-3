@@ -22,6 +22,17 @@ const guestSchema = new Schema({
         isAttending: { type: Boolean }
     }
 })
+const transactionSchema = new Schema({
+    description:{type: String},
+    amount: {type: String}
+})
+const budgetSchema = new Schema({
+    budget: Number,
+    currentBalance: Number, 
+    expense: Number,
+    transactions: [transactionSchema]
+    
+})
 const invoiceSchema = new Schema({
     invoice: {
         firstName: String,
@@ -50,7 +61,8 @@ const eventSchema = new Schema({
     toDo: [todoSchema],
     reminders: [reminderSchema],
     invoice: [invoiceSchema],
-    eventInfo: [eventInfoSchema]
+    eventInfo: [eventInfoSchema],
+    budget: [budgetSchema]
     
 })
 
