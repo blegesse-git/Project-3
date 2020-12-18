@@ -5,33 +5,9 @@ import Countdown, { zeroPad, calcTimeDelta, formatTimeDelta } from 'react-countd
 import { useEventHook } from '../../hooks/Hooks';
 
 
-function EventCountdown(){
+function EventCountdown(props){
 
   const eventHook = useEventHook();
-
-  const events = [
-    //   {
-    //   eventName: "Event 1",
-    //   firstName: "Lisa",
-    //   lastName: "Worsham"
-    // },
-    //   {
-    //   eventName: "Event 2",
-    //   firstName: "Lisa",
-    //   lastName: "Worsham"
-    // },
-    //   {
-    //   eventName: "Event 3",
-    //   firstName: "Lisa",
-    //   lastName: "Worsham"
-    // },
-    //   {
-    //   eventName: "Event 4",
-    //   firstName: "Lisa",
-    //   lastName: "Worsham"
-    // }
-  ]
-  
 
     // Random component
 const Completionist = () => <span>Today is the day!</span>;
@@ -61,7 +37,7 @@ const renderer = ({days, hours, minutes, completed}) => {
 return(
 
     <Container>
-  <h1> Your next event will start n...</h1>
+  <h1> Your next event starts in: </h1>
        <Container>
         <Countdown
         

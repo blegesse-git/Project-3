@@ -28,7 +28,7 @@ const [eventName, setEventName] = useState('');
 const [firstName, setFirstName] =useState('');
 const [lastName, setLastName] = useState('');
 const [eventDate, setEventDate] = useState('');
-// const [eventBudget, setEventBudget] = useState('');
+const [eventBudget, setEventBudget] = useState('');
 const [eventEmail, setEventEmail] =useState('');
 const [phoneNum, setPhoneNum] = useState('');
 
@@ -51,8 +51,8 @@ const handleSubmitEventForm =(e) => {
     console.log("Last Name is set!")
     setEventDate("")
     console.log("Event Date is set!")
-    // setEventBudget("")
-    // console.log("Event Budget is Set!")
+    setEventBudget("")
+    console.log("Event Budget is Set!")
     setEventEmail("")
     console.log("Event Email is Set!")
     setPhoneNum("")
@@ -63,7 +63,7 @@ const handleSubmitEventForm =(e) => {
         firstName: firstName,
         lastName: lastName,
         eventDate: eventDate,
-        // eventBudget: eventBudget,
+        eventBudget: eventBudget,
         eventEmail: eventEmail,
         phoneNum: phoneNum
     };
@@ -106,8 +106,8 @@ const handleSubmitEventForm =(e) => {
             setFirstName={setFirstName}
             lastName={lastName}
             setLastName={setLastName}
-            // budget={eventBudget}
-            // setBudget={setEventBudget}
+            budget={eventBudget}
+            setBudget={setEventBudget}
             email={eventEmail}
             setEmail={setEventEmail}
             phone={phoneNum}
