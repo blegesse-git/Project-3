@@ -1,7 +1,14 @@
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
-
+const guestSchema = new Schema({
+    guest: {
+        firstName:{ type:String},
+        lastName: { type:String},
+        email: { type:String},
+        isAttending: { type: Boolean }
+    }
+})
 const eventSchema = new Schema({
     eventName: {
         type: String
@@ -23,7 +30,8 @@ const eventSchema = new Schema({
     },
     phoneNum: {
         type: Number
-    }
+    },
+    guests: { type: [guestSchema] }
 });
 
 const Event = mongoose.model("Event", eventSchema);

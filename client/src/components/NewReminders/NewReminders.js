@@ -1,21 +1,21 @@
 
-import RemindersList from "../Reminders/RemindersList"
+// import RemindersList from "../Reminders/RemindersList"
 
 
 
 
-function NewReminders({reminders}){
+// function NewReminders({reminders}){
 
-return(
-    <div>
-        {reminders.map(reminder =>(
-<RemindersList key ={reminder._id} title ={reminder.title}/>
-        ))}
+// return(
+//     <div>
+//         {reminders.map(reminder =>(
+// <RemindersList key ={reminder._id} title ={reminder.title}/>
+//         ))}
        
-    </div>
-)
+//     </div>
+// )
 
-}
+// }
 
 
-export default NewReminders;
+// export default NewReminders;

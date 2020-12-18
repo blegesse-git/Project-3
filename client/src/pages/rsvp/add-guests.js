@@ -57,6 +57,8 @@ export default function SelectEvent(props) {
     addGuest(event, name, email, onCancel);
   };
 
+  const guests = event.guest || [];
+
   return (
     <Grid container className={classes.root}>
 
@@ -73,21 +75,21 @@ export default function SelectEvent(props) {
 
                 <Grid container>
                   <Grid xs={12}>
-                    <TextField className={classes.formInput} id="name" label="Name" variant="filled" />
+                    <TextField className={classes.formInput} value={name} id="name" label="Name" variant="filled" onChange={(ev) => setName(ev.target.value)}/>
                   </Grid>
                 </Grid>
 
                 <Grid container>
                   <Grid xs={12}>
-                    <TextField className={classes.formInput} id="email" label="Email" variant="filled" />
+                    <TextField className={classes.formInput} value={email} id="email" label="Email" variant="filled" onChange={(ev) => setEmail(ev.target.value)} />
                   </Grid>
                 </Grid>
 
                 <Grid container>
                   <Grid xs={12}>
-                    <Button variant="contained" className={classes.cancelButton}>Cancel</Button>
+                    <Button variant="contained" className={classes.cancelButton} onClick={onCancel}>Cancel</Button>
 
-                    <Button variant="contained" color="primary">
+                    <Button variant="contained" color="primary" onClick={onAdd}>
                       Add
                     </Button>
                   </Grid>
@@ -116,7 +118,7 @@ export default function SelectEvent(props) {
                       </TableRow>
                     </TableHead>
                     <TableBody>
-                      {event.guests.map((row) => (
+                      {guests.map((row) => (
                         <TableRow key={row._id}>
                           <TableCell align="right">{row.guest.firstName}</TableCell>
                           <TableCell align="right">{row.guest.lastName}</TableCell>

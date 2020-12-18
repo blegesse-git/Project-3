@@ -126,8 +126,8 @@ const useStyles = makeStyles((theme) => ({
 
        <Button color="inherit"> <Link to = "/home" className="link"> <HomeOutlinedIcon style={{ fontSize: 40 }}/></Link>Home</Button>
        <Divider />
-        <Button color="inherit"> <Link to="/events" className="link"><CakeOutlinedIcon style={{ fontSize: 40 }}/></Link>Events</Button>
-         <EventLinks className= "link"/>
+        <Button color="inherit"> <CakeOutlinedIcon style={{ fontSize: 40 }}/>Events</Button>
+        <Button color="inherit"><Link to="/events" className="link"><EventLinks setEvent ={props.setEvent} className= "link"/></Link></Button>
         <Divider />
         <Button color="inherit"> <FavoriteBorderOutlinedIcon style={{ fontSize: 40 }}/>Inspo</Button>
         <Divider />
