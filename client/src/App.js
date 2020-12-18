@@ -3,7 +3,7 @@ import Wrapper from "./components/Wrapper/Wrapper"
 import Nav from "./components/Navbar/Nav"
 import Events from './pages/MyEvents'
 import Home from './pages/home'
-import EventTabs from "./components/Navbar/EventTabs"
+// import EventTabs from "./components/Navbar/EventTabs"
 
 
 // import GetInspired from "./pages/GetInspired"
@@ -28,7 +28,7 @@ function App() {
                         
 
                         <Route exact path="/" component={Home} />
-                        <EventTabs />
+                        {/* <EventTabs /> */}
                         <Route exact path="/home" component={Home} />
                         <Route exact path="/invoice" component={Invoice} />
                         <Route exact path="/rsvp" > <RSVP eventState= {event}/> </Route>

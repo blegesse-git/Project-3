@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Container from '../components/Container';
 import InvoiceForm from "../components/InvoiceForm/InvoiceForm"
 import InvoiceViewer from "../components/InvoiceViewer/InvoiceViewer"
+import EventTabs from "../components/Navbar/EventTabs"
 
 import "./invoice.css"
 
@@ -68,6 +69,8 @@ export default function Invoice() {
     };
 
     return (
+      <div>
+        <EventTabs/>
         <Container>
             <div className={classes.root}>
                 <Grid container spacing={3}>
@@ -90,5 +93,6 @@ export default function Invoice() {
                 </Grid>
             </div>
         </Container>
+        </div>
     )
 }

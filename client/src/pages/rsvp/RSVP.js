@@ -13,6 +13,7 @@ import EventsService from '../../services/events';
 import SelectEvent from './select-event';
 import AddGuests from './add-guests';
 import Container from "../../components/Container/index"
+import EventTabs from "../../components/Navbar/EventTabs"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,6 +58,8 @@ export default function RSVP() {
   };
 
   return (
+    <div>
+      <EventTabs/>
     <Container>
       <div className={classes.root}>
         <Grid container justify="space-around">
@@ -66,5 +69,6 @@ export default function RSVP() {
         </Grid>
       </div>
     </Container>
+    </div>
   );
 }
