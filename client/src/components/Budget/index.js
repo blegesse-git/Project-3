@@ -60,12 +60,14 @@ const Budget = (props) => {
             amount: +amount,
             // eventId: props.eventState
         }
+
+        console.log(state)
         const newT = [...state.transactions, newTransaction]
-        const newBudget = [...state, newT] // replace ..state with budget object 
+        const newBudget = {budget,currentBalance:balance,expense, transactions:newT} // replace ..state with budget object 
         const newEvent = {...props.eventState, budget: newBudget}
         
         addTransaction(newTransaction)
-        API.updateEvent(newEvent, props.eventState._id).then(res=> {
+        API.updateEvent(newEvent, +props.eventState._id).then(res=> {
             console.log(res)
         })
     }
