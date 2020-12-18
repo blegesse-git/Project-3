@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import Wrapper from "./components/Wrapper/Wrapper"
 import Nav from "./components/Navbar/Nav"
@@ -16,13 +17,18 @@ import { EventProvider } from "./context/EventContext";
 
 
 function App() {
+
     const [event, setEvent] = useState('');
+
     return (
         <EventProvider>
             <Router>
                 <div>
+
                   
-                    <Nav  setEvent ={setEvent}/>
+                   
+                    <Nav setEvent={setEvent}/>
+
 
                     <Wrapper>
                         
@@ -31,9 +37,11 @@ function App() {
                         <EventTabs />
                         <Route exact path="/home" component={Home} />
                         <Route exact path="/invoice" component={Invoice} />
+
                         <Route exact path="/rsvp" > <RSVP eventState= {event}/> </Route>
                         <Route exact path="/events" > <Events eventState={event}/></Route>
                   
+
                     </Wrapper>
                 </div>
             </Router>

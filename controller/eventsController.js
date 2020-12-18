@@ -92,4 +92,3 @@ module.exports = {
       .catch(err => res.status(500).json(err));
   },
 };
-//look up mongodb Atlas - set it up

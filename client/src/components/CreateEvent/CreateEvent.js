@@ -6,7 +6,7 @@ import CreateEventForm from "../CreateEventForm/CreateEventForm"
 import API from "../../utils/API";
 import { useEventHook } from '../../hooks/Hooks';
 
-function CreateEvent() {
+function CreateEvent(props) {
 
     const eventHook = useEventHook();
 
@@ -71,7 +71,7 @@ const handleSubmitEventForm =(e) => {
     //console.log(data);
   
     API.createEvent(data).then(results => {
-
+        props.setEvent(results.data)
        console.log("React/front end API hit");
        console.log(results);
        eventHook.addEvent(results.data);

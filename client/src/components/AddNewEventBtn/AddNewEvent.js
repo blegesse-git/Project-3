@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function AddNewEvent(){
+function AddNewEvent(props){
     const classes = useStyles();
     const classesModal = useStylesModal();
     const [modalStyle] = React.useState(getModalStyle);
@@ -56,7 +56,7 @@ function AddNewEvent(){
 
     const body = (
       <div style={modalStyle} className={classesModal.paper}>
-  <CreateEvent/>
+  <CreateEvent setEvent={props.setEvent}/>
       </div>
     );
     return(
