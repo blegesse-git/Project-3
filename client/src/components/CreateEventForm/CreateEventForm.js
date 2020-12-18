@@ -93,13 +93,13 @@ const CreateEventForm = (props) => {
                             onChange = {(e) => props.setLastName(e.target.value)}
                             />   
                         
-                            {/* <TextField
+                            <TextField
                              label="Budget"
                              required={true}
                              value ={props.budget}
                              style={{width: 400}}
                              onChange={(e) => props.setBudget(e.target.value)}
-                             /> */}
+                             />
                              
                             <TextField
                              label= "Email"
