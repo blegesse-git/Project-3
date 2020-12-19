@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { BudgetContext } from '../../context/budgetContext';
-import { Transaction } from '../Transaction/transactionList'
+import { Transaction } from '../banana/transactionList'
 
 
 const useStyles = makeStyles({
