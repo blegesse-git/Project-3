@@ -1,7 +1,8 @@
 import React, {useState, useContext, createContext, useReducer} from 'react'
 import AppReducer from '../../context/AppReducer'
 import OutlinedButtons from '../../components/Submit Button'
-import Transaction from '../Transaction'
+import Transaction from '../Transaction';
+import EventsService from '../../services/events';
 import "./style.css"
 import { InputLabel, TextField } from '@material-ui/core'
 
@@ -11,65 +12,44 @@ import API from '../../utils/API'
 const Budget = (props) => {
     
     const [text, setText] = useState('')
-    const [amount, setAmount] = useState()
+    const [amount, setAmount] = useState(0);
+    const [budget, setBudget] = useState(props.eventState.eventBudget || 0);
+    const [transactions, setTransactions] = useState(
+        props.eventState.transactions || [],
+    );
 
-    const initialState = {
-        transactions : [
-            { id: 1, text: 'Flowers', amount: -232.43},
-            { id: 2, text: 'Food', amount: -123.23},
-            { id: 3, text: 'Budget Increase', amount: 700.00},
-            { id: 4, text: 'Cake', amount: -143.22},
-            { id: 5, text: 'Games', amount: -142.12}
-    
-        ]
-    }
-    
-    
-    
-    
-     const BudgetContext = createContext(initialState);
-    
-    
-        const [state, dispatch] = useReducer(AppReducer, initialState);
-    
-        function addTransaction(transaction) {
-            dispatch({
-                type: 'ADD_TRANSACTION',
-                payload: transaction
-            })
-        }
-    
-    // const {transactions} = useContext(BudgetContext)
-    const amounts = state.transactions.map(transaction=> transaction.amount)
-    const balance = amounts.reduce( (acc, item) => (acc += item), 0).toFixed(2)
+    const calculateTotalExpenses = (incomingTransactions) => {
+        return incomingTransactions
+            .filter((transaction) => transaction.amount < 0)
+            .reduce(
+                (acc, current) => acc + current.amount,
+                0,
+            );
+    };
 
-    const budget = amounts 
-    .filter(item => item > 0)
-    .reduce( (acc, item) => (acc += item), 0)
-    .toFixed(2)
+    const incomingBudget = props.eventState.eventBudget || 0;
 
-    const expense = ( amounts.filter(item => item < 0 ).reduce((acc, item) => (acc += item), 0 ) * -1 ).toFixed(2)
+    const initialTotalExpenses = calculateTotalExpenses(props.eventState.transactions || []);
+
+    const [totalExpenses, setTotalExpenses] = useState(initialTotalExpenses);
+    const [balance, setBalance] = useState(incomingBudget + initialTotalExpenses);
    
-    // const  addTransaction  = useContext(BudgetContext) 
-    const onSubmit = e => {
-        e.preventDefault()
-        console.log(props.eventState)
-        const newTransaction = {
-            id: Math.floor(Math.random() * 1000000),
-            text, 
-            amount: +amount,
-            // eventId: props.eventState
-        }
+    const onSubmit = async e => {
+        e.preventDefault();
+        const response = await EventsService.addTransaction(props.eventState._id, text, amount);
 
-        console.log(state)
-        const newT = [...state.transactions, newTransaction]
-        const newBudget = {budget,currentBalance:balance,expense, transactions:newT} // replace ..state with budget object 
-        const newEvent = {...props.eventState, budget: newBudget}
-        
-        addTransaction(newTransaction)
-        API.updateEvent(newEvent, +props.eventState._id).then(res=> {
-            console.log(res)
-        })
+        setBudget(response.data[0].eventBudget || 0);
+
+        const newTransactions = response.data[0].transactions || [];
+        setTransactions(newTransactions);
+
+        const updatedTotalExpenses = calculateTotalExpenses(newTransactions);
+        const budget = response.data[0].eventBudget || 0;
+
+        setTotalExpenses(updatedTotalExpenses);
+        setBalance(budget - ((-1) * updatedTotalExpenses));
+        setText('');
+        setAmount(0);
     }
 
     return (
@@ -79,7 +59,7 @@ const Budget = (props) => {
             
             <h3 id="balance">Current Balance: ${balance}</h3>
             
-            <h3 id="expense">Expenses: ${expense}</h3>
+            <h3 id="expense">Expenses: ${totalExpenses}</h3>
             <div id="budgetInput">
                 
                 <form onSubmit={onSubmit}>
@@ -87,7 +67,7 @@ const Budget = (props) => {
                     <TextField label="Enter Amount (- or +)" value = {amount} onChange = {(e) => setAmount(e.target.value)}/>
                     <button id="enter">Enter</button>
                 </form>
-                <Transaction transactionState={state} />
+                <Transaction transactionState={{ transactions }} />
 
             </div>
 

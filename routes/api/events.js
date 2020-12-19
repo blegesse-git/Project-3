@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const eventsController = require("../../controller/eventsController");
+const transactionsController = require("../../controller/transactionsController");
 
 // Matches with "/api/events"
 router.route("/")
@@ -20,6 +21,10 @@ router
 router
   .route("/guests/:id/confirmation")
   .get(eventsController.confirmAttendance);
+
+router
+  .route("/:eventId/transactions")
+  .put(transactionsController.addTransaction);
 
 module.exports = router;
 

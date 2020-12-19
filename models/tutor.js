@@ -8,7 +8,26 @@ const guestSchema = new Schema({
         email: { type:String},
         isAttending: { type: Boolean }
     }
-})
+});
+
+const transationSchema = new Schema({
+    description: {
+        type: String,
+    },
+    amount: {
+        type: Number,
+    },
+});
+
+const toDoItemSchema = new Schema({
+    description: {
+        type: String,
+    },
+    isDone: {
+        type: Boolean,
+    },
+});
+
 const eventSchema = new Schema({
     eventName: {
         type: String
@@ -31,7 +50,15 @@ const eventSchema = new Schema({
     phoneNum: {
         type: Number
     },
-    guests: { type: [guestSchema] }
+    guests: {
+        type: [guestSchema],
+    },
+    transactions: { 
+        type: [transationSchema],
+    },
+    toDoItems: {
+        type: [toDoItemSchema],
+    },
 });
 
 const Event = mongoose.model("Event", eventSchema);

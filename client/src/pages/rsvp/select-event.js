@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'left',
     color: theme.palette.text.secondary,
   },
+  header:{
+    flexGrow: 1,
+  }
 }));
 
 export default function SelectEvent(props) {
@@ -39,9 +42,10 @@ export default function SelectEvent(props) {
   };
 
   return (
-    <Grid container className={classes.root}>
-
-      <Grid item className={classes.paper}>
+    <Container>
+      <div className ={classes.header}>
+      <Grid container spacing={3}>
+       <Grid item xs={12} className={classes.paper}>
         <Card>
           <CardContent>
             <FormControl variant="filled" className={classes.formControl}>
@@ -68,5 +72,7 @@ export default function SelectEvent(props) {
       </Grid>
 
     </Grid>
+    </div>
+    </Container>
   )
 }

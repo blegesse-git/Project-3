@@ -21,11 +21,13 @@ const guestSchema = new Schema({
         email: { type:String},
         isAttending: { type: Boolean }
     }
-})
+});
+
 const transactionSchema = new Schema({
     description:{type: String},
     amount: {type: String}
-})
+});
+
 const budgetSchema = new Schema({
     budget: Number,
     currentBalance: Number, 
