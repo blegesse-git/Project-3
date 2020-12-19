@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Wrapper from "./components/Wrapper/Wrapper"
 import Nav from "./components/Navbar/Nav"
 import Events from './pages/MyEvents'
-import Home from './pages/home'
+import Home from './pages/Home'
 import ConfirmationPage from './pages/confirmation';
 // import GetInspired from "./pages/GetInspired"
 import Invoice from "./pages/invoice"
@@ -23,10 +23,10 @@ function App() {
                 <div>
                     <Nav setEvent={setEvent}/>
                     <Wrapper>
-                        <Route exact path="/" component={Home} />
-                        <Route exact path="/home" component={Home} />
+                    <Route exact path="/"> <Home setEvent={setEvent} eventState={event}/> </Route>
+                        <Route exact path="/home"  ><Home setEvent={setEvent} eventState={event}/> </Route>
                         <Route exact path="/invoice"> <Invoice eventState ={event}/> </Route>
-                        <Route exact path="/rsvp" > <RSVP eventState= {event}/> </Route>
+                        <Route exact path="/rsvp" > <RSVP eventState={event} setEvent={setEvent} /> </Route>
                         <Route exact path="/events" > <Events eventState={event}/></Route>
                         <Route exact path="/events/guests/:id/confirm" component={ConfirmationPage}></Route>
                     </Wrapper>

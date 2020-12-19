@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import ReceiptIcon from '@material-ui/icons/Receipt';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
-// import EventLinks from "./EventLinks"
+
 const useStyles = makeStyles({
     root: {
       flexGrow: 1,
@@ -34,7 +34,7 @@ const useStyles = makeStyles({
   return (
     <div className={classes.root} >
  
-        <Tabs value={currentTab} onChange={handleChange} aria-label={currentTab} textColor="primary"   indicatorColor="secondary">
+        <Tabs value={currentTab} onChange={handleChange}  textColor="primary"   indicatorColor="secondary">
         <Link to="/events" className="link"> <DashboardIcon style={{ fontSize: 30 }} /><Tab label="Event Board"/> </Link>
         <Link to = "/invoice" className="link"> <ReceiptIcon style={{ fontSize: 30 }} /><Tab label="Invoice" /></Link>
         <Link to ="/rsvp" className="link"><MailOutlineIcon style={{ fontSize: 30 }} /><Tab label="RSVP"  /></Link>

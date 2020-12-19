@@ -6,54 +6,55 @@ import EventTabs from "./EventTabs";
 
 
 
- function EventLinks(props) {
+function EventLinks(props) {
 
 
-    
+
   const eventHook = useEventHook();
   const events = [
-  //   {
-  //   eventName: "Event 1",
-  //   firstName: "Lisa",
-  //   lastName: "Worsham"
-  // },
-  //   {
-  //   eventName: "Event 2",
-  //   firstName: "Lisa",
-  //   lastName: "Worsham"
-  // },
-  //   {
-  //   eventName: "Event 3",
-  //   firstName: "Lisa",
-  //   lastName: "Worsham"
-  // },
-  //   {
-  //   eventName: "Event 4",
-  //   firstName: "Lisa",
-  //   lastName: "Worsham"
-  // }
-]
+    //   {
+    //   eventName: "Event 1",
+    //   firstName: "Lisa",
+    //   lastName: "Worsham"
+    // },
+    //   {
+    //   eventName: "Event 2",
+    //   firstName: "Lisa",
+    //   lastName: "Worsham"
+    // },
+    //   {
+    //   eventName: "Event 3",
+    //   firstName: "Lisa",
+    //   lastName: "Worsham"
+    // },
+    //   {
+    //   eventName: "Event 4",
+    //   firstName: "Lisa",
+    //   lastName: "Worsham"
+    // }
+  ]
 
 
-function checkLinks(event2){
-  console.log(event2)
-  props.setEvent(event2)
-}
+  function checkLinks(event2) {
+    console.log(event2)
+    props.setEvent(event2)
+  }
+  
 
 
   return (
     <Container>
       {eventHook.events.map((event2) => {
-   return <Link
-    key={event2._id}
-      component="button"
-      variant="body1"
-      style={{color: 'black', fontSize: 18, textDecoration:"underline"}}
-      onClick = {() => checkLinks(event2)}
-    >
-     {event2.eventName}
-    </Link>
-       })}
+        return <Link
+          key={event2._id}
+          component="button"
+          variant="body1"
+          style={{ color: 'black', fontSize: 18, textDecoration: "underline" }}
+          onClick={() => checkLinks(event2)}
+        >
+          {event2.eventName}
+        </Link>
+      })}
     </Container>
   );
 }
