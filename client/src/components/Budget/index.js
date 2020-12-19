@@ -1,7 +1,7 @@
 import React, {useState, useContext, createContext, useReducer} from 'react'
 import AppReducer from '../../context/AppReducer'
 import OutlinedButtons from '../../components/Submit Button'
-import Transaction from '../banana';
+import Transaction from '../Transaction';
 import EventsService from '../../services/events';
 import "./style.css"
 import { InputLabel, TextField } from '@material-ui/core'
