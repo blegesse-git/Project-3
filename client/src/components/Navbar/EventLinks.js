@@ -39,6 +39,7 @@ function EventLinks(props) {
     console.log(event2)
     props.setEvent(event2)
   }
+  
 
 
   return (

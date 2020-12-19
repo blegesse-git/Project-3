@@ -30,20 +30,20 @@ const useStyles = makeStyles((theme) => ({
 export default function RSVP(props) {
   // The first commit of Material-UI
   const classes = useStyles();
-  const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
   const [events, setEvents] = React.useState([]);
-  const [selectedEvent, selectEvent] = React.useState({});
+  const [internalEvent, setInternalEvent] = React.useState(props.eventState);
 
   const fetchData = async () => {
     const fetchedEvents = await EventsService.getEvents();
     setEvents(fetchedEvents);
+
+    if (internalEvent._id) {
+      const eventFound = fetchedEvents.find((e) => e._id === internalEvent._id);
+      setInternalEvent({...eventFound});
+    }
   };
 
   React.useEffect(() => fetchData(), []);
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
 
   const addGuest = async (event, name, email, callback) => {
     const guests = event.guest || [];
@@ -74,9 +74,7 @@ export default function RSVP(props) {
     <Container>
       <div className={classes.root}>
         <Grid container justify="space-around">
-          <SelectEvent events={events} selectedEvent={selectedEvent} onSelect={selectEvent} />
-
-          { Object.keys(selectedEvent).length !== 0 && (<AddGuests event={selectedEvent} addGuest={addGuest} />) }
+          { Object.keys(props.eventState).length !== 0 && (<AddGuests event={internalEvent} addGuest={addGuest} />) }
         </Grid>
       </div>
     </Container>

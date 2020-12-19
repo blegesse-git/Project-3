@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function Home() {
+function Home(props) {
   const classes = useStyles();
   // Reminder components : 
   const eventHook = useEventHook();
@@ -84,7 +84,7 @@ function Home() {
 
             <Grid item xs={12} sm={6}>
               <Paper className={classes.paper} id="upcomingEvents">
-                <UpcomingEvents />
+                <UpcomingEvents setEvent={props.setEvent} />
               </Paper>
               {/* <Paper className={classes.paper} id="Reminders">
                 <Typography variant="h6" className={classes.title}>
