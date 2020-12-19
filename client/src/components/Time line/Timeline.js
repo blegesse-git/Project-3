@@ -52,13 +52,13 @@ const useStyles = makeStyles((theme) => ({
     // }
   ]
 
-
+      
 
   return (
-    // <Container>
+   
     <Timeline align="alternate" className="timelineContainer">
       <h2> Timeline</h2>
-      {eventHook.events.map((event) => {
+      {eventHook.events.slice(0, 10).map((event) => {
  return <TimelineItem key={event._id} >
         <TimelineOppositeContent>
           <Typography variant="body2" color="textSecondary">
@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
       </TimelineItem>
       })}
     </Timeline>
-    // </Container>
+   
   );
 }
  
