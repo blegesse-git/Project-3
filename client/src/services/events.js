@@ -30,6 +30,20 @@ const EventsService = {
   confirmGuestAttendance: (guestId) => {
     return axios.get(`http://localhost:3000/api/events/guests/${guestId}/confirmation`);
   },
+  addTransaction: async (eventId, description, amount) => {
+    return axios.put(
+        `api/events/${eventId}/transactions`,
+        {
+          description,
+          amount,
+        },
+      )
+      .then((response) => response)
+      .catch((error) => {
+        console.log('ERROR', error);
+        throw 'New transaction could not be saved';
+      });
+  },
 };
 
 export default EventsService;
