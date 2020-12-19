@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Container from '../components/Container';
 import InvoiceForm from "../components/InvoiceForm/InvoiceForm"
 import InvoiceViewer from "../components/InvoiceViewer/InvoiceViewer"
+import EventTabs from "../components/Navbar/EventTabs"
 
 import "./invoice.css"
 
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function Invoice() {
+export default function Invoice(props) {
     const classes = useStyles();
 
     const [invoices, SetInvoices] = useState([
@@ -68,11 +69,13 @@ export default function Invoice() {
     };
 
     return (
+      <div>
+        <EventTabs/>
         <Container>
             <div className={classes.root}>
                 <Grid container spacing={3}>
                     <Grid item xs={12} >
-                        <Paper className={classes.paper}><h1>Invoices</h1></Paper>
+                        <Paper className={classes.paper}><h1> {props.eventState.eventName} 's Invoices</h1></Paper>
                     </Grid>
                     <Grid item xs={12} sm={6}>
                         <Paper className={classes.paper}><h2>Create Invoice</h2>
@@ -90,5 +93,6 @@ export default function Invoice() {
                 </Grid>
             </div>
         </Container>
+        </div>
     )
 }

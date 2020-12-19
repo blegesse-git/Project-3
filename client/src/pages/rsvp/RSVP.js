@@ -9,18 +9,25 @@ import {
   KeyboardDatePicker,
 } from '@material-ui/pickers';
 
+import Paper from '@material-ui/core/Paper';
 import EventsService from '../../services/events';
 import SelectEvent from './select-event';
 import AddGuests from './add-guests';
 import Container from "../../components/Container/index"
+import EventTabs from "../../components/Navbar/EventTabs"
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
 }));
 
-export default function RSVP() {
+export default function RSVP(props) {
   // The first commit of Material-UI
   const classes = useStyles();
   const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
@@ -57,6 +64,13 @@ export default function RSVP() {
   };
 
   return (
+    <div>
+      <EventTabs/>
+      <Grid container spacing={3}>
+                <Grid item xs={12}>
+                <Paper className={classes.paper}><h1>{props.eventState.eventName}'s Guest List</h1></Paper>
+                </Grid>
+                </Grid>
     <Container>
       <div className={classes.root}>
         <Grid container justify="space-around">
@@ -66,5 +80,6 @@ export default function RSVP() {
         </Grid>
       </div>
     </Container>
+    </div>
   );
 }

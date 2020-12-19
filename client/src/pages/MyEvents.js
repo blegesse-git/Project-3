@@ -12,6 +12,7 @@ import Budget from '../components/Budget'
 import Button from '@material-ui/core/Button';
 import Receipt from '../../src/components/Receipt';
 import EventInfo from '../../src/components/EventInfo'
+import EventTabs from "../components/Navbar/EventTabs";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -31,7 +32,7 @@ export default function FullWidthGrid( props) {
 
   return (
     <div>
-        
+        <EventTabs/>
         {/* <ButtonAppBar /> */}
         <Container>
             <div className={classes.root}>
