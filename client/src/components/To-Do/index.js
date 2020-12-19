@@ -4,8 +4,9 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import TextField from '@material-ui/core/TextField';
 import ListCom from "../To-DoList/index";
 import API from "../../utils/API";
+import EventsService from '../../services/events';
 
-const ToDOList = () => {
+const ToDOList = (props) => {
 
     const [item, setItem] =  useState("")
     const [newItem, setNewItem] = useState([])
@@ -19,7 +20,8 @@ const ToDOList = () => {
             return [...previousValue, item];
         });
         setItem("");
-
+        const response =  EventsService.addToDo(props.eventState._id, item)
+        
     };
     
     
