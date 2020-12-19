@@ -32,18 +32,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function Home() {
+function Home(props) {
   const classes = useStyles();
- // Reminder components : 
+  // Reminder components : 
   const eventHook = useEventHook();
-  useEffect(() => {API.getAllEvents().then((data) => {
-    // console.log(data);
-    // console.log(data.data);
-    eventHook.replaceAllEvents(data.data);
-  }) 
-}) 
+  useEffect(() => {
+    API.getAllEvents().then((data) => {
+      // console.log(data);
+      // console.log(data.data);
+      eventHook.replaceAllEvents(data.data);
+    })
+  })
 
- const [reminders, setReminders] = useState([
+  const [reminders, setReminders] = useState([
     // {
     //   id: 1,
     //   title: "Call vendors"
@@ -61,7 +62,7 @@ function Home() {
     console.log(newReminder._id)
     setReminders([...reminders, newReminder])
 
-    
+
   };
 
   return (
@@ -75,22 +76,21 @@ function Home() {
               </Paper>
             </Grid>
 
-          
             <Grid item xs={12} sm={6}>
               <Paper className={classes.paper}>
-              <OutlinedTimeline />
+                <OutlinedTimeline />
               </Paper>
             </Grid>
 
             <Grid item xs={12} sm={6}>
               <Paper className={classes.paper} id="upcomingEvents">
-                <UpcomingEvents />
+                <UpcomingEvents setEvent={props.setEvent} />
               </Paper>
               {/* <Paper className={classes.paper} id="Reminders">
                 <Typography variant="h6" className={classes.title}>
                   My Reminders
                 </Typography> */}
-                {/* <NewReminders reminders={reminders} />
+              {/* <NewReminders reminders={reminders} />
                 <ReminderForm addReminder={addReminder} /> */}
               {/* </Paper> */}
             </Grid>

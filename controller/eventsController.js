@@ -8,7 +8,7 @@ module.exports = {
   findAll: function(req, res) {
     db.Event
       .find({})
-      .sort({ date: -1 })
+      .sort({ eventDate: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -44,11 +44,11 @@ module.exports = {
       params: { id },
       body,
     } = req;
-    const name = body.name.split(' ');
-        const guestInfo = {
+
+    const guestInfo = {
       guest: {
-        firstName: name[0],
-        lastName: name.length > 1 ? name[1] : '',
+        firstName: body.firstName,
+        lastName: body.lastName,
         email: body.email,
         isAttending: false,
       },
@@ -63,17 +63,17 @@ module.exports = {
       { new: true })
       .then((dbEvent) => {
         const guestFound = dbEvent.guests
-          .find((guest) => guest.email === guestInfo.email);
+          .find((guest) => guest.guest.email === guestInfo.guest.email);
 
         const data = {
-          name: guestInfo.firstName,
-          eventName: dbEvent.name,
-          confirmationUrl: `${CONFIG.host}api/events/guests/${guestFound._id}/confirm`,
+          name: guestInfo.guest.firstName,
+          eventName: dbEvent.eventName,
+          confirmationUrl: `http://localhost:3000/events/guests/${guestFound._id}/confirm`,
         };
 
         const subject = 'One event coming soon and you are invited!';
 
-        sendEmail(guestInfo.email, TEMPLATE_ID, data, subject);
+        sendEmail(guestInfo.guest.email, TEMPLATE_ID, data, subject);
         return dbEvent;
       })
       .then(dbEvent => res.json(dbEvent))

@@ -40,31 +40,31 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function AddNewEvent(props){
-    const classes = useStyles();
-    const classesModal = useStylesModal();
-    const [modalStyle] = React.useState(getModalStyle);
-    const [open, setOpen] = React.useState(false);
-  
-    const handleOpen = () => {
-      setOpen(true);
-    };
-  
-    const handleClose = () => {
-      setOpen(false);
-    };
+function AddNewEvent(props) {
+  const classes = useStyles();
+  const classesModal = useStylesModal();
+  const [modalStyle] = React.useState(getModalStyle);
+  const [open, setOpen] = React.useState(false);
 
-    const body = (
-      <div style={modalStyle} className={classesModal.paper}>
-  <CreateEvent setEvent={props.setEvent}/>
-      </div>
-    );
-    return(
-<div className={classes.root}>
-        <Button  type="button" onClick={handleOpen} variant="contained" color="secondary"> <AddIcon/>
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const body = (
+    <div style={modalStyle} className={classesModal.paper}>
+      <CreateEvent setEvent={props.setEvent} />
+    </div>
+  );
+  return (
+    <div className={classes.root}>
+      <Button type="button" onClick={handleOpen} variant="contained" color="secondary"> <AddIcon />
         Add New Event
               </Button>
-              <Modal
+      <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="simple-modal-title"
@@ -74,7 +74,7 @@ function AddNewEvent(props){
       </Modal>
 
     </div>
-    )
+  )
 }
 
 
