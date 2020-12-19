@@ -17,6 +17,7 @@ const Budget = (props) => {
     const [transactions, setTransactions] = useState(
         props.eventState.transactions || [],
     );
+    
 
     const calculateTotalExpenses = (incomingTransactions) => {
         return incomingTransactions

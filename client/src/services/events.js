@@ -44,6 +44,23 @@ const EventsService = {
         throw 'New transaction could not be saved';
       });
   },
+  addToDo:  (eventId, description) => {
+    console.log(description)
+    console.log(eventId)
+    return axios.put(
+        `api/events/${eventId}/todo`,
+        {
+          description
+          
+        },
+      )
+      .then((response) => response )
+    
+      .catch((error) => {
+        console.log('ERROR', error);
+        throw 'New todo could not be saved';
+      });
+  },
 };
 
 export default EventsService;

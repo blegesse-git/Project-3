@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const eventsController = require("../../controller/eventsController");
 const transactionsController = require("../../controller/transactionsController");
+const toDoController = require("../../controller/toDoController");
+
 
 // Matches with "/api/events"
 router.route("/")
@@ -25,6 +27,9 @@ router
 router
   .route("/:eventId/transactions")
   .put(transactionsController.addTransaction);
+router
+  .route("/:eventId/todo")
+  .put(toDoController.addToDo);
 
 module.exports = router;
 
