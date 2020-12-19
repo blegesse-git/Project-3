@@ -42,7 +42,7 @@ function Home(props) {
       // console.log(data.data);
       eventHook.replaceAllEvents(data.data);
     })
-  })
+  },[])
 
   const [reminders, setReminders] = useState([
     // {
