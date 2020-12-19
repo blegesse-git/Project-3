@@ -39,7 +39,7 @@ export default function RSVP(props) {
 
     if (internalEvent._id) {
       const eventFound = fetchedEvents.find((e) => e._id === internalEvent._id);
-      setInternalEvent({...eventFound});
+      setInternalEvent({ ...eventFound });
     }
   };
 
@@ -58,25 +58,28 @@ export default function RSVP(props) {
       await EventsService.addGuest(event._id, name, email);
       await fetchData();
       callback();
-    } catch(error) {
+    } catch (error) {
       alert('Error', error);
     }
   };
 
   return (
     <div>
-      <EventTabs/>
-      <Grid container spacing={3}>
-                <Grid item xs={12}>
-                <Paper className={classes.paper}><h1>{props.eventState.eventName}'s Guest List</h1></Paper>
-                </Grid>
-                </Grid>
-    <Container>
-      <div className={classes.root}>
-        <Grid container justify="space-around">
-          { Object.keys(props.eventState).length !== 0 && (<AddGuests event={internalEvent} addGuest={addGuest} />) }
-        </Grid>
-      </div>
+      <EventTabs />
+      <Container>
+        <div className={classes.root}>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <Paper className={classes.paper}><h1>{props.eventState.eventName}</h1></Paper>
+            </Grid>
+          </Grid>
+
+          <div className={classes.root}>
+            <Grid container justify="space-around">
+              {Object.keys(props.eventState).length !== 0 && (<AddGuests event={internalEvent} addGuest={addGuest} />)}
+            </Grid>
+          </div>
+          </div>
     </Container>
     </div>
   );

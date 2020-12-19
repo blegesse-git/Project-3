@@ -8,7 +8,7 @@ export const Transaction = ({transaction}) => {
     return (
         <TableRow key={transaction.id} className={transaction.amount < 0 ? 'minus' : 'plus'}>
             <TableCell component="th" scope="row">
-            {transaction.text}
+            {transaction.description}
             </TableCell>
             
             <TableCell align="right"> {sign} ${Math.abs(transaction.amount)}</TableCell>
