@@ -9,7 +9,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import API from "../../utils/API";
 
-const InvoiceForm = ({ addInvoice }) => {
+const InvoiceForm = ({ addInvoice, fetchInvoices, event }) => {
     const [invoiceDate, setInvoiceDate] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -24,18 +24,20 @@ const InvoiceForm = ({ addInvoice }) => {
 
     const handleSubmitInvoice = (e) => {
         e.preventDefault();
-        addInvoice({
-            invoiceDate,
-            firstName,
-            lastName,
-            address1,
-            address2,
-            city,
-            state,
-            zip,
-            summary,
-            amountDue
-        })
+        // addInvoice({
+        //     invoiceDate,
+        //     firstName,
+        //     lastName,
+        //     address1,
+        //     address2,
+        //     city,
+        //     state,
+        //     zip,
+        //     summary,
+        //     amountDue,
+        //     eventId: event._id,
+        // });
+
         setFirstName("");
         setLastName("");
         setAddress1("");
@@ -56,12 +58,14 @@ const InvoiceForm = ({ addInvoice }) => {
             state: state,
             zip: zip,
             invoiceSummary: summary,
-            amountDue: amountDue
+            amountDue: amountDue,
+            eventId: event._id,
         }
 
         console.log(data)
         API.invoiceForm(data).then(results => {
             console.log("React/front end API hit");
+            fetchInvoices();
          })
     }
 
