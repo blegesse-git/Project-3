@@ -28,7 +28,7 @@ const EventsService = {
       });
   },
   confirmGuestAttendance: (guestId) => {
-    return axios.get(`http://localhost:3000/api/events/guests/${guestId}/confirmation`);
+    return axios.get(`api/events/guests/${guestId}/confirmation`);
   },
   addTransaction: async (eventId, description, amount) => {
     return axios.put(
@@ -45,8 +45,7 @@ const EventsService = {
       });
   },
   addToDo:  (eventId, description) => {
-    console.log(description)
-    console.log(eventId)
+    
     return axios.put(
         `api/events/${eventId}/todo`,
         {

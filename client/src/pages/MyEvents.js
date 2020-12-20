@@ -48,18 +48,19 @@ export default function FullWidthGrid(props) {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <Paper className={classes.paper}>
+                        <h2>To-Do list</h2>
+                        <ToDOList eventState={props.eventState}/>
+                    </Paper>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <Paper className={classes.paper}>
                         
                         <EventInfo eventState={props.eventState}/>
                         
 
                     </Paper>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Paper className={classes.paper}>
-                        <h2>To-Do list</h2>
-                        <ToDOList eventState={props.eventState}/>
-                    </Paper>
-                </Grid>
+                
                 
                 <Grid item xs={12} sm={6}>
                     <Paper className={classes.paper}>
