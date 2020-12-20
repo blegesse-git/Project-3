@@ -9,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { Container } from '@material-ui/core';
 import PersonIcon from '@material-ui/icons/Person';
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,8 +18,7 @@ const useStyles = makeStyles((theme) => ({
     },
     demo: {
       backgroundColor: theme.palette.background.paper,
-    }
-  
+    },
   }));
 
 const InvoiceList = ({ invoice }) => {
@@ -28,16 +28,9 @@ const InvoiceList = ({ invoice }) => {
         <Container>
             <div className={classes.root}>
                 <List>
-                    <ListItemAvatar>
-                        <Avatar>
-                            <PersonIcon />
-                        </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText primary={invoice.titleName} />
+
+                    <Button primary={`${invoice.firstName} ${invoice.lastName}`}>{`${invoice.firstName} ${invoice.lastName}`}</Button>
                     <ListItemSecondaryAction>
-                        <IconButton edge="end" aria-label="delete">
-                            <DeleteIcon />
-                        </IconButton>
                     </ListItemSecondaryAction>
                 </List>
             </div>
