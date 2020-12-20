@@ -27,6 +27,12 @@ mongoose.connect(
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false
+}).then(() =>{
+  console.log("it worked")
+  
+}).catch((e) => {
+  console.log("it didnt work")
+  console.log(e)
 });
 
 mongoose.connection.on("connected", () => {
