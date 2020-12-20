@@ -24,7 +24,7 @@ export default function AcccessibleTable(props) {
 
   const {transactions} = useContext(BudgetContext)
   
-    console.log(props.transactionState)
+    // console.log(props.transactionState)
   
 
   return (
