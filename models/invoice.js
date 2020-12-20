@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { stringify } = require("querystring");
 
 const Schema = mongoose.Schema;
 
@@ -40,6 +41,10 @@ const invoiceSchema = new Schema({
         },
         amountDue: { 
             type: Number, 
+            required: true
+        },
+        eventId: {
+            type: String,
             required: true
         }
     });
