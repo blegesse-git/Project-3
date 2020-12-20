@@ -25,26 +25,11 @@ const ToDOList = (props) => {
         setItems(response.data[0].toDoItems);
         setItem("");
         
-        // const results = await response
-        // setNewItem(results.data[0].toDoItems.description || [])
-        // console.log(results.data[0].toDoItems[0].description)
-        // const savedToDO = response.data[0].toDoItems || [];
-        
-            // setNewItem(result.response.data[0].toDOItems || [] );
         
         
         
     };
-    // const fetchToDo = async () => {
-    //     const response =  EventsService.addToDo(props.eventState._id, item)
-    //     console.log(response)
-        
-    // };
-
-    // useEffect(
-    //     () => fetchToDo(),
-    //     [],
-    // );
+    
    
     
     return (
