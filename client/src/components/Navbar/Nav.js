@@ -12,14 +12,19 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Button from '@material-ui/core/Button';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style.css"
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import CakeOutlinedIcon from '@material-ui/icons/CakeOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
-import EventLinks from"./EventLinks"
+import EventLinks from "./EventLinks"
 import AddNewEvent from '../AddNewEventBtn/AddNewEvent';
 import Logo from "../../assets/Logo.jpg"
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+
+
 
 const drawerWidth = 200;
 
@@ -27,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
+  
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
@@ -80,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
- function Nav(props) {
+function Nav(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -105,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
           >
             <MenuIcon />
           </IconButton>
-          <img src={Logo} className="headLogo"/>
+          <img src={Logo} className="headLogo" id="logo"/>
         </Toolbar>
     
       <Drawer
@@ -125,31 +131,44 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-{/* 
+        {/* 
        <Button color="inherit">  */}
-       <Link to = "/home" className="link"> <HomeOutlinedIcon style={{ fontSize: 40 }}/></Link>
-       {/* </Button> */}
-       <Divider />
-        {/* <Button color="inherit"> */}
-           <CakeOutlinedIcon style={{ fontSize: 40 }}/>
-           {/* </Button> */}
-        {/* <Button color="inherit"> */}
-          <Button><Link to="/events" className="link"><EventLinks setEvent ={props.setEvent} className= "link"/></Link></Button>
-          {/* </Button> */}
-        <Divider />
-        {/* <Button color="inherit"> */}
-           <FavoriteBorderOutlinedIcon style={{ fontSize: 40 }}/>
-           Inspo
-           {/* </Button> */}
-        <Divider />
-        <AddNewEvent setEvent={props.setEvent}/>
-
-
-
-
-
-
+       
+        <Link to="/home" className="link"> 
         
+          <ListItem button >
+          <ListItemIcon>
+            <HomeOutlinedIcon style={{ fontSize: 30}} />
+          </ListItemIcon>
+          <ListItemText>
+            <Typography style={{ fontWeight: 1000, fontSize: 18}} >Home</Typography>
+          </ListItemText>
+          </ListItem>
+        </Link>
+        {/* </Button> */}
+        <Divider />
+        {/* <Button color="inherit"> */}
+        {/* <CakeOutlinedIcon style={{ fontSize: 40 }} /> */}
+        {/* <h3 className="myEventsBtn">My Events</h3> */}
+        {/* </Button> */}
+        {/* <Button color="inherit"> */}
+        <EventLinks setEvent={props.setEvent} className="link" />
+        {/* </Button> */}
+       
+        <Divider />
+        {/* <Button color="inherit"> */}
+        {/* <FavoriteBorderOutlinedIcon style={{ fontSize: 40 }} /> */}
+           
+           {/* </Button> */}
+        <Divider />
+        <AddNewEvent setEvent={props.setEvent} />
+
+
+
+
+
+
+
       </Drawer>
 
     </div>
