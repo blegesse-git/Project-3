@@ -19,6 +19,7 @@ import CakeOutlinedIcon from '@material-ui/icons/CakeOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import EventLinks from "./EventLinks"
 import AddNewEvent from '../AddNewEventBtn/AddNewEvent';
+import Logo from "../../assets/Logo.jpg"
 
 
 const drawerWidth = 200;
@@ -96,21 +97,19 @@ function Nav(props) {
 
   return (
     <div className={classes.root}>
-      <Toolbar>
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          onClick={handleDrawerOpen}
-          edge="start"
-          className={clsx(classes.menuButton, open && classes.hide)}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6" noWrap>
-          Name of App
-          </Typography>
-      </Toolbar>
-
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            className={clsx(classes.menuButton, open && classes.hide)}
+          >
+            <MenuIcon />
+          </IconButton>
+          <img src={Logo} className="headLogo"/>
+        </Toolbar>
+    
       <Drawer
         className={classes.drawer}
         variant="persistent"
