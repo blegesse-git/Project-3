@@ -20,7 +20,7 @@ const InvoiceForm = ({ addInvoice, fetchInvoices, event }) => {
     const [zip, setZip] = useState("");
     const [summary, setSummary] = useState("");
     const [amountDue, setAmountDue] = useState("");
-    
+
 
     const handleSubmitInvoice = (e) => {
         e.preventDefault();
@@ -66,7 +66,7 @@ const InvoiceForm = ({ addInvoice, fetchInvoices, event }) => {
         API.invoiceForm(data).then(results => {
             console.log("React/front end API hit");
             fetchInvoices();
-         })
+        })
     }
 
     return (
@@ -74,9 +74,9 @@ const InvoiceForm = ({ addInvoice, fetchInvoices, event }) => {
             <Container>
                 <form onSubmit={handleSubmitInvoice}>
                     <FormControl>
-                        <TextField 
+                        <TextField
                             type="date"
-                            label="Invoice Date"
+                            // label="Invoice Date"
                             required={true}
                             style={{ width: 250 }}
                             value={invoiceDate}
@@ -88,77 +88,84 @@ const InvoiceForm = ({ addInvoice, fetchInvoices, event }) => {
                             required={true}
                             style={{ width: 250 }}
                             value={firstName}
-                            onChange={(e) => setFirstName(e.target.value)} 
+                            onChange={(e) => setFirstName(e.target.value)}
                         />
-                        
+
                         <TextField
                             label="Last Name"
                             required={true}
                             style={{ width: 250 }}
                             value={lastName}
-                            onChange={(e) => setLastName(e.target.value)} 
+                            onChange={(e) => setLastName(e.target.value)}
                         />
-                        
+
                         <TextField
                             label="Address 1"
                             required={true}
                             style={{ width: 250 }}
                             value={address1}
-                            onChange={(e) => setAddress1(e.target.value)} 
+                            onChange={(e) => setAddress1(e.target.value)}
                         />
-                        
+
                         <TextField
                             label="Address 2"
-                            required={true}
+                            // required={true}
                             style={{ width: 250 }}
                             value={address2}
-                            onChange={(e) => setAddress2(e.target.value)} 
+                            onChange={(e) => setAddress2(e.target.value)}
                         />
-                        
+
                         <TextField
                             label="City"
                             required={true}
                             style={{ width: 250 }}
                             value={city}
-                            onChange={(e) => setCity(e.target.value)} 
+                            onChange={(e) => setCity(e.target.value)}
                         />
-                        
+
                         <TextField
                             label="State"
                             required={true}
                             style={{ width: 250 }}
                             value={state}
-                            onChange={(e) => setState(e.target.value)} 
+                            onChange={(e) => setState(e.target.value)}
                         />
-                        
+
                         <TextField
                             label="Zip"
                             required={true}
                             style={{ width: 250 }}
                             value={zip}
-                            onChange={(e) => setZip(e.target.value)} 
+                            onChange={(e) => setZip(e.target.value)}
                         />
 
                         <TextField
-                            id="standard-multiline-flexible"
+                            // id="standard-multiline-flexible"
                             label="Invoice Summary"
                             multiline
+                            style={{ width: 250 }}
                             rowsMax={10}
+                            required={true}
                             value={summary}
                             onChange={e => setSummary(e.target.value)}
                         />
+                        <TextField
+                            // className={classes.margin}
+                            // id="input-with-icon-textfield"
+                            label="Amount Due"
+                            value={amountDue}
+                            required={true}
+                            style={{ width: 250 }}
+                            onChange={e => setAmountDue(e.target.value)}
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        $
+                                    </InputAdornment>
+                                ),
+                            }}
+                        />
 
-                        {/* <InputLabel 
-                            htmlFor="standard-adornment-amount">Amount Due</InputLabel> */}
-                            <Input
-                                id="standard-adornment-amount"
-                                value={amountDue}
-                                onChange={e => setAmountDue(e.target.value)}
-                                startAdornment={
-                                    <InputAdornment 
-                                    position="start">$</InputAdornment>}
-                            />
-                        
                         <Button
                             variant="contained"
                             color="primary"
