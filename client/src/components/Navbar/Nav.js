@@ -12,13 +12,14 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Button from '@material-ui/core/Button';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style.css"
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import CakeOutlinedIcon from '@material-ui/icons/CakeOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
-import EventLinks from"./EventLinks"
+import EventLinks from "./EventLinks"
 import AddNewEvent from '../AddNewEventBtn/AddNewEvent';
+
 
 const drawerWidth = 200;
 
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
+  
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
@@ -79,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
- function Nav(props) {
+function Nav(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -94,21 +96,21 @@ const useStyles = makeStyles((theme) => ({
 
   return (
     <div className={classes.root}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap>
-            Name of App
+      <Toolbar>
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          onClick={handleDrawerOpen}
+          edge="start"
+          className={clsx(classes.menuButton, open && classes.hide)}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h6" noWrap>
+          Name of App
           </Typography>
-        </Toolbar>
-    
+      </Toolbar>
+
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -126,31 +128,32 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-{/* 
+        {/* 
        <Button color="inherit">  */}
-       <Link to = "/home" className="link"> <HomeOutlinedIcon style={{ fontSize: 40 }}/></Link>
-       {/* </Button> */}
-       <Divider />
-        {/* <Button color="inherit"> */}
-           <CakeOutlinedIcon style={{ fontSize: 40 }}/>
-           {/* </Button> */}
-        {/* <Button color="inherit"> */}
-          <Link to="/events" className="link"><EventLinks setEvent ={props.setEvent} className= "link"/></Link>
-          {/* </Button> */}
+        <Link to="/home" className="link"> <HomeOutlinedIcon style={{ fontSize: 40 }} /></Link>
+        {/* </Button> */}
         <Divider />
         {/* <Button color="inherit"> */}
-           <FavoriteBorderOutlinedIcon style={{ fontSize: 40 }}/>
+        <CakeOutlinedIcon style={{ fontSize: 40 }} />
+        {/* </Button> */}
+        {/* <Button color="inherit"> */}
+        <Link to="/events" className="link"><EventLinks setEvent={props.setEvent} className="link" /></Link>
+        {/* </Button> */}
+       
+        <Divider />
+        {/* <Button color="inherit"> */}
+        <FavoriteBorderOutlinedIcon style={{ fontSize: 40 }} />
            Inspo
            {/* </Button> */}
         <Divider />
-        <AddNewEvent setEvent={props.setEvent}/>
+        <AddNewEvent setEvent={props.setEvent} />
 
 
 
 
 
 
-        
+
       </Drawer>
 
     </div>
