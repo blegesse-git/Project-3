@@ -12,7 +12,7 @@ const CONFIG = {
     server: process.env.MONGO_SERVER || '',
     database: process.env.MONGO_DATABASE || '',
   },
-  host: process.env.HOST || 'https://powerful-fortress-17827.herokuapp.com/',
+  host: process.env.HOST || 'http://localhost:3000/',
 };
 
 module.exports = CONFIG;

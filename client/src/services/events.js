@@ -28,7 +28,7 @@ const EventsService = {
       });
   },
   confirmGuestAttendance: (guestId) => {
-    return fetch(`https://powerful-fortress-17827.herokuapp.com/api/events/guests/${guestId}/confirmation`);
+    return fetch(`http://localhost:3000/api/events/guests/${guestId}/confirmation`);
   },
   addTransaction: async (eventId, description, amount) => {
     return axios.put(
