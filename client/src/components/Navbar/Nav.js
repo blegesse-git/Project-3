@@ -19,6 +19,7 @@ import CakeOutlinedIcon from '@material-ui/icons/CakeOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import EventLinks from"./EventLinks"
 import AddNewEvent from '../AddNewEventBtn/AddNewEvent';
+import Logo from "../../assets/Logo.jpg"
 
 const drawerWidth = 200;
 
@@ -104,9 +105,7 @@ const useStyles = makeStyles((theme) => ({
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Name of App
-          </Typography>
+          <img src={Logo} className="headLogo"/>
         </Toolbar>
     
       <Drawer
@@ -135,7 +134,7 @@ const useStyles = makeStyles((theme) => ({
            <CakeOutlinedIcon style={{ fontSize: 40 }}/>
            {/* </Button> */}
         {/* <Button color="inherit"> */}
-          <Link to="/events" className="link"><EventLinks setEvent ={props.setEvent} className= "link"/></Link>
+          <Button><Link to="/events" className="link"><EventLinks setEvent ={props.setEvent} className= "link"/></Link></Button>
           {/* </Button> */}
         <Divider />
         {/* <Button color="inherit"> */}
