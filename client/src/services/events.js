@@ -45,8 +45,7 @@ const EventsService = {
       });
   },
   addToDo:  (eventId, description) => {
-    console.log(description)
-    console.log(eventId)
+    
     return axios.put(
         `api/events/${eventId}/todo`,
         {

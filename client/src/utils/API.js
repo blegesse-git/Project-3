@@ -34,5 +34,8 @@ export default {
     getAllInvoices: function(){
         return axios.get("api/invoices")
     },
+    getToDos: function(){
+        return axios.get("api/todo")
+    },
 
 }

@@ -27,7 +27,20 @@ const toDoItemSchema = new Schema({
         type: Boolean,
     },
 });
-
+const venueSchema = new Schema({
+    name: {
+        type: String,
+    },
+    phone: {
+        type: Number,
+    },
+    address: {
+        type: String,
+    },
+    note: {
+        type: String
+    },
+});
 const eventSchema = new Schema({
     eventName: {
         type: String
@@ -58,6 +71,9 @@ const eventSchema = new Schema({
     },
     toDoItems: {
         type: [toDoItemSchema],
+    },
+    eventVenue: {
+        type: [venueSchema]
     },
 });
 
