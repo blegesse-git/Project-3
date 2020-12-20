@@ -1,7 +1,7 @@
 import React, {useState, useContext, createContext, useReducer} from 'react'
 import AppReducer from '../../context/AppReducer'
 import OutlinedButtons from '../../components/Submit Button'
-import Transaction from '../Transaction';
+import Transaction from '../Transaction/index';
 import EventsService from '../../services/events';
 import "./style.css"
 import { InputLabel, TextField } from '@material-ui/core'
@@ -17,6 +17,7 @@ const Budget = (props) => {
     const [transactions, setTransactions] = useState(
         props.eventState.transactions || [],
     );
+    
 
     const calculateTotalExpenses = (incomingTransactions) => {
         return incomingTransactions

@@ -28,6 +28,11 @@ export default {
         console.log("this is util API page");
         console.log(data);
         return axios.post("api/invoices", data);
-    }
+    },
+   
+
+    getAllInvoices: function(){
+        return axios.get("api/invoices")
+    },
 
 }

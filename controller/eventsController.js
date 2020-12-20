@@ -68,7 +68,7 @@ module.exports = {
         const data = {
           name: guestInfo.guest.firstName,
           eventName: dbEvent.eventName,
-          confirmationUrl: `http://localhost:3000/events/guests/${guestFound._id}/confirm`,
+          confirmationUrl: `${CONFIG.host}events/guests/${guestFound._id}/confirm`,
         };
 
         const subject = 'One event coming soon and you are invited!';

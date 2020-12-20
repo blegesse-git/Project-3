@@ -113,17 +113,17 @@ export default function SelectEvent(props) {
                   <Table aria-label="simple table">
                     <TableHead>
                       <TableRow>
-                        <TableCell align="right">First Name</TableCell>
-                        <TableCell align="right">Last Name</TableCell>
-                        <TableCell align="right">Is Attending?</TableCell>
+                        <TableCell align="left">First Name</TableCell>
+                        <TableCell align="left">Last Name</TableCell>
+                        <TableCell align="center">Is Attending?</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
                       {guests.map((row) => (
                         <TableRow key={row._id}>
-                          <TableCell align="right">{row.guest.firstName}</TableCell>
-                          <TableCell align="right">{row.guest.lastName}</TableCell>
-                          <TableCell align="right">{
+                          <TableCell align="left">{row.guest.firstName}</TableCell>
+                          <TableCell align="left">{row.guest.lastName}</TableCell>
+                          <TableCell align="center">{
                             row.guest.isAttending
                               ? (<DoneOutlineIcon />)
                               : (<CancelOutlinedIcon />)
