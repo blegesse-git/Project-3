@@ -20,6 +20,10 @@ import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutline
 import EventLinks from "./EventLinks"
 import AddNewEvent from '../AddNewEventBtn/AddNewEvent';
 import Logo from "../../assets/Logo.jpg"
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+
 
 
 const drawerWidth = 200;
@@ -107,7 +111,7 @@ function Nav(props) {
           >
             <MenuIcon />
           </IconButton>
-          <img src={Logo} className="headLogo"/>
+          <img src={Logo} className="headLogo" id="logo"/>
         </Toolbar>
     
       <Drawer
@@ -129,20 +133,32 @@ function Nav(props) {
 
         {/* 
        <Button color="inherit">  */}
-        <Link to="/home" className="link"> <HomeOutlinedIcon style={{ fontSize: 40 }} /></Link>
+       
+        <Link to="/home" className="link"> 
+        
+          <ListItem button >
+          <ListItemIcon>
+            <HomeOutlinedIcon style={{ fontSize: 30}} />
+          </ListItemIcon>
+          <ListItemText>
+            <Typography style={{ fontWeight: 1000, fontSize: 18}} >Home</Typography>
+          </ListItemText>
+          </ListItem>
+        </Link>
         {/* </Button> */}
         <Divider />
         {/* <Button color="inherit"> */}
-        <CakeOutlinedIcon style={{ fontSize: 40 }} />
+        {/* <CakeOutlinedIcon style={{ fontSize: 40 }} /> */}
+        {/* <h3 className="myEventsBtn">My Events</h3> */}
         {/* </Button> */}
         {/* <Button color="inherit"> */}
-        <Link to="/events" className="link"><EventLinks setEvent={props.setEvent} className="link" /></Link>
+        <EventLinks setEvent={props.setEvent} className="link" />
         {/* </Button> */}
        
         <Divider />
         {/* <Button color="inherit"> */}
-        <FavoriteBorderOutlinedIcon style={{ fontSize: 40 }} />
-           Inspo
+        {/* <FavoriteBorderOutlinedIcon style={{ fontSize: 40 }} /> */}
+           
            {/* </Button> */}
         <Divider />
         <AddNewEvent setEvent={props.setEvent} />

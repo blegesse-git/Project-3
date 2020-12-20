@@ -35,7 +35,7 @@ export default function AcccessibleTable(props) {
           <TableRow>
             <TableCell>Description</TableCell>
             <TableCell align="right">Amount</TableCell>
-            <TableCell align="right">Date</TableCell>
+            
             
           </TableRow>
         </TableHead>

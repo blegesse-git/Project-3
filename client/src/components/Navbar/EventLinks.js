@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
-import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
-
+import Typography from '@material-ui/core/Typography';
 import { useEventHook } from '../../hooks/Hooks';
 import { Container } from '@material-ui/core';
 import EventTabs from "./EventTabs";
 import List from '@material-ui/core/List';
+import EventIcon from '@material-ui/icons/Event';
+import { Link } from "react-router-dom";
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 import StarBorder from '@material-ui/icons/StarBorder';
-
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import "./style.css"
 
 function EventLinks(props) {
   const useStyles = makeStyles((theme) => ({
@@ -56,7 +59,13 @@ function EventLinks(props) {
     console.log(event2)
     props.setEvent(event2)
   }
+  
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
 
 
   return (
@@ -65,6 +74,16 @@ function EventLinks(props) {
 
 
 
+      
+        <ListItem button onClick={handleClick} >
+        <ListItemIcon>
+          <EventIcon className="eventIcon"/>
+        </ListItemIcon>
+        <ListItemText>
+          <Typography style={{ fontWeight: 1000, fontSize: 18}} id="eventIcon"> Events</Typography>
+        </ListItemText>
+        {open ? <ExpandLess style={{ fontSize: 1 }}/> : <ExpandMore style={{ fontSize: 1 }}/>}
+      </ListItem>
       {eventHook.events.map((event2) => {
         return <Collapse in={open} timeout="auto" unmountOnExit key={event2._id} onClick={() => checkLinks(event2)}>
           <List component="div" disablePadding>
@@ -72,7 +91,10 @@ function EventLinks(props) {
               <ListItemIcon>
                 <StarBorder />
               </ListItemIcon>
-              <ListItemText>{event2.eventName}</ListItemText>
+              <Link to="/events" className="link" >
+
+                <ListItemText>{event2.eventName}</ListItemText>
+              </Link>
             </ListItem>
           </List>
         </Collapse>
