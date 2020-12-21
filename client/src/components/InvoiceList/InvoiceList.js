@@ -76,7 +76,7 @@ const InvoiceList = ({ invoice }) => {
             <p>{`${invoice.invoiceSummary}`}</p>
             <br></br>
             <p>{`Amount Due: $${invoice.amountDue}`}</p>
-            <p>Please play within 30 days of {`${invoice.invoiceDate}`}</p>
+            <p>Please pay within 30 days of {`${invoice.invoiceDate}`}</p>
         </div>
     );
 
