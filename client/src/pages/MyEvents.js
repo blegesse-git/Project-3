@@ -13,9 +13,14 @@ import Budget from '../components/Budget'
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Receipt from '../../src/components/Receipt';
-import EventInfo from '../../src/components/EventInfo'
+import AddEventInfo from '../../src/components/AddEventInfo'
 import EventTabs from "../components/Navbar/EventTabs";
+
+import EventInfo from '../../src/components/EventInfo'
+import VenueContextProvider from '../../src/context/VenueContext'
+
 import EventsService from '../services/events';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -70,6 +75,14 @@ export default function FullWidthGrid(props) {
               <Paper className={classes.paper}>
                 <h2>To-Do list</h2>
                 <ToDOList eventState={props.eventState} />
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper className={classes.paper}>
+                <VenueContextProvider>
+                  <AddEventInfo  />
+                </VenueContextProvider>
+
               </Paper>
             </Grid>
             <Grid item xs={12} sm={6}>
