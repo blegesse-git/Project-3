@@ -8,6 +8,7 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import API from "../../utils/API";
+import "./style.css"
 
 const InvoiceForm = ({ addInvoice, fetchInvoices, event }) => {
     const [invoiceDate, setInvoiceDate] = useState("");
@@ -167,8 +168,7 @@ const InvoiceForm = ({ addInvoice, fetchInvoices, event }) => {
                         />
 
                         <Button
-                            variant="contained"
-                            color="primary"
+                            className="invoiceButton"
                             type="submit"
                             style={{ width: 250, margin: 10 }}>Create Invoice</Button>
 

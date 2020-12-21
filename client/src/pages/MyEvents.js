@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -13,6 +13,7 @@ import Button from '@material-ui/core/Button';
 import Receipt from '../../src/components/Receipt';
 import EventInfo from '../../src/components/EventInfo'
 import EventTabs from "../components/Navbar/EventTabs";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -33,45 +34,48 @@ export default function FullWidthGrid(props) {
 
   return (
     <div>
-        <EventTabs/>
-        {/* <ButtonAppBar /> */}
-        <Container>
-            <div className={classes.root}>
-            <Grid container spacing={3}>
-                <Grid item xs={12}>
-                <Paper className={classes.paper}><h1>{props.eventState.eventName}</h1></Paper>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                <Paper className={classes.paper}>
-                        <Budget eventState={props.eventState}/>
-                        
-                    </Paper>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Paper className={classes.paper}>
-                        <h2>To-Do list</h2>
-                        <ToDOList eventState={props.eventState}/>
-                    </Paper>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Paper className={classes.paper}>
-                        
-                        <EventInfo eventState={props.eventState}/>
-                        
 
-                    </Paper>
-                </Grid>
-                
-                
-                <Grid item xs={12} sm={6}>
-                    <Paper className={classes.paper}>
-                        <Receipt />
-                    </Paper>
-                </Grid>
-                
+      {/* <ButtonAppBar /> */}
+      <Container>
+        <div className={classes.root}>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <EventTabs />
             </Grid>
-            </div>
-        </Container>
+            <Grid item xs={12}>
+              <Paper className={classes.paper}><h1>{props.eventState.eventName}</h1></Paper>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper className={classes.paper}>
+                <Budget eventState={props.eventState} />
+
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper className={classes.paper}>
+                <h2>To-Do list</h2>
+                <ToDOList eventState={props.eventState} />
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper className={classes.paper}>
+
+                <EventInfo eventState={props.eventState} />
+
+
+              </Paper>
+            </Grid>
+
+
+            <Grid item xs={12} sm={6}>
+              <Paper className={classes.paper}>
+                <Receipt />
+              </Paper>
+            </Grid>
+
+          </Grid>
+        </div>
+      </Container>
     </div>
   );
 }
@@ -113,12 +117,12 @@ export default function FullWidthGrid(props) {
 
 //   return (
 //     <div>
-        
+
 //         <ButtonAppBar />
 //         <Container>
-        
+
 //             <div className={classes.root}>
-            
+
 //                 <Typography variant="h2" gutterBottom id='name'>
 //                     Nina's Birthday
 //                 </Typography>
