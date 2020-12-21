@@ -14,7 +14,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import DoneOutlineIcon from '@material-ui/icons/DoneOutline';
 import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined';
-
+import invitationImg from '../../assets/invitation.jpg'
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: 20,
@@ -69,14 +69,14 @@ export default function SelectEvent(props) {
           <CardContent>
             <Grid container spacing={2}>
               <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
-                <img src={event.picture} className={classes.picture} />
+                <img src={invitationImg} className={classes.picture} />
               </Grid>
 
               <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
 
                 <Grid container>
                   <Grid xs={12}>
-                    <TextField className={classes.formInput} value={name} id="name" label="Name" variant="filled" onChange={(ev) => setName(ev.target.value)}/>
+                    <TextField className={classes.formInput} value={name} id="name" label="First and Last Name" variant="filled" onChange={(ev) => setName(ev.target.value)}/>
                   </Grid>
                 </Grid>
 

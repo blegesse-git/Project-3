@@ -72,14 +72,14 @@ function Home(props) {
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <EventCountdown />
+                <EventCountdown setEvent = {props.setEvent}/>
               </Paper>
             </Grid>
 
             <Grid item xs={12} sm={6}>
-              <Paper className={classes.paper}>
+              {/* <Paper className={classes.paper}> */}
                 <OutlinedTimeline />
-              </Paper>
+              {/* </Paper> */}
             </Grid>
 
             <Grid item xs={12} sm={6}>
