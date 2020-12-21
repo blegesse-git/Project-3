@@ -76,13 +76,13 @@ export default function SelectEvent(props) {
 
                 <Grid container>
                   <Grid xs={12}>
-                    <TextField className={classes.formInput} value={name} id="name" label="First and Last Name" variant="filled" onChange={(ev) => setName(ev.target.value)}/>
+                    <TextField className={classes.formInput} value={name} id="name" label="First and Last Name" variant="standard" onChange={(ev) => setName(ev.target.value)}/>
                   </Grid>
                 </Grid>
 
                 <Grid container>
                   <Grid xs={12}>
-                    <TextField className={classes.formInput} value={email} id="email" label="Email" variant="filled" onChange={(ev) => setEmail(ev.target.value)} />
+                    <TextField className={classes.formInput} value={email} id="email" label="Email" variant="standard" onChange={(ev) => setEmail(ev.target.value)} />
                   </Grid>
                 </Grid>
 
