@@ -28,7 +28,9 @@ export default function EventInfo() {
   const bull = <span className={classes.bullet}>•</span>;
 
   return (
+      
     <Card className={classes.root}>
+        
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Here is Event Venue Information
@@ -48,6 +50,7 @@ export default function EventInfo() {
       <CardActions>
         <Button size="small">Learn More</Button>
       </CardActions>
-    </Card>
+   
+   </Card>
   );
 }
