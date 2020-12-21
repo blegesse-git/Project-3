@@ -38,19 +38,13 @@ function Home(props) {
   const eventHook = useEventHook();
   useEffect(() => {
     API.getAllEvents().then((data) => {
-      // console.log(data);
-      // console.log(data.data);
+
       eventHook.replaceAllEvents(data.data);
     })
   },[])
 
-  const [reminders, setReminders] = useState([
-    // {
-    //   id: 1,
-    //   title: "Call vendors"
-    // }
 
-  ]);
+  const [reminders, setReminders] = useState([]);
 
 
   const addReminder = (text) => {
