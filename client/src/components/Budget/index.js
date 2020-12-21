@@ -67,7 +67,7 @@ const Budget = (props) => {
                     <TextField label="Enter Description" value = {text} onChange = {(e) => setText(e.target.value)}/>
                     <TextField label="Enter Amount (- or +)" value = {amount} onChange = {(e) => setAmount(e.target.value)}/>
                     {/* <br></br> */}
-                    <button id="enter" variant="outlined" color="secondary" size = "small">ENTER</button>
+                    <button id="enter" size="small">ENTER</button>
                 </form>
                 <Transaction transactionState={{ transactions }} />
 

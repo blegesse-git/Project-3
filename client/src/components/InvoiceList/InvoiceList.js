@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withTheme } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
@@ -41,7 +41,8 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.background.paper,
     },
     button: {
-        backgroundColor: "contained",
+        backgroundColor: "#e94837",
+        color: 'white',
         width: 400,
         height: 50,
         // marginLeft: 50,
@@ -84,7 +85,7 @@ const InvoiceList = ({ invoice }) => {
             <div className={classes.root}>
                 <List>
 
-                    <Button className={classes.button} type="link" variant="contained" color="secondary" style={{ backgroundColor: "LightCoral" }} onClick={handleOpen}>{`${invoice.firstName} ${invoice.lastName}`}</Button>
+                    <Button className={classes.button} type="link" variant="contained" onClick={handleOpen}>{`${invoice.firstName} ${invoice.lastName}`}</Button>
                     <Modal
                         open={open}
                         onClose={handleClose}

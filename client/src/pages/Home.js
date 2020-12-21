@@ -77,13 +77,13 @@ function Home(props) {
             </Grid>
 
             <Grid item xs={12} sm={6}>
-              {/* <Paper className={classes.paper}> */}
+              <Paper className={classes.paper}>
                 <OutlinedTimeline />
-              {/* </Paper> */}
+              </Paper>
             </Grid>
 
             <Grid item xs={12} sm={6}>
-              <Paper className={classes.paper} id="upcomingEvents">
+              <Paper className={classes.paper}>
                 <UpcomingEvents className={classes.paper} setEvent={props.setEvent} />
               </Paper>
               {/* <Paper className={classes.paper} id="Reminders">
