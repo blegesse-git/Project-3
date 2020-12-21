@@ -15,9 +15,11 @@ import Paper from '@material-ui/core/Paper';
 import DoneOutlineIcon from '@material-ui/icons/DoneOutline';
 import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined';
 import invitationImg from '../../assets/invitation.jpg'
+import { isWithinInterval } from 'date-fns';
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: 20,
+    
   },
   formControl: {
     margin: theme.spacing(1),
@@ -27,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     textAlign: 'left',
     color: theme.palette.text.secondary,
+    backgroundColor: "#c5e2e3"
   },
   picture: {
     width: '100%',
@@ -39,6 +42,13 @@ const useStyles = makeStyles((theme) => ({
   cancelButton: {
     marginRight: 10,
   },
+  cardStyle: {
+    backgroundColor: "#c5e2e3"
+  },
+  button: {
+    backgroundColor: "#e94837",
+    color: "white",
+  }
 }));
 
 export default function SelectEvent(props) {
@@ -66,8 +76,8 @@ export default function SelectEvent(props) {
       <Grid item xs={12}>
         
         <Card>
-          <CardContent>
-            <Grid container spacing={2}>
+          <CardContent className={classes.cardStyle}>
+            <Grid className={classes.cardStyle} container spacing={2}>
               <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
                 <img src={invitationImg} className={classes.picture} />
               </Grid>
@@ -90,7 +100,7 @@ export default function SelectEvent(props) {
                   <Grid xs={12}>
                     <Button variant="contained" className={classes.cancelButton} onClick={onCancel}>Cancel</Button>
 
-                    <Button variant="contained" color="primary" onClick={onAdd}>
+                    <Button className={classes.button} variant="contained" onClick={onAdd}>
                       Add
                     </Button>
                   </Grid>
@@ -106,8 +116,8 @@ export default function SelectEvent(props) {
       <Grid style={{ paddingTop: 20 }} item xs={12}>
         
         <Card>
-          <CardContent>
-            <Grid container spacing={2}>
+          <CardContent className={classes.cardStyle}>
+            <Grid className={classes.cardStyle} container spacing={2}>
               <Grid item xs={12}>
                 <TableContainer component={Paper}>
                   <Table aria-label="simple table">
