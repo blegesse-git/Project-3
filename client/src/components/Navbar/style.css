@@ -1,12 +1,12 @@
 .link{
-    color: black;
+    color: white;
     text-decoration: none;
 }
 
 .headLogo{
     
-    width: 25%;
-   
+    width: 250px !important;
+    justify-content: center;
    
 }
 #eventIcon{
@@ -20,3 +20,7 @@
     text-align: center;
 }
 
+.toolbar{
+    background-color: #323e48;
+    color: "white",
+}

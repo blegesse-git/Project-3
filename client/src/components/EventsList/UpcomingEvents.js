@@ -14,20 +14,32 @@ import {Link} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
+    // width: '100%',
+    // maxWidth: 360,
+    // backgroundColor: theme.palette.background.paper,
+    flexGrow: 1,
+        '& .MuiTextField-root': {
+            margin: theme.spacing(1),
+            width: '25ch',
+        }
   },
   button: {
-    backgroundColor: "contained",
     width: 400,
     height: 50,
-    marginLeft: 50,
+    // width: '200%',
+    padding: '6px 16px',
+    backgroundColor: "#e94837",
+    color: "white"
+    // marginLeft: 50,
 
   },
   container: {
-    borderColor: "black",
-    width: 600
+    // borderColor: "black",
+    // width: 600,
+    padding: theme.spacing(2),
+    // textAlign: 'center',
+    justifyContent: 'center',
+    color: theme.palette.text.secondary,
   }
 }));
 
@@ -74,14 +86,13 @@ function EventsList(props) {
             <Button className={classes.button}
               type="link"
               variant="contained"
-              color="secondary"
-              style={{ backgroundColor: "LightCoral" }}
+              
               onClick={() => onClickEvent(event2)}
               
             >
               <ListItemAvatar>
               <Avatar>
-                <EventIcon style={{ fontSize: 40, color: 'white', backgroundColor: "LightCoral" }} />
+                <EventIcon style={{ fontSize: 40, color: 'white', backgroundColor: "#e94837" }} />
               </Avatar>
               </ListItemAvatar>
               <ListItemText primary={event2.eventName} secondary={`${event2.firstName} ${event2.lastName}`} />

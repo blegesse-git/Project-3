@@ -19,25 +19,28 @@ import CakeOutlinedIcon from '@material-ui/icons/CakeOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import EventLinks from "./EventLinks"
 import AddNewEvent from '../AddNewEventBtn/AddNewEvent';
-import Logo from "../../assets/Logo.jpg"
+import Logo from "../../assets/Partie-Logo.png"
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 
 
-const drawerWidth = 200;
+const drawerWidth = 300;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    // display: 'flex',
+    // flexGrow: 1,
+    justifyContent: 'center',
   },
-  
+
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    color: "white",
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -46,9 +49,11 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    color: "white",
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    color: 'white'
   },
   hide: {
     display: 'none',
@@ -56,9 +61,13 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
+    color: 'white',
   },
   drawerPaper: {
     width: drawerWidth,
+    backgroundColor: "#323e48",
+    padding: theme.spacing(0, 1),
+    color: "white",
   },
   drawerHeader: {
     display: 'flex',
@@ -67,6 +76,7 @@ const useStyles = makeStyles((theme) => ({
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
+    color: "white",
   },
   content: {
     flexGrow: 1,
@@ -76,6 +86,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: -drawerWidth,
+    color: "white",
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
@@ -83,6 +94,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
     marginLeft: 0,
+    color: "white",
   },
 }));
 
@@ -101,19 +113,19 @@ function Nav(props) {
 
   return (
     <div className={classes.root}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <img src={Logo} className="headLogo" id="logo"/>
-        </Toolbar>
-    
+      <Toolbar className="toolbar">
+        <IconButton
+          // color="inherit"
+          aria-label="open drawer"
+          onClick={handleDrawerOpen}
+          edge="start"
+          className={clsx(classes.menuButton, open && classes.hide)}
+        >
+          <MenuIcon />
+        </IconButton>
+        <img src={Logo} className="headLogo" />
+      </Toolbar>
+
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -125,7 +137,7 @@ function Nav(props) {
       >
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            {theme.direction === 'ltr' ? <ChevronLeftIcon style={{ color: 'white'}} /> : <ChevronRightIcon style={{ color: 'white'}} />}
           </IconButton>
         </div>
 
@@ -133,16 +145,16 @@ function Nav(props) {
 
         {/* 
        <Button color="inherit">  */}
-       
-        <Link to="/home" className="link"> 
-        
+
+        <Link to="/home" className="link">
+
           <ListItem button >
-          <ListItemIcon>
-            <HomeOutlinedIcon style={{ fontSize: 30}} />
-          </ListItemIcon>
-          <ListItemText>
-            <Typography style={{ fontWeight: 1000, fontSize: 18}} >Home</Typography>
-          </ListItemText>
+            <ListItemIcon>
+              <HomeOutlinedIcon style={{ fontSize: 30, color: 'white' }} />
+            </ListItemIcon>
+            <ListItemText>
+              <Typography style={{ fontWeight: 1000, fontSize: 18, color: 'white' }} >Home</Typography>
+            </ListItemText>
           </ListItem>
         </Link>
         {/* </Button> */}
@@ -154,12 +166,12 @@ function Nav(props) {
         {/* <Button color="inherit"> */}
         <EventLinks setEvent={props.setEvent} className="link" />
         {/* </Button> */}
-       
+
         <Divider />
         {/* <Button color="inherit"> */}
         {/* <FavoriteBorderOutlinedIcon style={{ fontSize: 40 }} /> */}
-           
-           {/* </Button> */}
+
+        {/* </Button> */}
         <Divider />
         <AddNewEvent setEvent={props.setEvent} />
 
