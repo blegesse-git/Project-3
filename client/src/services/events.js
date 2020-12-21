@@ -61,6 +61,9 @@ const EventsService = {
         throw 'New todo could not be saved';
       });
   },
+  deleteEvent: (eventId) => {
+    return axios.delete(`api/events/${eventId}`);
+  },
 };
 
 export default EventsService;
