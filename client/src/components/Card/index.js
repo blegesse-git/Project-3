@@ -6,6 +6,7 @@ import Card from '@material-ui/core/Card';
 const useStyles = makeStyles({
   root: {
     maxWidth: 500, // this is how you can adjust the size of the card
+    backgroundColor: '#c5e2e3',
   },
   bullet: {
     display: 'inline-block',
