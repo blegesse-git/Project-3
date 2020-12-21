@@ -10,8 +10,7 @@ import Invoice from "./pages/invoice"
 import RSVP from "./pages/rsvp/RSVP"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { EventProvider } from "./context/EventContext";
-
-
+import "./App.css";
 
 function App() {
 
@@ -22,7 +21,7 @@ function App() {
             <Router>
                 <div>
                     <Nav setEvent={setEvent}/>
-                    <Wrapper>
+                    <Wrapper className="wrapper">
                     <Route exact path="/"> <Home setEvent={setEvent} eventState={event}/> </Route>
                         <Route exact path="/home"  ><Home setEvent={setEvent} eventState={event}/> </Route>
                         <Route exact path="/invoice"> <Invoice eventState ={event}/> </Route>
