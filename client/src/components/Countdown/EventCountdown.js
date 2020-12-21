@@ -23,8 +23,7 @@ function EventCountdown(props) {
   // Random component
   const Completionist = () => <span>You have an event today!</span>;
 
-  const countDownDate = ()=>  new Date (countdown.eventDate);
-  console.log(countDownDate())
+  const countDownDate = ()=>  new Date ();
   // console.log(countDownDate)  
   function eventDateInterval(){
     var date = countDownDate - Date.now ();
@@ -54,7 +53,7 @@ function EventCountdown(props) {
       <h1> Your next event starts in ... </h1>
       <Container>
         <Countdown
-           
+            date={countDownDate - Date.now ()}
          
       
           // renderer = {renderer}

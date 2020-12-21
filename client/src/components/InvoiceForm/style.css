@@ -1,0 +1,8 @@
+.invoiceButton{
+    background-color: #e94837 !important;
+    color: white !important;
+}
+
+.invoiceButton:hover{
+    background-color: lightgray !important;
+}

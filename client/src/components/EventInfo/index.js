@@ -1,64 +1,53 @@
-import React, { useState } from 'react'
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import SaveIcon from '@material-ui/icons/Save';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
-
-
-function EventInfo (props) {
-    const useStyles = makeStyles((theme) => ({
-    root: {
-    '& > *': {
-      margin: theme.spacing(1),
-      width: '45ch',
-    },
-    
+const useStyles = makeStyles({
+  root: {
+    minWidth: 275,
   },
-    }));
-    const [name, setName] =  useState("")
-    const [phone, setPhone] =  useState("")
-    const [Address, setAddress] =  useState("")
-    const [note, setNote] =  useState("")
-    const [newVenue, setNewVenue] = useState([]);
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+    transform: 'scale(0.8)',
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+});
 
-    const handleOnChange = (event) => {
-        setName(event.target.value)
-        setPhone(event.target.value)
-        setAddress(event.target.value)
-        setNote(event.target.value)
-    
-        
+export default function EventInfo() {
+  const classes = useStyles();
+  const bull = <span className={classes.bullet}>•</span>;
 
-    }
-
-    const handleonSubmit = (e) => {
-        e.preventDefault()
-        
-    }
-
-    const classes = useStyles();
-    return (
-        <div>
-            <form className={classes.root} noValidate autoComplete="off" onSubmit={handleonSubmit}>
-                <h2>Event Information</h2>
-                
-                <TextField id="standard-basic" label="Venue Name" onChange={handleOnChange}/>
-                <TextField id="standard-basic" label="Venue Phone" onChange={handleOnChange}/>
-                <TextField id="standard-basic" label="Venue Address" onChange={handleOnChange}/>
-                <TextField id="standard-basic" label="Notes" onChange={handleOnChange} />
-                <Button
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                    className={classes.button}
-                    startIcon={<SaveIcon />}
-                    value="submit"
-                >
-                    Save
-                </Button>
-            </form>
-        </div>
-    )
+  return (
+    <Card className={classes.root}>
+      <CardContent>
+        <Typography className={classes.title} color="textSecondary" gutterBottom>
+          Here is Event Venue Information
+        </Typography>
+        <Typography variant="h5" component="h2">
+          be{bull}nev{bull}o{bull}lent
+        </Typography>
+        <Typography className={classes.pos} color="textSecondary">
+          adjective
+        </Typography>
+        <Typography variant="body2" component="p">
+          well meaning and kindly.
+          <br />
+          {'"a benevolent smile"'}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Learn More</Button>
+      </CardActions>
+    </Card>
+  );
 }
-export default EventInfo

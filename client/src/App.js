@@ -10,7 +10,8 @@ import Invoice from "./pages/invoice"
 import RSVP from "./pages/rsvp/RSVP"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { EventProvider } from "./context/EventContext";
-import "./App.css";
+import "./App.css"
+
 
 function App() {
 

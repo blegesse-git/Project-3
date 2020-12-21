@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    backgroundColor: '#c5e2e3',
   },
 }));
 
@@ -79,8 +80,8 @@ export default function RSVP(props) {
               {Object.keys(props.eventState).length !== 0 && (<AddGuests event={internalEvent} addGuest={addGuest} />)}
             </Grid>
           </div>
-          </div>
-    </Container>
+        </div>
+      </Container>
     </div>
   );
 }

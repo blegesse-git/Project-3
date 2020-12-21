@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -10,9 +11,17 @@ import Container from '../components/Container'
 import ToDOList from '../components/To-Do'
 import Budget from '../components/Budget'
 import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
 import Receipt from '../../src/components/Receipt';
-import EventInfo from '../../src/components/EventInfo'
+import AddEventInfo from '../../src/components/AddEventInfo'
 import EventTabs from "../components/Navbar/EventTabs";
+
+import EventInfo from '../../src/components/EventInfo'
+import VenueContextProvider from '../../src/context/VenueContext'
+
+import EventsService from '../services/events';
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -21,56 +30,95 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    backgroundColor: '#c5e2e3',
   },
+  button: {
+    backgroundColor: '#e94837',
+    '&:hover':{
+        backgroundColor: "lightgrey",
+        
+    }
+}
 }));
 
 
 export default function FullWidthGrid(props) {
+  const history = useHistory();
 
   const classes = useStyles();
 
+  const onDelete = async () => {
+    await EventsService.deleteEvent(props.eventState._id);
+    history.push('/');
+  };
 
   return (
     <div>
-        <EventTabs/>
-        {/* <ButtonAppBar /> */}
-        <Container>
-            <div className={classes.root}>
-            <Grid container spacing={3}>
-                <Grid item xs={12}>
-                <Paper className={classes.paper}><h1>{props.eventState.eventName}</h1></Paper>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                <Paper className={classes.paper}>
-                        <Budget eventState={props.eventState}/>
-                        
-                    </Paper>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Paper className={classes.paper}>
-                        <h2>To-Do list</h2>
-                        <ToDOList eventState={props.eventState}/>
-                    </Paper>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Paper className={classes.paper}>
-                        
-                        <EventInfo eventState={props.eventState}/>
-                        
 
-                    </Paper>
-                </Grid>
-                
-                
-                <Grid item xs={12} sm={6}>
-                    <Paper className={classes.paper}>
-                        <Receipt />
-                    </Paper>
-                </Grid>
-                
+      {/* <ButtonAppBar /> */}
+      <Container>
+        <div className={classes.root}>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <EventTabs />
             </Grid>
-            </div>
-        </Container>
+            <Grid item xs={12}>
+              <Paper className={classes.paper}><h1>{props.eventState.eventName}</h1></Paper>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper className={classes.paper}>
+                <Budget eventState={props.eventState} />
+
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper className={classes.paper}>
+                <h2>To-Do list</h2>
+                <ToDOList eventState={props.eventState} />
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper className={classes.paper}>
+                <VenueContextProvider>
+                  <AddEventInfo  />
+                </VenueContextProvider>
+
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper className={classes.paper}>
+
+                <EventInfo eventState={props.eventState} />
+
+
+              </Paper>
+            </Grid>
+
+
+            <Grid item xs={12} sm={6}>
+              <Paper className={classes.paper}>
+                <Receipt />
+              </Paper>
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <Paper className={classes.paper}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="small"
+                  className={classes.button}
+                  startIcon={<DeleteIcon />}
+                  onClick={onDelete}
+                >
+                  Delete event
+                </Button>
+              </Paper>
+            </Grid>
+
+          </Grid>
+        </div>
+      </Container>
     </div>
   );
 }
@@ -112,12 +160,12 @@ export default function FullWidthGrid(props) {
 
 //   return (
 //     <div>
-        
+
 //         <ButtonAppBar />
 //         <Container>
-        
+
 //             <div className={classes.root}>
-            
+
 //                 <Typography variant="h2" gutterBottom id='name'>
 //                     Nina's Birthday
 //                 </Typography>

@@ -7,8 +7,8 @@ function Confirmation(){
     const { id } = useParams();
     const history = useHistory();
 
-    const confirmToApi = async () => {
-        await EventsService.confirmGuestAttendance(id);
+    const confirmToApi = () => {
+        EventsService.confirmGuestAttendance(id);
         history.push('/');
     };
 
