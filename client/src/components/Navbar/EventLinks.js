@@ -77,10 +77,10 @@ function EventLinks(props) {
       
         <ListItem button onClick={handleClick} >
         <ListItemIcon>
-          <EventIcon className="eventIcon"/>
+          <EventIcon className="eventIcon" style={{ color: 'white' }}/>
         </ListItemIcon>
         <ListItemText>
-          <Typography style={{ fontWeight: 1000, fontSize: 18}} id="eventIcon"> Events</Typography>
+          <Typography style={{ fontWeight: 1000, fontSize: 18, color: 'white' }} id="eventIcon"> Events</Typography>
         </ListItemText>
         {open ? <ExpandLess style={{ fontSize: 1 }}/> : <ExpandMore style={{ fontSize: 1 }}/>}
       </ListItem>
@@ -89,7 +89,7 @@ function EventLinks(props) {
           <List component="div" disablePadding>
             <ListItem button className={classes.nested}>
               <ListItemIcon>
-                <StarBorder />
+                <StarBorder style={{ color: 'white' }}/>
               </ListItemIcon>
               <Link to="/events" className="link" >
 

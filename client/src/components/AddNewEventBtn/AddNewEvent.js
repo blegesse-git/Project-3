@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import Modal from '@material-ui/core/Modal';
 import CreateEvent from "../CreateEvent/CreateEvent"
 import AddIcon from '@material-ui/icons/Add';
+import "./style.css";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -61,7 +62,7 @@ function AddNewEvent(props) {
   );
   return (
     <div className={classes.root}>
-      <Button type="button" onClick={handleOpen} variant="contained" color="secondary"> <AddIcon />
+      <Button type="button" onClick={handleOpen} variant="contained" className="button"> <AddIcon />
         Add New Event
               </Button>
       <Modal

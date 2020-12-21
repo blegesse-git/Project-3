@@ -11,7 +11,6 @@ import InvoiceForm from "../components/InvoiceForm/InvoiceForm"
 import InvoiceViewer from "../components/InvoiceViewer/InvoiceViewer"
 import EventTabs from "../components/Navbar/EventTabs"
 import Api from '../utils/API';
-
 import "./invoice.css"
 
 const useStyles = makeStyles((theme) => ({
@@ -26,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2),
         textAlign: 'center',
         color: theme.palette.text.secondary,
+        backgroundColor: '#c5e2e3',
     }
 }));
 
@@ -55,30 +55,33 @@ export default function Invoice(props) {
     // };
 
     return (
-      <div>
-        <EventTabs/>
-        <Container>
-            <div className={classes.root}>
-                <Grid container spacing={3}>
-                    <Grid item xs={12} >
-                        <Paper className={classes.paper}><h1> {props.eventState.eventName} 's Invoices</h1></Paper>
+        <div>
+
+            <Container>
+                <div className={classes.root}>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} >
+                            <EventTabs />
+                        </Grid>
+                        <Grid item xs={12} >
+                            <Paper className={classes.paper}><h1> {props.eventState.eventName}'s Invoices</h1></Paper>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <Paper className={classes.paper}><h2>Create Invoice</h2>
+                                <InvoiceForm fetchInvoices={fetchInvoices} event={props.eventState} />
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <Paper className={classes.paper} id="Invoices">
+                                <h2>
+                                    My Invoices
+                            </h2>
+                                <InvoiceViewer invoices={invoices} />
+                            </Paper>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <Paper className={classes.paper}><h2>Create Invoice</h2>
-                            <InvoiceForm  fetchInvoices={fetchInvoices} event={props.eventState} />
-                        </Paper>
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <Paper className={classes.paper} id="Invoices">
-                            <Typography variant="h6" className={classes.title}>
-                                My Invoices
-                            </Typography>
-                            <InvoiceViewer invoices={invoices} />
-                        </Paper>
-                    </Grid>
-                </Grid>
-            </div>
-        </Container>
+                </div>
+            </Container>
         </div>
     )
 }

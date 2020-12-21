@@ -10,11 +10,6 @@ import UpcomingEvents from "../components/EventsList/UpcomingEvents"
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-
-
-
-
-
 import API from "../utils/API"
 import { useEventHook } from "../hooks/Hooks";
 
@@ -23,11 +18,16 @@ import { useEventHook } from "../hooks/Hooks";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+        '& .MuiTextField-root': {
+            margin: theme.spacing(1),
+            width: '25ch',
+        }
   },
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    backgroundColor: '#c5e2e3'
   },
 }));
 
@@ -77,14 +77,14 @@ function Home(props) {
             </Grid>
 
             <Grid item xs={12} sm={6}>
-              {/* <Paper className={classes.paper}> */}
+              <Paper className={classes.paper}>
                 <OutlinedTimeline />
-              {/* </Paper> */}
+              </Paper>
             </Grid>
 
             <Grid item xs={12} sm={6}>
-              <Paper className={classes.paper} id="upcomingEvents">
-                <UpcomingEvents setEvent={props.setEvent} />
+              <Paper className={classes.paper}>
+                <UpcomingEvents className={classes.paper} setEvent={props.setEvent} />
               </Paper>
               {/* <Paper className={classes.paper} id="Reminders">
                 <Typography variant="h6" className={classes.title}>

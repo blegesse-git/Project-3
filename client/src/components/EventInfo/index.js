@@ -15,6 +15,13 @@ function EventInfo (props) {
     },
     
   },
+  button: {
+    backgroundColor: '#e94837',
+    '&:hover':{
+        backgroundColor: "lightgrey",
+        
+    }
+}
     }));
     const [name, setName] =  useState("")
     const [phone, setPhone] =  useState("")

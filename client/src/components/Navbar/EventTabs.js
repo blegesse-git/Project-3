@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     root: {
       flexGrow: 1,
       padding: 20,
-      marginLeft: 60
+      justifyContent: 'center',
     },
   });
 
