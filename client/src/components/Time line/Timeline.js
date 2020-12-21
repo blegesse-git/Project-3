@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Timeline from '@material-ui/lab/Timeline';
 import TimelineItem from '@material-ui/lab/TimelineItem';
@@ -13,6 +13,9 @@ import Typography from '@material-ui/core/Typography';
 // import { Container } from '@material-ui/core';
 import { useEventHook } from '../../hooks/Hooks';
 import "./style.css"
+
+
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -52,13 +55,14 @@ const useStyles = makeStyles((theme) => ({
     // }
   ]
 
-      
-
   return (
    
     <Timeline align="alternate" className="timelineContainer">
       <h2> Timeline</h2>
-      {eventHook.events.slice(0, 10).map((event) => {
+      {eventHook.events.filter(item => {
+     let date = new Date(item.eventDate);
+     return date >= new Date ();
+  }).slice(0, 10).map((event) => {
  return <TimelineItem key={event._id} >
         <TimelineOppositeContent>
           <Typography variant="body2" color="textSecondary">

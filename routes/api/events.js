@@ -8,6 +8,7 @@ const toDoController = require("../../controller/toDoController");
 router.route("/")
   .get(eventsController.findAll)
   .post(eventsController.create);
+  //Matches with upcoming date
 
 // Matches with "/api/events/:id"
 router

@@ -18,7 +18,6 @@ export default {
     updateEvent: function(data, id){
         return axios.put("api/events/" + id, data)
     },
-   
 
     getAllEvents: function(){
         return axios.get("api/events")
