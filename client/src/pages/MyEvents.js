@@ -51,6 +51,23 @@ export default function FullWidthGrid(props) {
     await EventsService.deleteEvent(props.eventState._id);
     history.push('/');
   };
+  
+  const [name, setName] =  useState("")
+  const [phone, setPhone] =  useState("")
+  const [website, setWebsite] =  useState("")
+  const [address, setAddress] =  useState("")
+  const [time, setTime] =  useState("")
+
+  const initialVenueInfo = props.eventState && props.eventState.eventVenue && props.eventState.eventVenue.length > 0
+    ? props.eventState.eventVenue[0] : {};
+  console.log(props.eventState);
+  const [info, setInfo] = useState({
+    name: initialVenueInfo.venueName,
+    phone: initialVenueInfo.venuePhone,
+    time: initialVenueInfo.venueTime,
+    website: initialVenueInfo.venueWebsite,
+    address: initialVenueInfo.venueAddress,
+  })
 
   return (
     <div>
@@ -67,6 +84,29 @@ export default function FullWidthGrid(props) {
             </Grid>
             <Grid item xs={12} sm={6}>
               <Paper className={classes.paper}>
+                <VenueContextProvider>
+                  <AddEventInfo  
+                  setName={setName} 
+                  setInfo={setInfo} 
+                  setPhone={setPhone} 
+                  setWebsite={setWebsite}
+                  setTime={setTime}
+                  setAddress={setAddress}
+                  eventState={props.eventState}/>
+                </VenueContextProvider>
+
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper className={classes.paper}>
+              <VenueContextProvider>
+                <EventInfo info={info} />
+              </VenueContextProvider>
+
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper className={classes.paper}>
                 <Budget eventState={props.eventState} />
 
               </Paper>
@@ -77,31 +117,17 @@ export default function FullWidthGrid(props) {
                 <ToDOList eventState={props.eventState} />
               </Paper>
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <Paper className={classes.paper}>
-                <VenueContextProvider>
-                  <AddEventInfo  />
-                </VenueContextProvider>
-
-              </Paper>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Paper className={classes.paper}>
-
-                <EventInfo eventState={props.eventState} />
+            
+            
 
 
-              </Paper>
-            </Grid>
-
-
-            <Grid item xs={12} sm={6}>
+            {/* <Grid item xs={12} sm={6}>
               <Paper className={classes.paper}>
                 <Receipt />
               </Paper>
-            </Grid>
+            </Grid> */}
 
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={12}>
               <Paper className={classes.paper}>
                 <Button
                   variant="contained"

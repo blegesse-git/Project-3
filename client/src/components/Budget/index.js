@@ -5,11 +5,31 @@ import Transaction from '../Transaction/index';
 import EventsService from '../../services/events';
 import "./style.css"
 import { InputLabel, TextField } from '@material-ui/core'
+import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
+import { makeStyles } from '@material-ui/core/styles';
 
 import { BudgetContext } from '../../context/budgetContext';
 import API from '../../utils/API'
 
+
 const Budget = (props) => {
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            '& > *': {
+                margin: theme.spacing(1),
+                width: '45ch',
+            },
+    
+        },
+        button: {
+            backgroundColor: '#e94837',
+            '&:hover': {
+                backgroundColor: "lightgrey",
+    
+            }
+        }
+    }));
     
     const [text, setText] = useState('')
     const [amount, setAmount] = useState(0);
@@ -52,7 +72,7 @@ const Budget = (props) => {
         setText('');
         setAmount(0);
     }
-
+    const classes = useStyles();
     return (
         <div>
             
@@ -67,7 +87,17 @@ const Budget = (props) => {
                     <TextField label="Enter Description" value = {text} onChange = {(e) => setText(e.target.value)}/>
                     <TextField label="Enter Amount (- or +)" value = {amount} onChange = {(e) => setAmount(e.target.value)}/>
                     {/* <br></br> */}
-                    <button id="enter" size="small">ENTER</button>
+                    
+                    <Button
+                    variant="contained"
+                    color="primary"
+                    size="small"
+                    className={classes.button}
+                    startIcon={<SaveIcon />}
+                    type="submit"
+                >
+                    Save
+                </Button>
                 </form>
                 <Transaction transactionState={{ transactions }} />
 

@@ -50,8 +50,8 @@ const EventsService = {
     return axios.put(
         `api/events/${eventId}/todo`,
         {
-          description
-          
+          description,
+          isDone: false,
         },
       )
       .then((response) => response )
@@ -59,6 +59,28 @@ const EventsService = {
       .catch((error) => {
         console.log('ERROR', error);
         throw 'New todo could not be saved';
+      });
+  },
+  addVenue:  (eventId, venue) => {
+    
+    console.log(eventId)
+    return axios.put(
+        `api/events/${eventId}/eventVenue`,
+        {
+          venueName: venue.name,
+          venuePhone: venue.phone,
+          venueWebsite: venue.website,
+          venueAddress: venue.address,
+          venueTime: venue.time
+
+          
+        },
+      )
+      .then((response) => response )
+    
+      .catch((error) => {
+        console.log('ERROR', error);
+        throw 'New venue could not be saved';
       });
   },
   deleteEvent: (eventId) => {

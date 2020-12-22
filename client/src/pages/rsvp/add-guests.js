@@ -101,7 +101,7 @@ export default function SelectEvent(props) {
                     <Button variant="contained" className={classes.cancelButton} onClick={onCancel}>Cancel</Button>
 
                     <Button className={classes.button} variant="contained" onClick={onAdd}>
-                      Add
+                      Send an Invite
                     </Button>
                   </Grid>
                 </Grid>

@@ -8,9 +8,12 @@ import EventsService from '../../services/events';
 
 const ToDOList = (props) => {
 
+    const initialItems = props.eventState && props.eventState.toDoItems && props.eventState.toDoItems.length > 0
+        ? [...props.eventState.toDoItems] : [];
+
     const [item, setItem] =  useState("")
     const [newItem, setNewItem] = useState([]);
-    const [items, setItems] = useState(props.eventState.toDoItems || []);
+    const [items, setItems] = useState(initialItems);
     
 
     const itemEvent = (event) => {
@@ -22,6 +25,7 @@ const ToDOList = (props) => {
             return [...previousValue, item];
         });
         const response =  await EventsService.addToDo(props.eventState._id, item);
+        console.log('RESPONSE', response);
         setItems(response.data[0].toDoItems);
         setItem("");
         
@@ -30,7 +34,7 @@ const ToDOList = (props) => {
         
     };
     
-   
+   console.log(items)
     
     return (
         <div className= "main_div">
@@ -45,7 +49,7 @@ const ToDOList = (props) => {
                 <br />
                 
                     {items.map((item, index)=> {
-                        return  <ListCom key={index} text={item.description} />
+                        return  <ListCom key={index} {...item} event={props.eventState} />
                     })}
                 
             </div>

@@ -15,6 +15,9 @@ export default {
         console.log(data);
         return axios.post("api/todo", data);
     },
+    markAsDone: function(eventId, toDoId) {
+        return axios.put(`api/events/${eventId}/todo/${toDoId}/done`);
+    },
     updateEvent: function(data, id){
         return axios.put("api/events/" + id, data)
     },
