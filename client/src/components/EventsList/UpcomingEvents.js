@@ -38,7 +38,9 @@ const useStyles = makeStyles((theme) => ({
     // width: 600,
     padding: theme.spacing(2),
     // textAlign: 'center',
-    justifyContent: 'center',
+    direction: "column",
+    justifyContent: 'space-between',
+    alignItems: 'stretch',
     color: theme.palette.text.secondary,
   }
 }));
@@ -81,14 +83,12 @@ function EventsList(props) {
       <h2>My Upcoming Events</h2>
       <List className={classes.container}>
       {eventHook.events.slice(0, 5).map((event2) => {
-          return <ListItem    key={event2._id}>
+          return <ListItem  key={event2._id}>
             <Link to="/events" className="link">
             <Button className={classes.button}
               type="link"
               variant="contained"
-              
               onClick={() => onClickEvent(event2)}
-              
             >
               <ListItemAvatar>
               <Avatar>
