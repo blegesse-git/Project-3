@@ -17,6 +17,7 @@ import { useEventHook } from "../hooks/Hooks";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    marginTop: 10,
     flexGrow: 1,
         '& .MuiTextField-root': {
             margin: theme.spacing(1),
@@ -69,7 +70,6 @@ function Home(props) {
   };
 
   return (
-    <>
       <Container>
         <div className={classes.root}>
           <Grid container spacing={3}>
@@ -100,7 +100,6 @@ function Home(props) {
           </Grid>
         </div>
       </Container>
-    </>
   )
 }
 
