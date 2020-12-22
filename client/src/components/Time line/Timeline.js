@@ -33,9 +33,8 @@ const useStyles = makeStyles((theme) => ({
 function OutlinedTimeline() {
   const classes = useStyles();
   const eventHook = useEventHook();
-  const events = [
-    
-  ]
+  const events = []
+
 
 
 
