@@ -114,6 +114,7 @@ function Nav(props) {
   if (window.location.pathname.includes('confirm')) {
     return null;
   }
+  
   return (
     <div className={classes.root}>
       <Toolbar className="toolbar">
