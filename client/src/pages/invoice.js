@@ -74,7 +74,7 @@ export default function Invoice(props) {
                         <Grid item xs={12} sm={6}>
                             <Paper className={classes.paper} id="Invoices">
                                 <h2>
-                                    Sent Invoices
+                                   Sent Invoices
                             </h2>
                                 <InvoiceViewer invoices={invoices} />
                             </Paper>

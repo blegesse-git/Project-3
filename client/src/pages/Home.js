@@ -98,14 +98,7 @@ function Home(props) {
                 <UpcomingEvents className={classes.paper} setEvent={props.setEvent} />
               </Paper>
             </Grid>
-            <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-              
-            </Grid>
-            <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-              <Paper className={classes.paperBowtie}>
-                <img src={bowtie} className={classes.bowtie} />
-              </Paper>
-            </Grid>
+            
               {/* <Paper className={classes.paper} id="Reminders">
                 <Typography variant="h6" className={classes.title}>
                   My Reminders
@@ -113,8 +106,15 @@ function Home(props) {
               {/* <NewReminders reminders={reminders} />
                 <ReminderForm addReminder={addReminder} /> */}
               {/* </Paper> */}
-            
-          </Grid>
+              <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+              
+              </Grid>
+              <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                <Paper className={classes.paperBowtie}>
+                  <img src={bowtie} className={classes.bowtie} />
+                </Paper>
+              </Grid>
+            </Grid>
         </div>
       </Container>
     </>
