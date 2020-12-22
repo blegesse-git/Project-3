@@ -75,19 +75,6 @@ function OutlinedTimeline() {
               {event.eventDate}
             </Typography>
           </TimelineOppositeContent>
-          {/* <TimelineSeparator>
-            <TimelineDot>
-              <CakeIcon />
-            </TimelineDot>
-            <TimelineConnector />
-          </TimelineSeparator> */}
-          {/* <TimelineOppositeContent>
-            <Paper elevation={3} className={classes.paper}>
-              <Typography variant="h6" component="h1">
-                {event.eventName}
-              </Typography>
-              </Paper>
-          </TimelineOppositeContent> */}
             <TimelineSeparator>
               <TimelineDot>
                 <CakeIcon style={{ color: grey[700] }} />

@@ -2,11 +2,32 @@ import React, { useState, useEffect } from 'react'
 import Container from "../Container/index"
 import Countdown, { zeroPad, calcTimeDelta, formatTimeDelta } from 'react-countdown';
 import { useEventHook } from '../../hooks/Hooks';
-import { now } from 'mongoose';
+import { Typography } from '@material-ui/core';
 
-import API from "../../utils/API"
+
 function EventCountdown(props) {
+ // console.log(countDownDate)  
+  // function eventDateInterval(){
+  //   var date = countDownDate - Date.now ();
 
+  //   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  //   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  //   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  //   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  // }
+  // Renderer callback with condition
+  // const renderer = ({ days, hours, minutes, completed }) => {
+  //   if (completed) {
+  //     // Render a completed state
+  //     return <Completionist />;
+  //   } else {
+  //     // Render a countdown
+  //     return <span>{zeroPad(days)}:{zeroPad(hours)}:{zeroPad(minutes)};</span>
+  //   }
+
+  // };
+
+  // add a filter to only display the upcoming event.
 
   // console.log(props.eventState)
   const eventHook = useEventHook();
@@ -15,55 +36,38 @@ function EventCountdown(props) {
     let date = new Date(item.eventDate);
     return date > new Date ();
  })[0];
+
+ //this is out event info with eventDate nested in there:
  console.log(countdown)
 
 //
 
 
   // Random component
-  const Completionist = () => <span>You have an event today!</span>;
+  // const Completionist = () => <span>You have an event today!</span>;
 
-  const countDownDate = ()=>  new Date ();
-  // console.log(countDownDate)  
-  function eventDateInterval(){
-    var date = countDownDate - Date.now ();
-
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  }
-  // Renderer callback with condition
-  const renderer = ({ days, hours, minutes, completed }) => {
-    if (completed) {
-      // Render a completed state
-      return <Completionist />;
-    } else {
-      // Render a countdown
-      return <span>{zeroPad(days)}:{zeroPad(hours)}:{zeroPad(minutes)};</span>
-    }
-
-  };
-
-  // add a filter to only display the upcoming event.
+  //this is today's date. 
+  const currentDate =  new Date().toLocaleDateString('pt-br').split( '/' ).reverse( ).join( '-' )
+  console.log(currentDate)
+console.log(countdown)
+ 
 
   return (
 
     <Container>
       <h1> Your next event starts in ... </h1>
-      <Container>
-        <Countdown
-            date={countDownDate - Date.now ()}
-         
-      
-          // renderer = {renderer}
-
-
-        />,
+    
+      {/* {countdown.map((event) => {
+        return <Container key={event._id}>
+           <Typography>{event.eventDate}</Typography> 
 
         </Container>
+        
+      })}
+   */}
 
     </Container>
+   
   )
 }
 
