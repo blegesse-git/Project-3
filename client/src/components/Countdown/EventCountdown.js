@@ -1,110 +1,150 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Container from "../Container/index"
 import Countdown, { zeroPad, calcTimeDelta, formatTimeDelta } from 'react-countdown';
 import { useEventHook } from '../../hooks/Hooks';
-import { now } from 'mongoose';
-
-import API from "../../utils/API"
-function EventCountdown(props) {
+import { Typography } from '@material-ui/core';
 
 
-  // console.log(props.eventState)
-  const eventHook = useEventHook();
-  // useEffect(() => {
-  //   API.getAllEvents().then((data) => {
-      // console.log(data);
-      // var i 
-      // for (i=0; i<data.data ; i++ ) {
-      //   console.log(data.data[i].eventDate)
-      // }
-      // console.log(data.data[0].eventDate);
-      // eventHook.replaceAllEvents(data.data);
-    // })
-    // console.log(data.data.eventDate)
-  // },[])
-  API.getAllEvents().then((data) => {
-    // console.log(data.data.length);
-    let datesArray = []
-    for (let i=0; i<data.data.length ; i++ ) {
-      // console.log(data.data[i].eventDate)
-      const eventDates = [data.data[i].eventDate]
-      // console.log(eventDates)
-      const sortedDates = eventDates.sort((a, b) => a - b)
-      // console.log(sortedDates)
-      for (let j=0; j< eventDates.length; j++){
-        // console.log( eventDates[j])
-        const dateArrays= datesArray.push(eventDates)
-        // console.log(datesArray[0])
-      }
-     
-      console.log(datesArray)
-
-    }
-    // console.log(data.data[0].eventDate);
-    // eventHook.replaceAllEvents(data.data);
-  })
-
-  // sortAscending = () => {
-    // console.log(data.data.eventDate)
+  function EventCountdown(props) {
 
   
-//   const [timer, setTimer] = useState("")
- 
-//   const [newTimer, setNewTimer] = useState([
-// {
-//   id: 1,
-//   date: "Dec 23, 2020"
+  // const eventHook =  useEventHook();
+  // const [time, setTime] = useState( new Date("2020-12-23"))
+  // // 
+  // let countDown= []
+  // countDown = eventHook.events.sort((a,b) => b.eventDate - a.eventDate)
+//   let countdown= eventHook.events.filter(item => {
+//     console.log(item)
+//     let dates = item.eventDate.split("-")
+//     console.log(dates)
+//     let date = new Date(dates[0], dates[1], dates[2]);
+//     console.log(date)
+//     console.log(new Date())
+//     return date > new Date ();
+//  });
+// console.log(countdown[0])
+ //this is out event info with eventDate nested in there:
+//  console.log(countdown[0].eventDate)
+// const setCountDown = () => {
+// const  countDownDate = new Date("Dec 23, 2020").getTime()
+// console.log(countDownDate)
+// // const now = new Date().getTime();
+// // console.log(now)
+// const distance = countDownDate - new Date().getTime();
+//  console.log(distance)
 // }
-//   ]);
-  // const [timers, setTimers] = useState(props.eventState|| []);
-  // con
 
-  // Random component
-  const Completionist = () => <span>You have an event today!</span>;
+// console.log(setCountDown())
 
-  const countDownDate = ()=>  new Date (props.setEvent.eventDate).getTime();
-  // console.log(countDownDate)  
-  function eventDateInterval(){
-    var date = countDownDate - Date.now ();
+//  useEffect(() => {
 
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  }
-  // Renderer callback with condition
-  const renderer = ({ days, hours, minutes, completed }) => {
-    if (completed) {
-      // Render a completed state
-      return <Completionist />;
-    } else {
-      // Render a countdown
-      return <span>{zeroPad(days)}:{zeroPad(hours)}:{zeroPad(minutes)};</span>
+//       const timeout = setTimeout(() => {
+       
+//           const currentdate = new Date()
+//           console.log(countDown[0])
+//           let finalTime = ""
+//           if (countDown[0]){
+//             let dates = countDown[0].eventDate.split("-")
+//             let date = new Date(dates[0], dates[1], dates[2]);
+//             // console.log(date)
+//             const difference = date.getTime() - currentdate
+//             console.log(difference)
+//             const newTime = convert(difference)
+//             console.log(newTime)
+//             finalTime = newTime.days + " : " + newTime.hours + " : " + newTime.minutes + " : " + newTime.seconds;
+//           }
+//           // let dates = countDown[0].eventDate.split("-")
+//           // let date = new Date(dates[0], dates[1], dates[2]);
+//           // const difference = date.getTime() - currentdate
+//           // console.log(difference)
+//           // const newTime = convert(difference)
+          
+//           setTime(finalTime || new Date( new Date("2020-12-23") )
+        
+//       }, 1000);
+//       return () => {
+//         // timeout
+//         clearTimeout(timeout);
+//       }
+   
+//     }, [time]);
+
+// const convert = (time) => {
+//   var days = Math.floor(time / (1000 * 60 * 60 * 24));
+//   var hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//   var minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+//   var seconds = Math.floor((time % (1000 * 60)) / 1000);
+//   return {days, hours, minutes, seconds}
+// }
+
+    // Random component
+  // const Completionist = () => <span>You have an event today!</span>;
+
+  //this is today's date. 
+  // const currentDate =  new Date().toLocaleDateString('pt-br').split( '/' ).reverse( ).join( '-' )
+//   console.log(currentDate)
+// console.log(countdown)
+
+
+
+
+
+  const [time, setTime] = useState(new Date("Dec 23, 2020").toLocaleDateString('pt-br').split( '/' ).reverse( ).join( '-' ))
+  const secondsPassed = useRef(0);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const date = new Date()
+      secondsPassed.current = secondsPassed.current + 1;
+      setTime(date.toLocaleDateString('pt-br').split( '/' ).reverse( ).join( '-' ))
+    }, 1000);
+    return () => {
+      clearTimeout(timeout);
     }
+  }, [time]);
 
-  };
 
-  // add a filter to only display the upcoming event.
+
+
+
 
   return (
 
     <Container>
-      <h1> Your next event starts in ... </h1>
-      <Container>
-        <Countdown
-            date={countDownDate - Date.now ()}
-         
-      
-          // renderer = {renderer}
-
-
-        />,
-
-        </Container>
+      <h1>PLAN. PARTIE. REPEAT</h1>
+     
+     
+    
 
     </Container>
+   
   )
 }
 
 
 export default EventCountdown;
+
+
+
+// const Timer = (props) => {
+//   const [time, setTime] = useState(new Date().toLocaleTimeString());
+//   const secondsPassed = useRef(0);
+
+//   useEffect(() => {
+//     const timeout = setTimeout(() => {
+//       const date = new Date()
+//       secondsPassed.current = secondsPassed.current + 1;
+//       setTime(date.toLocaleTimeString());
+//     }, 1000);
+//     return () => {
+//       clearTimeout(timeout);
+//     }
+//   }, [time]);
+
+//   return (
+//     <div>
+//       <div>{time}</div>
+//       <div>{secondsPassed.current}</div>
+//     </div>
+//   )
+// }

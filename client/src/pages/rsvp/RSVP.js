@@ -66,10 +66,12 @@ export default function RSVP(props) {
 
   return (
     <div>
-      <EventTabs />
       <Container>
         <div className={classes.root}>
           <Grid container spacing={3}>
+          <Grid item xs={12}>
+              <EventTabs />
+            </Grid>
             <Grid item xs={12}>
               <Paper className={classes.paper}><h1>{props.eventState.eventName}</h1></Paper>
             </Grid>

@@ -111,7 +111,10 @@ function Nav(props) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+  if (window.location.pathname.includes('confirm')) {
+    return null;
+  }
+  
   return (
     <div className={classes.root}>
       <Toolbar className="toolbar">
@@ -124,7 +127,9 @@ function Nav(props) {
         >
           <MenuIcon />
         </IconButton>
+        <Link to="/home">
         <img src={Logo} className="headLogo" />
+        </Link>
       </Toolbar>
 
       <Drawer
