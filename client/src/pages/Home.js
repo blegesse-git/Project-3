@@ -12,6 +12,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import API from "../utils/API"
 import { useEventHook } from "../hooks/Hooks";
+import bowtie from "../assets/Partie-Logo-Blue.png"
 
 
 
@@ -31,6 +32,19 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "stretch",
     color: theme.palette.text.secondary,
     backgroundColor: '#c5e2e3'
+  },
+  bowtie: {
+    width: 500,
+  },
+  paperBowtie: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    direction: 'column',
+    justify: 'space-around',
+    alignItems: "stretch",
+    color: theme.palette.text.secondary,
+    backgroundColor: '#9bcdce',
+    boxShadow: 'none'
   },
 }));
 
@@ -90,6 +104,14 @@ function Home(props) {
               {/* <NewReminders reminders={reminders} />
                 <ReminderForm addReminder={addReminder} /> */}
               {/* </Paper> */}
+              <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+              
+              </Grid>
+              <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                <Paper className={classes.paperBowtie}>
+                  <img src={bowtie} className={classes.bowtie} />
+                </Paper>
+              </Grid>
             </Grid>
           </Grid>
         </div>

@@ -67,14 +67,14 @@ export default function Invoice(props) {
                             <Paper className={classes.paper}><h1> {props.eventState.eventName}'s Invoices</h1></Paper>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <Paper className={classes.paper}><h2>Create Invoice</h2>
+                            <Paper className={classes.paper}><h2>Create & Email Invoice</h2>
                                 <InvoiceForm fetchInvoices={fetchInvoices} event={props.eventState} />
                             </Paper>
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <Paper className={classes.paper} id="Invoices">
                                 <h2>
-                                    My Invoices
+                                   Sent Invoices
                             </h2>
                                 <InvoiceViewer invoices={invoices} />
                             </Paper>
