@@ -11,6 +11,7 @@ import { useEventHook } from '../../hooks/Hooks';
 import Button from "@material-ui/core/Button"
 // import Link from '@material-ui/core/Link';
 import {Link} from "react-router-dom";
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,13 +25,21 @@ const useStyles = makeStyles((theme) => ({
         }
   },
   button: {
-    width: 400,
-    height: 50,
+    width: 300,
+    height: 90,
     // width: '200%',
     padding: '6px 16px',
     backgroundColor: "#e94837",
-    color: "white"
+    color: "white",
+    //alignItems: 'stretch'
     // marginLeft: 50,
+
+  },
+  test: {
+    // direction: "column",
+    // borderStyle: "solid",
+    justifyContent: 'center',
+    alignItems: "stretch"
 
   },
   container: {
@@ -38,8 +47,8 @@ const useStyles = makeStyles((theme) => ({
     // width: 600,
     padding: theme.spacing(2),
     // textAlign: 'center',
-    direction: "column",
-    justifyContent: 'space-between',
+    // direction: "column",
+    // justifyContent: 'center',
     alignItems: 'stretch',
     color: theme.palette.text.secondary,
   }
@@ -83,26 +92,30 @@ function EventsList(props) {
       <h2>My Upcoming Events</h2>
       <List className={classes.container}>
       {eventHook.events.slice(0, 5).map((event2) => {
-          return <ListItem  key={event2._id}>
-            <Link to="/events" className="link">
-            <Button className={classes.button}
-              type="link"
-              variant="contained"
-              onClick={() => onClickEvent(event2)}
-            >
-              <ListItemAvatar>
-              <Avatar>
-                <EventIcon style={{ fontSize: 40, color: 'white', backgroundColor: "#e94837" }} />
-              </Avatar>
-              </ListItemAvatar>
-              <ListItemText primary={event2.eventName} secondary={`${event2.firstName} ${event2.lastName}`} />
-            </Button>
-        </Link>
-          </ListItem>
-        })}
+          return (
+          //<Grid item className={classes.test}>
+            <ListItem  key={event2._id} className={classes.test}>
+              <Link to="/events" className="link">
+              <Button className={classes.button}
+                type="link"
+                variant="contained"
+                onClick={() => onClickEvent(event2)}
+              >
+                <ListItemAvatar>
+                <Avatar>
+                  <EventIcon style={{ fontSize: 40, color: 'white', backgroundColor: "#e94837" }} />
+                </Avatar>
+                </ListItemAvatar>
+                <ListItemText primary={event2.eventName} secondary={`${event2.firstName} ${event2.lastName}`} />
+              </Button>
+              </Link>
+            </ListItem>
+          //</Grid>
+      )})}
       </List>
     </Container>
   );
 }
+
 
 export default EventsList;
