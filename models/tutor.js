@@ -28,18 +28,22 @@ const toDoItemSchema = new Schema({
     },
 });
 const venueSchema = new Schema({
-    name: {
+    venueName: {
         type: String,
     },
-    phone: {
+    venuePhone: {
         type: Number,
     },
-    address: {
+    venueWebsite: {
         type: String,
     },
-    note: {
-        type: String
+    venueAddress: {
+        type: String,
     },
+    venueTime: {
+        type: String,
+    },
+    
 });
 const eventSchema = new Schema({
     eventName: {

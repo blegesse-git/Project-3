@@ -7,7 +7,8 @@ const VenueContextProvider = (props) => {
     const [phone, setPhone] =  useState("")
     const [website, setWebsite] =  useState("")
     const [address, setAddress] =  useState("")
-    const [note, setNote] =  useState("")
+    const [time, setTime] =  useState("")
+    const [info, setInfo] = useState({})
         
 
     
@@ -19,7 +20,8 @@ const VenueContextProvider = (props) => {
             venuePhone: [phone, setPhone], 
             venueWebsite: [website, setWebsite], 
             venueAddress: [address, setAddress],
-            venueNote: [note, setNote]}}>
+            venueTime: [time, setTime],
+            venueInfo: [info, setInfo]}}>
 
             {props.children}
         </VenueContext.Provider>
