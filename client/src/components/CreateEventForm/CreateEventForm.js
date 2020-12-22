@@ -5,13 +5,14 @@ import Container from "@material-ui/core/Container";
 import FormControl from "@material-ui/core/FormControl";
 import { Button } from '@material-ui/core';
 import API from "../../utils/API";
+import "./style.css"
 
 
 const CreateEventForm = (props) => {
- 
 
-  
-// our states will let user input their own info and pass it to the db
+
+
+    // our states will let user input their own info and pass it to the db
     // const [eventName, setEventName] = useState('');
     // const [firstName, setFirstName] =useState('');
     // const [lastName, setLastName] = useState('');
@@ -45,7 +46,7 @@ const CreateEventForm = (props) => {
     //     console.log("Event Email is Set!")
     //     setPhoneNum("")
     //     console.log("Phone number is Set!")
-      
+
     //    API.createEvent(
     //       addNewEvent
     //    ).then(results => {
@@ -53,84 +54,84 @@ const CreateEventForm = (props) => {
     //    })
     // }
 
-   
-        return (
-            <div>
-                <Container>
-                    <h3> Event Information</h3>
-                    <form  onSubmit={props.submit}>
-                        <FormControl>
+
+    return (
+        <div>
+            <Container>
+                <h3> Event Information</h3>
+                <form onSubmit={props.submit}>
+                    <FormControl>
                         <TextField
-                            
+
                             type="date"
                             required={true}
                             value={props.date}
-                            style={{width: 400}}
-                            onChange ={(e) => props.setDate(e.target.value)}
+                            style={{ width: 400 }}
+                            onChange={(e) => props.setDate(e.target.value)}
 
-                            />
-                            <TextField 
+                        />
+                        <TextField
                             label=" Event Name"
                             required={true}
                             value={props.event}
-                            style={{width: 400}}
-                            onChange = {(e) => props.setEvent(e.target.value)}
-                            />
+                            style={{ width: 400 }}
+                            onChange={(e) => props.setEvent(e.target.value)}
+                        />
 
-                        <TextField 
+                        <TextField
                             label=" First Name"
                             required={true}
                             value={props.firstName}
-                            style={{width: 400}}
-                            onChange = {(e) => props.setFirstName(e.target.value)}
-                            />     
+                            style={{ width: 400 }}
+                            onChange={(e) => props.setFirstName(e.target.value)}
+                        />
 
-                        <TextField 
+                        <TextField
                             label=" Last Name"
                             required={true}
                             value={props.lastName}
-                            style={{width: 400}}
-                            onChange = {(e) => props.setLastName(e.target.value)}
-                            />   
-                        
-                            <TextField
-                             label="Budget"
-                             required={true}
-                             value ={props.budget}
-                             style={{width: 400}}
-                             onChange={(e) => props.setBudget(e.target.value)}
-                             />
-                             
-                            <TextField
-                             label= "Email"
-                             required={true}
-                             value={props.Email}
-                             style={{width: 400}}
-                             onChange={(e) => props.setEmail(e.target.value)}
-                            />     
+                            style={{ width: 400 }}
+                            onChange={(e) => props.setLastName(e.target.value)}
+                        />
 
-                             <TextField
-                             label= "(111)222-3333"
-                             required={true}
-                             value={props.phone}
-                             style={{width: 400}}
-                             onChange={(e) => props.setPhone(e.target.value)}
-                            />      
+                        <TextField
+                            label="Budget"
+                            required={true}
+                            value={props.budget}
+                            style={{ width: 400 }}
+                            onChange={(e) => props.setBudget(e.target.value)}
+                        />
 
-                         < Button 
-                             variant="contained" 
-                                color="primary" 
-                                type="submit" 
-                                style={{ width: 400 }}>
+                        <TextField
+                            label="Email"
+                            required={true}
+                            value={props.Email}
+                            style={{ width: 400 }}
+                            onChange={(e) => props.setEmail(e.target.value)}
+                        />
+
+                        <TextField
+                            label="(111)222-3333"
+                            required={true}
+                            value={props.phone}
+                            style={{ width: 400 }}
+                            onChange={(e) => props.setPhone(e.target.value)}
+                        />
+
+                        <Button
+                            variant="contained"
+                            type="submit"
+                            className="button"
+                            style={{ width: 400 }}>
                             Create Event
-                        </Button> 
-                      
-                        </FormControl>
-                    </form>
-                </Container>
-            </div>
-        );
-    
+                        </Button>
+
+                    </FormControl>
+                </form>
+            </Container>
+        </div>
+    );
+
 }
 
 
