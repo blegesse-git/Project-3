@@ -7,6 +7,7 @@ import { Button } from '@material-ui/core';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import Alert from '@material-ui/lab/Alert';
 import API from "../../utils/API";
 import "./style.css"
 
@@ -170,7 +171,7 @@ const InvoiceForm = ({ addInvoice, fetchInvoices, event }) => {
                         <Button
                             className="invoiceButton"
                             type="submit"
-                            style={{ width: 250, margin: 10 }}>Create Invoice</Button>
+                            style={{ width: 250, margin: 10 }}>Create & Email Invoice</Button>
 
                     </FormControl>
                 </form>

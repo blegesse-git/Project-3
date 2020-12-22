@@ -15,9 +15,9 @@ import { useEventHook } from "../hooks/Hooks";
 import bowtie from "../assets/Partie-Logo-Blue.png"
 
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
+    marginTop: 10,
     flexGrow: 1,
         '& .MuiTextField-root': {
             margin: theme.spacing(1),
@@ -97,6 +97,8 @@ function Home(props) {
               <Paper className={classes.paper}>
                 <UpcomingEvents className={classes.paper} setEvent={props.setEvent} />
               </Paper>
+            </Grid>
+            
               {/* <Paper className={classes.paper} id="Reminders">
                 <Typography variant="h6" className={classes.title}>
                   My Reminders
@@ -113,7 +115,6 @@ function Home(props) {
                 </Paper>
               </Grid>
             </Grid>
-          </Grid>
         </div>
       </Container>
     </>
