@@ -124,7 +124,9 @@ function Nav(props) {
         >
           <MenuIcon />
         </IconButton>
+        <Link to="/home" className="link">
         <img src={Logo} className="headLogo" />
+        </Link>
       </Toolbar>
 
       <Drawer
