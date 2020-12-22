@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     paper: {
         position: 'absolute',
         width: 400,
-        backgroundColor: '#c5e2e3',
+        backgroundColor: theme.palette.background.paper,
         border: '2px solid #000',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
@@ -43,9 +43,8 @@ const useStyles = makeStyles((theme) => ({
     button: {
         backgroundColor: "#e94837",
         color: 'white',
-        width: 300,
-        height: 90,
-        padding: '6px 16px',
+        width: 400,
+        height: 50,
         // marginLeft: 50,
     }
 }));
