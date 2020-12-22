@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     direction: 'column',
     justify: 'space-around',
-    alignItems: "stretch",
+    alignItems: "center",
     color: theme.palette.text.secondary,
     backgroundColor: '#c5e2e3'
   },
