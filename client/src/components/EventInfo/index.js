@@ -7,7 +7,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { VenueContext } from '../../context/VenueContext';
 import EventsService from '../../services/events';
-
+import './style.css'
+import logo from '../../assets/Partie-Logo-Blue.png'
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
@@ -35,24 +36,33 @@ export default function EventInfo(props) {
   return (
       
     <Card className={classes.root}>
+      <img src={logo} className="frame"></img>
         
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography className={classes.title} color="textSecondary" className="venue" gutterBottom>
           Here is Event Venue Information
         </Typography>
-        <Typography variant="h5" component="h2">
-          Venue Name: {props.info.name}
+        <br></br>
+        <Typography variant="h5" component="h2" id="venueName">
+           {props.info.name}
+           
+        </Typography>
+        <br></br>
+        <Typography className={classes.pos} color="textSecondary">
+          Address: {props.info.address}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          Venue Phone: {props.info.phone}
+        
+          Phone: {props.info.phone}
+         
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          Venue Website: {props.info.website}
+          Website: {props.info.website}
         </Typography>
-        <Typography variant="body2" component="p">
+        <Typography className={classes.pos} color="textSecondary">
           Event Time: {props.info.time}
           <br />
-          Event Address: {props.info.address}
+          
         </Typography>
       </CardContent>
       

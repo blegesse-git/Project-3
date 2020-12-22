@@ -15,7 +15,7 @@ function EventInfo(props) {
         root: {
             '& > *': {
                 margin: theme.spacing(1),
-                width: '45ch',
+                width: '40ch',
             },
 
         },
