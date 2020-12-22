@@ -3,7 +3,7 @@ import Container from "../Container/index"
 import Countdown, { zeroPad, calcTimeDelta, formatTimeDelta } from 'react-countdown';
 import { useEventHook } from '../../hooks/Hooks';
 import { Typography } from '@material-ui/core';
-
+import './style.css'
 
   function EventCountdown(props) {
 
@@ -111,7 +111,7 @@ import { Typography } from '@material-ui/core';
   return (
 
     <Container>
-      <h1>PLAN. PARTIE. REPEAT</h1>
+      <h1 id="plan">PLAN <span id="partie"> PARTIE </span>REPEAT</h1>
      
      
     
