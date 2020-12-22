@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
+    direction: 'column',
+    justify: 'space-around',
+    alignItems: "center",
     color: theme.palette.text.secondary,
     backgroundColor: '#c5e2e3'
   },
@@ -64,19 +67,19 @@ function Home(props) {
       <Container>
         <div className={classes.root}>
           <Grid container spacing={3}>
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
               <Paper className={classes.paper}>
                 <EventCountdown setEvent = {props.setEvent}/>
               </Paper>
             </Grid>
 
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
               <Paper className={classes.paper}>
                 <OutlinedTimeline />
               </Paper>
             </Grid>
 
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
               <Paper className={classes.paper}>
                 <UpcomingEvents className={classes.paper} setEvent={props.setEvent} />
               </Paper>
