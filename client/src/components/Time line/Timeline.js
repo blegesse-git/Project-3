@@ -34,29 +34,7 @@ function OutlinedTimeline() {
   const classes = useStyles();
   const eventHook = useEventHook();
   const events = [
-    //   {
-    //     _id: 1,
-    //   eventName: "Event 1",
-    //   eventDate: "12/20/2020"
-    // },
-    //   {
-    //     _id:2, 
-    //   eventName: "Event 2",
-    //   eventDate: "12/15/2020"
-
-    // },
-    //   {
-    //     _id: 3, 
-    //   eventName: "Event 3",
-    //   eventDate: "12/22/2020"
-
-    // },
-    //   {
-    //     _id: 4,
-    //   eventName: "Event 4",
-    //   eventDate: "12/31/2020"
-
-    // }
+    
   ]
 
 
@@ -75,19 +53,6 @@ function OutlinedTimeline() {
               {event.eventDate}
             </Typography>
           </TimelineOppositeContent>
-          {/* <TimelineSeparator>
-            <TimelineDot>
-              <CakeIcon />
-            </TimelineDot>
-            <TimelineConnector />
-          </TimelineSeparator> */}
-          {/* <TimelineOppositeContent>
-            <Paper elevation={3} className={classes.paper}>
-              <Typography variant="h6" component="h1">
-                {event.eventName}
-              </Typography>
-              </Paper>
-          </TimelineOppositeContent> */}
             <TimelineSeparator>
               <TimelineDot>
                 <CakeIcon style={{ color: grey[700] }} />
