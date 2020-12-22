@@ -33,31 +33,8 @@ const useStyles = makeStyles((theme) => ({
 function OutlinedTimeline() {
   const classes = useStyles();
   const eventHook = useEventHook();
-  const events = [
-    //   {
-    //     _id: 1,
-    //   eventName: "Event 1",
-    //   eventDate: "12/20/2020"
-    // },
-    //   {
-    //     _id:2, 
-    //   eventName: "Event 2",
-    //   eventDate: "12/15/2020"
+  const events = []
 
-    // },
-    //   {
-    //     _id: 3, 
-    //   eventName: "Event 3",
-    //   eventDate: "12/22/2020"
-
-    // },
-    //   {
-    //     _id: 4,
-    //   eventName: "Event 4",
-    //   eventDate: "12/31/2020"
-
-    // }
-  ]
 
 
 
